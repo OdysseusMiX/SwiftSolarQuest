@@ -6,7 +6,6 @@ class Game {
     var navigator: Navigator
     var fuelManager : FuelManager
     var redShiftCardDeck = RedShiftCardDeck.deal()
-    var nextRedShiftCard = 0
     var rollResult = [RollResult]()
 
     var numberOfPlayers : Int {state.numberOfPlayers}
@@ -317,10 +316,10 @@ class Game {
         return result
     }
     private func getRedShiftCard() -> RedShiftCard {
-        var card = redShiftCardDeck[nextRedShiftCard]
-        nextRedShiftCard += 1
-        if nextRedShiftCard >= redShiftCardDeck.count {
-            nextRedShiftCard = 0
+        var card = redShiftCardDeck[state.nextRedShiftCard]
+        state.nextRedShiftCard += 1
+        if state.nextRedShiftCard >= redShiftCardDeck.count {
+            state.nextRedShiftCard = 0
         }
         
         if card.goto == nil && card.use != nil {
