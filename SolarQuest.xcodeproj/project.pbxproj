@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BB67619826002C38004C11BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67619726002C38004C11BF /* AppDelegate.swift */; };
-		BB67619E26002C38004C11BF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67619D26002C38004C11BF /* GameScene.swift */; };
 		BB6761A026002C38004C11BF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67619F26002C38004C11BF /* GameViewController.swift */; };
 		BB6761A326002C38004C11BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6761A126002C38004C11BF /* Main.storyboard */; };
 		BB6761A526002C39004C11BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB6761A426002C39004C11BF /* Assets.xcassets */; };
@@ -59,7 +58,6 @@
 /* Begin PBXFileReference section */
 		BB67619426002C38004C11BF /* SolarQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB67619726002C38004C11BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB67619D26002C38004C11BF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		BB67619F26002C38004C11BF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		BB6761A226002C38004C11BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB6761A426002C39004C11BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 			children = (
 				BB6761CB26002C7E004C11BF /* SolarQuestKit */,
 				BB67619726002C38004C11BF /* AppDelegate.swift */,
-				BB67619D26002C38004C11BF /* GameScene.swift */,
 				BB6761ED26002CA5004C11BF /* Components */,
 				BB6761E926002CA5004C11BF /* Entities */,
 				BB6761EC26002CA5004C11BF /* GameState.swift */,
@@ -339,7 +336,6 @@
 			files = (
 				BB6761F126002CA5004C11BF /* Spaceship.swift in Sources */,
 				BB6761DE26002C7E004C11BF /* StandardNavigator.swift in Sources */,
-				BB67619E26002C38004C11BF /* GameScene.swift in Sources */,
 				BB6761E226002C7E004C11BF /* Map.swift in Sources */,
 				BB6761DC26002C7E004C11BF /* DeedCard.swift in Sources */,
 				BB6761E326002C7E004C11BF /* Player.swift in Sources */,
