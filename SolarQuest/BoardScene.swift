@@ -8,6 +8,8 @@ class BoardScene: SKScene {
     var graphs = [String : GKGraph]()
     var state = GameState()
     
+    var game : Game?
+    
     private var lastUpdateTime : TimeInterval = 0
     private var ignoreTouches = false
     
@@ -21,6 +23,7 @@ class BoardScene: SKScene {
     }
     
     fileprivate func newGame() {
+        self.game = Game(numberOfPlayers: 1)
         self.state = GameState()
     }
     

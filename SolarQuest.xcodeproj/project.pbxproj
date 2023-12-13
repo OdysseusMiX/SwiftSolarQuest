@@ -100,6 +100,7 @@
 		BB67624226002EA6004C11BF /* Game_BuyPropertyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_BuyPropertyTests.swift; sourceTree = "<group>"; };
 		BB67624326002EA6004C11BF /* Game_RollTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_RollTests.swift; sourceTree = "<group>"; };
 		BB67624526002EA6004C11BF /* Game_RedShiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_RedShiftTests.swift; sourceTree = "<group>"; };
+		BB78646226017D31009214D0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +194,7 @@
 				BB6761D626002C7E004C11BF /* Player.swift */,
 				BB6761D726002C7E004C11BF /* StandardFuelManager.swift */,
 				BB6761D826002C7E004C11BF /* Navigator.swift */,
+				BB78646226017D31009214D0 /* README.md */,
 			);
 			path = SolarQuestKit;
 			sourceTree = "<group>";
