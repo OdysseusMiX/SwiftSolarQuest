@@ -4,41 +4,34 @@ import XCTest
 final class StandardBoardTests: XCTestCase {
     
     //MARK: Create Board
-//    func test_initBoardWithNoPlayers_boardHasOnePlayer() {
-//        let board = StandardBoard(numberOfPlayers: 0)
-//
-//        XCTAssertEqual(board.numberOfPlayers, 1)
-//    }
-//
-//    func test_createBoardWithOnePlayer() {
-//        let board = StandardBoard(numberOfPlayers: 1)
-//
-//        XCTAssertEqual(board.numberOfPlayers, 1)
-//    }
-//
-//    func test_createBoardWithTwoPlayers() {
-//        let board = StandardBoard(numberOfPlayers: 2)
-//
-//        XCTAssertEqual(board.numberOfPlayers, 2)
-//    }
-    
-    func test_usesStandardMapLocations() {
-        let board : Board = StandardBoard()
-        let locations : [Location] = StandardMap.listLocations(in: StandardMap.createMap())
-        
-        XCTAssertEqual(board.locations, locations)
+    func test_initBoardWithNoPlayers_boardHasOnePlayer() {
+        let board = StandardBoard(numberOfPlayers: 0)
+
+        XCTAssertEqual(board.numberOfPlayers, 1)
+    }
+
+    func test_createBoardWithOnePlayer() {
+        let board = StandardBoard(numberOfPlayers: 1)
+
+        XCTAssertEqual(board.numberOfPlayers, 1)
+    }
+
+    func test_createBoardWithTwoPlayers() {
+        let board = StandardBoard(numberOfPlayers: 2)
+
+        XCTAssertEqual(board.numberOfPlayers, 2)
     }
     
-//    func test_getPositionOfPlayer1_0() {
-//        let board = StandardBoard()
-//
-//        XCTAssertEqual(board.positionOfPlayer(1), 0)
-//    }
-//    func test_getPositionOfPlayer2_0() {
-//        let board = StandardBoard(numberOfPlayers: 2)
-//
-//        XCTAssertEqual(board.positionOfPlayer(2), 0)
-//    }
+    func test_getPositionOfPlayer1_0() {
+        let board = StandardBoard()
+
+        XCTAssertEqual(board.positionOfPlayer(1), 0)
+    }
+    func test_getPositionOfPlayer2_0() {
+        let board = StandardBoard(numberOfPlayers: 2)
+
+        XCTAssertEqual(board.positionOfPlayer(2), 0)
+    }
 
     
 //    func test_movePlayer1OnBoard_atEndOfBoard() {

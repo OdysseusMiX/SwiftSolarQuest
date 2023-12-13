@@ -4,11 +4,12 @@ import XCTest
 final class Game_MoveTests: XCTestCase {
         
     var game : Game!
-    let locations = StandardMap.listLocations(in: StandardMap.createMap())
+    var locations : [Location]!
     
     override func setUp() {
         GameFactory.version = .standard
         game = GameFactory.newGame(numberOfPlayers: 3)
+        locations = game.board.locations
     }
 
     func test_playersStartAtFirstLocation() {

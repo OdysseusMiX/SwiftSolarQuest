@@ -1,60 +1,64 @@
 struct StandardNavigator : Navigator {
-    var locations_xxx: [LocationWithOrbitData]
     let locations: [Location]
+    let connections: [[Int]]
+    
+    init(for board: Board) {
+        locations = board.locations
+        connections = board.connections
+    }
     
     func nextLocation(from: Int, moving: Int) -> Int {
-        var pos = nextLocation(from: from, moving: moving, shouldBreakOrbit: true)
+        let route = findRouteFor(amountToMove: moving, from: from)
         
-        if locations_xxx[pos].type == .blackDot {
-            pulledBackByGravity(&pos)
-            
-            if locations_xxx[pos].isInOrbit {
-                // Cannot Break Orbit, Recalcalute landing site
-                pos = nextLocation(from: from, moving: moving, shouldBreakOrbit: false)
-            }
+        if let endPoint = route.last {
+            return endPoint
+        } else {
+            return from
         }
-        return pos
     }
-    func nextLocation(from: Int, moving: Int, shouldBreakOrbit: Bool = true ) -> Int {
-        let maxPos = locations_xxx.count-1
+    
+    func findRouteFor(amountToMove n: Int, from: Int) -> [Int] {
+        guard from < self.locations.count, from >= 0 else {
+            return []
+        }
+        guard n < self.locations.count, n > 0 else {
+            return []
+        }
         
-        var pos = from
-        for _ in 1...moving {
-            if locations_xxx[pos].isInOrbit {
-                if shouldBreakOrbit, locations_xxx[pos].isBreakOrbitPoint {
-                    breakOrbit(&pos)
-                } else {
-                    nextInOrbit(&pos)
-                }
-            } else {
-                pos += 1
+        let sinope = 23
+        
+        var result = [Int]()
+        var at = from
+        var next = self.connections[at]
+        var toGo = n
+        while toGo > 0 {
+            result.append(next[0])
+            toGo -= 1
+            at = result.last!
+            next = self.connections[at]
+        }
+        if locations[at].type == .blackDot {
+            // Backup!
+            while locations[at].type == .blackDot {
+                toGo += 1
+                at = result[(n-1) - toGo]
+                result.append(at)
             }
-            
-            if pos > maxPos {
-                // Wrap Around
-                pos = 0
+            if at == sinope { // Sinope Special Rule!
+                toGo += 1
+                at = result[(n-1) - toGo]
+                result.append(at)
             }
-        }
-        return pos
-    }
-    func pulledBackByGravity(_ pos: inout Int) {
-        while locations_xxx[pos].type == .blackDot {
-            pos -= 1
-        }
-    }
-    func breakOrbit( _ pos: inout Int) {
-        while locations_xxx[pos].isInOrbit {
-            pos += 1
-        }
-    }
-    func nextInOrbit(_ pos: inout Int) {
-        pos += 1
-        if !locations_xxx[pos].isInOrbit {
-            // Go to begining orbit
-            while locations_xxx[pos-1].isInOrbit {
-                // TODO: Handle case where start is also orbit entry
-                pos -= 1
+            if connections[at].count > 1 {
+                at = connections[at][1]
+                result.append(at)
+                toGo -= 1
+                let restOfRoute = findRouteFor(amountToMove: toGo, from: at)
+                result.append(contentsOf: restOfRoute)
             }
         }
+        
+        return result
     }
+
 }

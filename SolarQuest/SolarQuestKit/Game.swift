@@ -29,7 +29,7 @@ class Game {
             players.append(Player(name: "Player \(i)"))
         }
         
-        navigator = StandardNavigator(locations_xxx: board.oldLocations, locations: board.locations)
+        navigator = StandardNavigator(for: board)
         fuelManager = StandardFuelManager()
         
         currentPlayer = 1
@@ -391,7 +391,7 @@ class Game {
     }
     private func moveCurrentPlayer(by value: Int, fuelCost: Int) -> Int {
         let newPosition = navigator.nextLocation(from: boardPositionOfCurrentPlayer(), moving: value)
-        
+
         let player = players[currentPlayer-1]
         player.hydrons -= fuelCost
         

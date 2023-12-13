@@ -49,6 +49,7 @@
 		BB8786882604C66E006028E6 /* TestBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8786872604C66E006028E6 /* TestBoard.swift */; };
 		BB87869226056D20006028E6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB87869126056D20006028E6 /* Location.swift */; };
 		BBE961D22606C50400B46A8F /* StandardLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961D12606C50400B46A8F /* StandardLocations.swift */; };
+		BBE961DA2607A11500B46A8F /* NavigatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961D92607A11500B46A8F /* NavigatorTests.swift */; };
 		BBF7781E26063C0E006DB037 /* DeedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CF26002C7E004C11BF /* DeedCard.swift */; };
 		BBF7782126063C12006DB037 /* StandardDeedCardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D226002C7E004C11BF /* StandardDeedCardFactory.swift */; };
 		BBF77827260681A6006DB037 /* GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF77826260681A6006DB037 /* GameStateTests.swift */; };
@@ -119,6 +120,7 @@
 		BB8786872604C66E006028E6 /* TestBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBoard.swift; sourceTree = "<group>"; };
 		BB87869126056D20006028E6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BBE961D12606C50400B46A8F /* StandardLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardLocations.swift; sourceTree = "<group>"; };
+		BBE961D92607A11500B46A8F /* NavigatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorTests.swift; sourceTree = "<group>"; };
 		BBF77826260681A6006DB037 /* GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,6 +247,7 @@
 		BB67622C26002E8A004C11BF /* SolarQuestKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				BBE961D92607A11500B46A8F /* NavigatorTests.swift */,
 				BBF77826260681A6006DB037 /* GameStateTests.swift */,
 				BB87867526043C52006028E6 /* GameFactoryTests.swift */,
 				BB87866B26043AB8006028E6 /* TestBoardTests.swift */,
@@ -412,6 +415,7 @@
 				BB67624626002EA6004C11BF /* StandardBoardTests.swift in Sources */,
 				BB67624826002EA6004C11BF /* Game_initPlayersTests.swift in Sources */,
 				BB67625226002EA6004C11BF /* Game_RedShiftTests.swift in Sources */,
+				BBE961DA2607A11500B46A8F /* NavigatorTests.swift in Sources */,
 				BB67624926002EA6004C11BF /* Game_SinopeTests.swift in Sources */,
 				BB8786622603FD7C006028E6 /* Game_initDefaultsTests.swift in Sources */,
 			);
