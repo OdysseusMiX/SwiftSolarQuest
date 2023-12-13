@@ -133,7 +133,7 @@ class Game {
         return result
     }
     func currentPlayerIsStranded() -> Bool {
-        return fuelManager.mustRefuelNow(hydrons: fuelForCurrentPlayer(), on: locationOfCurrentPlayer())
+        return fuelManager.mustRefuelNow(hydrons: fuelForCurrentPlayer(), on: locationForCurrentPlayer())
     }
     
     func fuelStationsForCurrentPlayer() -> Int {
@@ -366,7 +366,7 @@ class Game {
         return result
     }
     private func moveCurrentPlayerIfFuelAllows(by value: Int) -> (at: Int, used: Int) {
-        let fuelCost = fuelManager.calculateFuelCost(toMove: value, from: locationOfCurrentPlayer())
+        let fuelCost = fuelManager.calculateFuelCost(toMove: value, from: locationForCurrentPlayer())
         
         if fuelCost <= fuelForCurrentPlayer() {
             let newPosition = moveCurrentPlayer(by: value, fuelCost: fuelCost)
