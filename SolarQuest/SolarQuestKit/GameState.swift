@@ -16,6 +16,9 @@ struct GameState {
     var currentPlayerCanRoll : Bool
     var nextRedShiftCard : Int
 
+    var rollResult : [RollResult]
+    var players : [Player]
+
     var numberOfPlayers : Int {self.playerLocations.count}
 
     init(for board: Board, numberOfPlayers n: Int) {
@@ -28,5 +31,8 @@ struct GameState {
         self.placedFuelStationLocations = []
         self.currentPlayerCanRoll = true
         self.nextRedShiftCard = 0
+        self.rollResult = []
+        
+        self.players = Array.init(repeating: Player(), count: n)
     }
 }

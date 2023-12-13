@@ -11,7 +11,7 @@ final class Game_FuelTests: XCTestCase {
 
 
     func test_playersStartWith25Hydrons() {
-        let players = game.players
+        let players = game.state.players
         
         XCTAssertEqual(players.count, 3)
         for i in 0..<players.count {
@@ -19,52 +19,52 @@ final class Game_FuelTests: XCTestCase {
         }
     }
     func test_player1MovesFourFromEarth_costsFourHydrons() throws {
-        let fuelBefore = game.players[0].hydrons
+        let fuelBefore = game.state.players[0].hydrons
         
         let _ = game.roll(1,3)
 
-        XCTAssertEqual(game.players[0].hydrons, fuelBefore-4)
+        XCTAssertEqual(game.state.players[0].hydrons, fuelBefore-4)
     }
     func test_player1MovesThreeFromMoon_costsThreeHydrons() throws {
         game.state.playerLocations[0] = 2
-        let fuelBefore = game.players[0].hydrons
+        let fuelBefore = game.state.players[0].hydrons
         
         let _ = game.roll(1,2)
 
-        XCTAssertEqual(game.players[0].hydrons, fuelBefore-3)
+        XCTAssertEqual(game.state.players[0].hydrons, fuelBefore-3)
     }
     func test_player2MovesThreeFromEarth_costsThreeHydrons() throws {
         game.state.currentPlayerIndex = 1 // Player 2
-        let fuelBefore = game.players[1].hydrons
+        let fuelBefore = game.state.players[1].hydrons
         
         let _ = game.roll(1,2)
 
-        XCTAssertEqual(game.players[1].hydrons, fuelBefore-3)
+        XCTAssertEqual(game.state.players[1].hydrons, fuelBefore-3)
     }
     func test_player1MovesThreeFromSpaceDock_noFuelCost() throws {
         game.state.playerLocations[0] = 3
-        let fuelBefore = game.players[0].hydrons
+        let fuelBefore = game.state.players[0].hydrons
         
         let _ = game.roll(1,3)
 
-        XCTAssertEqual(game.players[0].hydrons, fuelBefore)
+        XCTAssertEqual(game.state.players[0].hydrons, fuelBefore)
     }
     func test_player1MovesThreeFromBlueDot_noFuelCost() throws {
         game.state.playerLocations[0] = 6
-        let fuelBefore = game.players[0].hydrons
+        let fuelBefore = game.state.players[0].hydrons
         
         let _ = game.roll(1,3)
 
-        XCTAssertEqual(game.players[0].hydrons, fuelBefore)
+        XCTAssertEqual(game.state.players[0].hydrons, fuelBefore)
     }
     func test_player1TriesToMove10With9Hydrons_doesNotMove() throws {
-        game.players[0].hydrons = 9
+        game.state.players[0].hydrons = 9
         let startingLocation = game.locationForPlayer(1)
         
         let _ = game.roll(6,4)
 
         XCTAssertEqual(game.locationForPlayer(1), startingLocation)
-        XCTAssertEqual(game.players[0].hydrons, 9)
+        XCTAssertEqual(game.state.players[0].hydrons, 9)
     }
     
     func test_whenOnEarth_canBuyFuelFor25PerHydronFromFederation() {
@@ -96,28 +96,26 @@ final class Game_FuelTests: XCTestCase {
         XCTAssertEqual(data?.fromPlayer, 0)
     }
     func test_BuyFuel_playerIsRefueled() {
-        let player = game.players[0]
-        player.hydrons = 20
-        player.federons = 50
+        game.state.players[0].hydrons = 20
+        game.state.players[0].federons = 50
         game.state.playerLocations[0] = 3
 
         let success = game.buyFuel(hydrons: 5)
         
         XCTAssertEqual(success, true)
-        XCTAssertEqual(player.hydrons, 25)
-        XCTAssertEqual(player.federons, 0)
+        XCTAssertEqual(game.state.players[0].hydrons, 25)
+        XCTAssertEqual(game.state.players[0].federons, 0)
     }
     func test_BuyTooMuchFuel_notSuccessful() {
-        let player = game.players[0]
-        player.hydrons = 20
-        player.federons = 500
+        game.state.players[0].hydrons = 20
+        game.state.players[0].federons = 500
         game.state.playerLocations[0] = 3
 
         let success = game.buyFuel(hydrons: 6)
         
         XCTAssertEqual(success, false)
-        XCTAssertEqual(player.hydrons, 20)
-        XCTAssertEqual(player.federons, 500)
+        XCTAssertEqual(game.state.players[0].hydrons, 20)
+        XCTAssertEqual(game.state.players[0].federons, 500)
     }
 
     // can buy fuel from other player when on owned space dock

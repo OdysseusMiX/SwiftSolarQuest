@@ -47,7 +47,7 @@ final class Game_RollTests: XCTestCase {
         XCTAssertEqual(result, [.moved(to: 3, fuelCost: 3)])
     }
     func test_roll4With5HydronsAndLandOnPlanet_returnsMoved4AndStranded() {
-        game.players[0].hydrons = 5
+        game.state.players[0].hydrons = 5
         
         let result = game.roll(1,3)
         
@@ -55,7 +55,7 @@ final class Game_RollTests: XCTestCase {
         XCTAssertTrue(result.contains(.stranded))
     }
     func test_roll4With4HydronsAndLandOnPlanet_returnsMoved4AndStranded() {
-        game.players[0].hydrons = 4
+        game.state.players[0].hydrons = 4
         
         let result = game.roll(1,3)
         
@@ -63,7 +63,7 @@ final class Game_RollTests: XCTestCase {
         XCTAssertTrue(result.contains(.stranded))
     }
     func test_roll8AndLandOnMoonWith1Hydron_returnsMoved8AndStranded() {
-        game.players[0].hydrons = 9
+        game.state.players[0].hydrons = 9
         
         let result = game.roll(5,3)
         
@@ -71,40 +71,40 @@ final class Game_RollTests: XCTestCase {
         XCTAssertTrue(result.contains(.stranded))
     }
     func test_landOnMoonWith1HydronAndNoFuelStations_outOfTheGame() {
-        game.players[0].hydrons = 9
-        game.players[0].unplacedFuelStations = 0
+        game.state.players[0].hydrons = 9
+        game.state.players[0].unplacedFuelStations = 0
         game.state.placedFuelStationLocations.remove(8)
         
         let result = game.roll(5,3) // moves to Io
         
         XCTAssertTrue(result.contains(.outOfTheGame))
-        XCTAssertEqual(game.players[0].status, .outOfTheGame)
+        XCTAssertEqual(game.state.players[0].status, .outOfTheGame)
     }
     func test_landOnBlueDotWith1Hydron_notStranded() {
-        game.players[0].hydrons = 7
+        game.state.players[0].hydrons = 7
         
         let result = game.roll(5,2) // moves to Blue Dot prior to Jupiter orbit
         
         XCTAssertEqual(game.locationForCurrentPlayer(), StandardLocations.BlueDot())
-        XCTAssertEqual(game.players[0].status, .playing)
+        XCTAssertEqual(game.state.players[0].status, .playing)
         XCTAssertFalse(result.contains(.stranded))
     }
     func test_landOnOrbitalBlueDotWith1Hydron_notStranded() {
-        game.players[0].hydrons = 10
+        game.state.players[0].hydrons = 10
         
         let result = game.roll(6,4) // moves to first Blue Dot in Jupiter orbit
         
         XCTAssertEqual(game.locationForCurrentPlayer(), StandardLocations.BlueDot())
-        XCTAssertEqual(game.players[0].status, .playing)
+        XCTAssertEqual(game.state.players[0].status, .playing)
         XCTAssertFalse(result.contains(.stranded))
     }
     func test_landOnSpaceDockWith1Hydron_notStranded() {
-        game.players[0].hydrons = 9
+        game.state.players[0].hydrons = 9
         
         let result = game.roll(5,4) // moves to Jupiter space dock
         
         XCTAssertEqual(game.locationForCurrentPlayer(), StandardLocations.JupiterSpaceDock())
-        XCTAssertEqual(game.players[0].status, .playing)
+        XCTAssertEqual(game.state.players[0].status, .playing)
         XCTAssertFalse(result.contains(.stranded))
     }
 }

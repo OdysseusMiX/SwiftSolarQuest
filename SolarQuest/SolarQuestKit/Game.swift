@@ -1,38 +1,27 @@
 class Game {
     var state : GameState
-    var board : Board
+    let board : Board
+    let redShiftCardDeck : [RedShiftCard]
 
-    var players : [Player]
-    var navigator: Navigator
-    var fuelManager : FuelManager
-    var redShiftCardDeck = RedShiftCardDeck.deal()
-    var rollResult = [RollResult]()
+    let navigator: Navigator
+    let fuelManager : FuelManager
 
     var numberOfPlayers : Int {state.numberOfPlayers}
     var currentPlayer : Int {state.currentPlayerIndex+1}
     var locations: [Location] {board.locations}
     
-    
     convenience init?(numberOfPlayers n: Int) {
         self.init(numberOfPlayers: n, board: StandardBoard())
     }
-    init?(numberOfPlayers n: Int, board: Board) {
+    init?(numberOfPlayers n: Int, board: Board, redShiftCards: [RedShiftCard] = RedShiftCardDeck.deal()) {
         guard n >= 1, n<=6 else {return nil}
         
-        
         self.board = board
+        self.redShiftCardDeck = redShiftCards
         self.state = GameState(for: board, numberOfPlayers: n)
 
-        players = [Player]()
-        for i in 1...n {
-            players.append(Player(name: "Player \(i)"))
-        }
-        
         navigator = StandardNavigator(for: board)
         fuelManager = StandardFuelManager()
-        
-        state.currentPlayerCanRoll = true
-
     }
     
     func moveCurrentPlayerTo(_ location: Int) {
@@ -55,7 +44,7 @@ class Game {
         return board.locations[pos]
     }
     func locationForPlayer(_ n: Int) -> Location? {
-        guard n >= 1, n <= players.count else {return nil}
+        guard n >= 1, n <= numberOfPlayers else {return nil}
         
         if let playerPosition = boardPositionOfPlayer(n) {
             return board.locations[playerPosition]
@@ -87,30 +76,30 @@ class Game {
     }
     
     func totalDebtForCurrentPlayer() -> Int {
-        return players[currentPlayer-1].debt.reduce(0) { (sum, iou) -> Int in
+        return state.players[currentPlayer-1].debt.reduce(0) { (sum, iou) -> Int in
             return sum + iou.owe
         }
     }
     func pay(_ amount: Int, toPlayer: Int) -> Bool {
-        let sender = players[currentPlayer-1]
-        let receiver = players[toPlayer-1]
-        
-        sender.federons -= amount
-        receiver.federons += amount
+        let senderIndex = currentPlayer-1
+        let receiverIndex = toPlayer-1
+
+        state.players[senderIndex].federons -= amount
+        state.players[receiverIndex].federons += amount
         
         var availableFunds = amount
         while availableFunds > 0 {
-            guard let index = sender.debt.firstIndex(where: { $0.toPlayer == toPlayer}) else {break}
+            guard let index = state.players[senderIndex].debt.firstIndex(where: { $0.toPlayer == toPlayer}) else {break}
             
-            let iou = sender.debt[index]
+            let iou = state.players[senderIndex].debt[index]
             if iou.owe > availableFunds {
                 let reduced = Player.IOU(owe: iou.owe - availableFunds, toPlayer: iou.toPlayer)
                 availableFunds = 0
-                sender.debt.remove(at: index)
-                sender.debt.append(reduced)
+                state.players[senderIndex].debt.remove(at: index)
+                state.players[senderIndex].debt.append(reduced)
             } else {
                 availableFunds -= iou.owe
-                sender.debt.remove(at: index)
+                state.players[senderIndex].debt.remove(at: index)
             }
         }
         
@@ -121,10 +110,10 @@ class Game {
         return fuelForPlayer(currentPlayer)!
     }
     func fuelForPlayer(_ n: Int) -> Int? {
-        guard n >= 1, n <= players.count else {return nil}
+        guard n >= 1, n <= numberOfPlayers else {return nil}
         
-        let player = players[n-1]
-        let result = player.hydrons
+        let playerIndex = n-1
+        let result = state.players[playerIndex].hydrons
         return result
     }
     func currentPlayerIsStranded() -> Bool {
@@ -132,10 +121,12 @@ class Game {
     }
     
     func fuelStationsForCurrentPlayer() -> Int {
-        players[currentPlayer-1].unplacedFuelStations
+        let playerIndex = currentPlayer - 1
+        return state.players[playerIndex].unplacedFuelStations
     }
     func takeCurrentPlayerOutOfTheGame() {
-        players[currentPlayer-1].status = .outOfTheGame
+        let playerIndex = currentPlayer - 1
+        return state.players[playerIndex].status = .outOfTheGame
     }
     
     func fuelDataForLocationOfCurrentPlayer() -> FuelData? {
@@ -158,19 +149,19 @@ class Game {
         let fromPlayer: Int
     }
     func buyFuel(hydrons hydronsToBuy: Int) -> Bool {
-        let player = players[currentPlayer-1]
+        let playerIndex = currentPlayer-1
         
-        let neededToFillUp = 25 - player.hydrons
+        let neededToFillUp = 25 - state.players[playerIndex].hydrons
         guard neededToFillUp >= hydronsToBuy else {return false}
         guard let fuelRate = fuelDataForLocationOfCurrentPlayer()  else {return false}
         
         let cost = hydronsToBuy*fuelRate.rate
-        guard player.federons >= cost else {return false}
+        guard state.players[playerIndex].federons >= cost else {return false}
         
         let owner = fuelRate.fromPlayer
         if owner == 0 { // Buy from federation
-            player.federons -= cost
-            player.hydrons += hydronsToBuy
+            state.players[playerIndex].federons -= cost
+            state.players[playerIndex].hydrons += hydronsToBuy
         } else {
             // Buy from player
         }
@@ -179,47 +170,37 @@ class Game {
     }
     
     func federonsForCurrentPlayer() -> Int {
-        return players[currentPlayer-1].federons
+        let playerIndex = currentPlayer - 1
+        return state.players[playerIndex].federons
     }
     func addToCurrentPlayer(federons: Int) {
-        let player = players[currentPlayer-1]
-        player.federons += federons
+        let playerIndex = currentPlayer-1
+        state.players[playerIndex].federons += federons
     }
     func addToCurrentPlayer(fuelStations: Int) {
-        let player = players[currentPlayer-1]
-        player.unplacedFuelStations += fuelStations
+        let playerIndex = currentPlayer-1
+        state.players[playerIndex].unplacedFuelStations += fuelStations
     }
 
-    enum RollResult : Equatable {
-        case invalidRoll
-        case moved(Int)
-        case moved(to: Int, fuelCost: Int)
-        case owe(player: Int, Int)
-        case stranded
-        case redShift
-        case message(String)
-        case loseTurn
-        case outOfTheGame
-    }
     
     func roll(_ die1: Int, _ die2: Int) -> [RollResult] {
         guard state.currentPlayerCanRoll else {
-            rollResult = [.invalidRoll]
-            return rollResult
+            state.rollResult = [.invalidRoll]
+            return state.rollResult
         }
         
-        rollResult = [RollResult]()
+        state.rollResult = [RollResult]()
         let startPosition = boardPositionOfCurrentPlayer()
         
         if die1 == die2 {
-            rollResult = redShift()
+            state.rollResult = redShift()
             
         } else if let result = resultOfRolling(die1, die2) {
-            rollResult.append( result )
+            state.rollResult.append( result )
             let route = navigator.findRouteFor(amountToMove: die1+die2, from: startPosition)
 
             if currentPlayerIsStranded() {
-                rollResult.append( .stranded )
+                state.rollResult.append( .stranded )
                 
                 let position = boardPositionOfCurrentPlayer()
                 let location = board.locations[position]
@@ -228,7 +209,7 @@ class Game {
                 let playerHasUnplacedFuelStation = fuelStationsForCurrentPlayer() > 0
                 
                 if !locationHasFuel, locationCanProvideFuel, !playerHasUnplacedFuelStation {
-                    rollResult.append( .outOfTheGame )
+                    state.rollResult.append( .outOfTheGame )
                     takeCurrentPlayerOutOfTheGame()
                 }
             }
@@ -248,7 +229,7 @@ class Game {
             
         } else {
             // ERROR
-            rollResult = [RollResult.invalidRoll]
+            state.rollResult = [RollResult.invalidRoll]
         }
         state.currentPlayerCanRoll = false
                 
@@ -258,12 +239,12 @@ class Game {
         if owner > 0, owner != currentPlayer {
             // Owe Rent
             if let rent = location.rent?.first {
-            rollResult.append( .owe(player: owner, rent) )
-            players[currentPlayer-1].debt.append(Player.IOU(owe: rent, toPlayer: owner))
+                state.rollResult.append( .owe(player: owner, rent) )
+                state.players[currentPlayer-1].debt.append(Player.IOU(owe: rent, toPlayer: owner))
             }
         }
         
-        return rollResult
+        return state.rollResult
     }
     
     func endTurn() -> Bool {
@@ -296,7 +277,7 @@ class Game {
         if let newPosition = card.goto, let fuelCost = card.use {
             
             movePlayer(currentPlayer, to: newPosition)
-            players[currentPlayer-1].hydrons -= fuelCost
+            state.players[currentPlayer-1].hydrons -= fuelCost
                         
             if fuelForCurrentPlayer() < 0 {
                 result.append( .outOfTheGame )
@@ -363,8 +344,8 @@ class Game {
     private func moveCurrentPlayer(by value: Int, fuelCost: Int) -> Int {
         let newPosition = navigator.nextLocation(from: boardPositionOfCurrentPlayer(), moving: value)
 
-        let player = players[currentPlayer-1]
-        player.hydrons -= fuelCost
+        let playerIndex = currentPlayer-1
+        state.players[playerIndex].hydrons -= fuelCost
         
         movePlayer(currentPlayer, to: newPosition)
         

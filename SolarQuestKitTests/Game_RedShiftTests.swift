@@ -41,8 +41,11 @@ final class Game_RedShiftTests: XCTestCase {
         XCTAssertTrue(result.contains( .redShift ))
     }
     func test_meteorShowerRedShiftCard_dontMoveUse3HydronsCannotRollAgain() {
+        let board = StandardBoard()
+        let cards = [RedShiftCardDeck.MeteorShower()]
+        game = Game(numberOfPlayers: 3, board: board, redShiftCards: cards)
         let originalPosition = game.boardPositionOfCurrentPlayer()
-        game.redShiftCardDeck = [RedShiftCardDeck.MeteorShower()]
+        
         let result = game.roll(6,6)
         
         XCTAssertTrue(result.contains(.redShift))
@@ -54,7 +57,10 @@ final class Game_RedShiftTests: XCTestCase {
         XCTAssertEqual(game.state.currentPlayerCanRoll, false)
     }
     func test_redShiftCard_gotoFedStation2() {
-        game.redShiftCardDeck = [RedShiftCardDeck.GoTo(position: 13, fuelCost: 2)]
+        let board = StandardBoard()
+        let cards = [RedShiftCardDeck.GoTo(position: 13, fuelCost: 2)]
+        game = Game(numberOfPlayers: 3, board: board, redShiftCards: cards)
+
         let result = game.roll(6,6)
         
         XCTAssertTrue(result.contains(.redShift))
@@ -65,10 +71,12 @@ final class Game_RedShiftTests: XCTestCase {
         XCTAssertEqual(game.fuelForCurrentPlayer(), 23)
     }
     func test_secondRedShiftCardOfGame_gotoFedStation2() {
-        game.redShiftCardDeck = [
+        let cards = [
             RedShiftCardDeck.MeteorShower(),
             RedShiftCardDeck.GoTo(position: 13, fuelCost: 2)
         ]
+        let board = StandardBoard()
+        game = Game(numberOfPlayers: 3, board: board, redShiftCards: cards)
         game.state.nextRedShiftCard = 1
         game.state.currentPlayerIndex = 1 // Player 2
         
@@ -79,10 +87,12 @@ final class Game_RedShiftTests: XCTestCase {
         XCTAssertTrue(result.contains(.moved(to: 13, fuelCost: 2)))
     }
     func test_redShiftCardForcesUseOfMoreFuelThanAvailable_outOfTheGame() {
-        game.redShiftCardDeck = [
+        let cards = [
             RedShiftCardDeck.GoTo(position: 13, fuelCost: 2)
         ]
-        game.players[0].hydrons = 1
+        let board = StandardBoard()
+        game = Game(numberOfPlayers: 3, board: board, redShiftCards: cards)
+        game.state.players[0].hydrons = 1
         
         let result = game.roll(6,6)
         
@@ -90,6 +100,6 @@ final class Game_RedShiftTests: XCTestCase {
         XCTAssertTrue(result.contains(.message("Go To Federation Station II, use 2 hydrons of fuel.")))
         XCTAssertFalse(result.contains(.moved(to: 13, fuelCost: 2)))
         XCTAssertTrue(result.contains(.outOfTheGame))
-        XCTAssertEqual(game.players[0].status, .outOfTheGame)
+        XCTAssertEqual(game.state.players[0].status, .outOfTheGame)
     }
 }

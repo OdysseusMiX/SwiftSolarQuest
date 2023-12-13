@@ -46,6 +46,7 @@
 		BBE961D22606C50400B46A8F /* StandardLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961D12606C50400B46A8F /* StandardLocations.swift */; };
 		BBE961DA2607A11500B46A8F /* NavigatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961D92607A11500B46A8F /* NavigatorTests.swift */; };
 		BBE961EE2609195600B46A8F /* LocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961ED2609195600B46A8F /* LocationType.swift */; };
+		BBEECC44260AB3BF001FA0A4 /* RollResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEECC43260AB3BF001FA0A4 /* RollResult.swift */; };
 		BBF77827260681A6006DB037 /* Game_GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF77826260681A6006DB037 /* Game_GameStateTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,7 @@
 		BBE961D12606C50400B46A8F /* StandardLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardLocations.swift; sourceTree = "<group>"; };
 		BBE961D92607A11500B46A8F /* NavigatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorTests.swift; sourceTree = "<group>"; };
 		BBE961ED2609195600B46A8F /* LocationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationType.swift; sourceTree = "<group>"; };
+		BBEECC43260AB3BF001FA0A4 /* RollResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollResult.swift; sourceTree = "<group>"; };
 		BBF77826260681A6006DB037 /* Game_GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game_GameStateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +208,7 @@
 				BBE961D12606C50400B46A8F /* StandardLocations.swift */,
 				BB6761D126002C7E004C11BF /* StandardNavigator.swift */,
 				BB8786872604C66E006028E6 /* TestBoard.swift */,
+				BBEECC43260AB3BF001FA0A4 /* RollResult.swift */,
 			);
 			path = SolarQuestKit;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				BB6761FE26002CE4004C11BF /* BoardLayout.swift in Sources */,
 				BB6761DD26002C7E004C11BF /* FuelManager.swift in Sources */,
 				BB6761A026002C38004C11BF /* GameViewController.swift in Sources */,
+				BBEECC44260AB3BF001FA0A4 /* RollResult.swift in Sources */,
 				BB6761DA26002C7E004C11BF /* StandardBoard.swift in Sources */,
 				BB6761E426002C7E004C11BF /* StandardFuelManager.swift in Sources */,
 				BB6761F026002CA5004C11BF /* CelestialBody.swift in Sources */,

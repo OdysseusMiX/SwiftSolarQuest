@@ -1,4 +1,4 @@
-class Player {
+struct Player {
     var name : String
     var hydrons : Int = 25
     var unplacedFuelStations = 3

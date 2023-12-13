@@ -16,25 +16,25 @@ final class Game_RentTests: XCTestCase {
         let result = game.roll(3, 1) // go to Mercury
         
         XCTAssertEqual(result.contains( .owe(player:3, 1035) ), true)
-        XCTAssertEqual(game.players[0].debt, [Player.IOU(owe: 1035, toPlayer: 3)])
+        XCTAssertEqual(game.state.players[0].debt, [Player.IOU(owe: 1035, toPlayer: 3)])
     }
     func test_landOnSolarSDOwnedByOtherPlayer_oweRent() {
         game.state.currentPlayerIndex = 2 // Player 3
         let result = game.roll(2, 1) // go to Solar Space Dock
         
         XCTAssertEqual(result.contains( .owe(player:2, 75) ), true)
-        XCTAssertEqual(game.players[2].debt, [Player.IOU(owe: 75, toPlayer: 2)])
+        XCTAssertEqual(game.state.players[2].debt, [Player.IOU(owe: 75, toPlayer: 2)])
     }
     func test_payRentOwed_debtIsPaid() {
         let _ = game.roll(3, 1) // go to Mercury
-        let startedWith = game.players[0].federons
+        let startedWith = game.state.players[0].federons
         
         let success = game.pay(1035, toPlayer: 3)
         
         XCTAssertEqual(success, true)
-        XCTAssertEqual(game.players[0].debt, [])
-        XCTAssertEqual(game.players[0].federons, startedWith - 1035)
-        XCTAssertEqual(game.players[2].federons, startedWith + 1035)
+        XCTAssertEqual(game.state.players[0].debt, [])
+        XCTAssertEqual(game.state.players[0].federons, startedWith - 1035)
+        XCTAssertEqual(game.state.players[2].federons, startedWith + 1035)
     }
     
     func test_endTurnWithDebt_cannnotEndTurn() {

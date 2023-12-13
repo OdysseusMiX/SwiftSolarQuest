@@ -37,7 +37,7 @@ final class Game_BuyPropertyTests: XCTestCase {
     }
     func test_buyMercury_payBank() {
         game.state.playerLocations[0] = 4
-        let federonsBefore = game.players[0].federons
+        let federonsBefore = game.state.players[0].federons
         let costToBuy = 375
         XCTAssertEqual(game.state.ownerList[4], 0)
 
@@ -88,7 +88,7 @@ final class Game_BuyPropertyTests: XCTestCase {
     func test_tryToBuyMercuryWithInsufficientFund_false() {
         game.state.playerLocations[0] = 4
 
-        game.players[0].federons = 100
+        game.state.players[0].federons = 100
         
         let success = game.buyProperty()
         
@@ -120,8 +120,8 @@ final class Game_BuyPropertyTests: XCTestCase {
         let _ = game.buyProperty()
         let _ = game.endTurn()
         
-        XCTAssertEqual(game.players[0].federons, federonsAtStart - mercury.price!)
-        XCTAssertEqual(game.players[1].federons, federonsAtStart - SSD.price!)
+        XCTAssertEqual(game.state.players[0].federons, federonsAtStart - mercury.price!)
+        XCTAssertEqual(game.state.players[1].federons, federonsAtStart - SSD.price!)
         XCTAssertEqual(game.state.ownerList[4], 1)
         XCTAssertEqual(game.state.ownerList[3], 2)
     }
