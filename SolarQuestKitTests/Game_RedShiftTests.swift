@@ -51,7 +51,7 @@ final class Game_RedShiftTests: XCTestCase {
         XCTAssertEqual(game.currentPlayer, 1)
         XCTAssertEqual(game.boardPositionOfCurrentPlayer(), 0)
         XCTAssertEqual(game.fuelForCurrentPlayer(), 22)
-        XCTAssertEqual(game.canRoll, false)
+        XCTAssertEqual(game.state.currentPlayerCanRoll, false)
     }
     func test_redShiftCard_gotoFedStation2() {
         game.redShiftCardDeck = [RedShiftCardDeck.GoTo(position: 13, fuelCost: 2)]

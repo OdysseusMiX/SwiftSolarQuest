@@ -13,6 +13,7 @@ struct GameState {
     var currentPlayerIndex : Int
     var ownerList : [Int]
     var placedFuelStationLocations : Set<Int>
+    var currentPlayerCanRoll : Bool
 
     var numberOfPlayers : Int {self.playerLocations.count}
 
@@ -24,5 +25,6 @@ struct GameState {
         self.currentPlayerIndex = 0
         self.ownerList = ownerList
         self.placedFuelStationLocations = []
+        self.currentPlayerCanRoll = true
     }
 }

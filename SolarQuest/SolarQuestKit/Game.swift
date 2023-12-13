@@ -3,7 +3,6 @@ class Game {
     var board : Board
 
     var players : [Player]
-    var canRoll : Bool
     var navigator: Navigator
     var fuelManager : FuelManager
     var redShiftCardDeck = RedShiftCardDeck.deal()
@@ -33,7 +32,7 @@ class Game {
         navigator = StandardNavigator(for: board)
         fuelManager = StandardFuelManager()
         
-        canRoll = true
+        state.currentPlayerCanRoll = true
 
     }
     
@@ -205,7 +204,7 @@ class Game {
     }
     
     func roll(_ die1: Int, _ die2: Int) -> [RollResult] {
-        guard canRoll else {
+        guard state.currentPlayerCanRoll else {
             rollResult = [.invalidRoll]
             return rollResult
         }
@@ -252,7 +251,7 @@ class Game {
             // ERROR
             rollResult = [RollResult.invalidRoll]
         }
-        canRoll = false
+        state.currentPlayerCanRoll = false
                 
         let location = locationForCurrentPlayer()
         let position = boardPositionOfCurrentPlayer()
@@ -276,7 +275,7 @@ class Game {
             state.currentPlayerIndex = 0
         }
         
-        canRoll = true
+        state.currentPlayerCanRoll = true
         
         return true
     }

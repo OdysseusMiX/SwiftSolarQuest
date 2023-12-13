@@ -10,11 +10,11 @@ final class Game_RollTests: XCTestCase {
     }
  
     func test_BeforeFirstRoll_canRollIsTrue() {
-        XCTAssertEqual(game.canRoll, true)
+        XCTAssertEqual(game.state.currentPlayerCanRoll, true)
     }
     func test_AfterRoll_canRollIsFalse() {
         let _ = game.roll(3,1)
-        XCTAssertEqual(game.canRoll, false)
+        XCTAssertEqual(game.state.currentPlayerCanRoll, false)
     }
     func test_AfterRoll_cannotRollAgain() {
         let _ = game.roll(3,1)
@@ -24,7 +24,7 @@ final class Game_RollTests: XCTestCase {
     func test_AfterEndTurn_canRollIsTrueAgain() {
         let _ = game.roll(3, 1)
         let _ = game.endTurn()
-        XCTAssertEqual(game.canRoll, true)
+        XCTAssertEqual(game.state.currentPlayerCanRoll, true)
     }
     
     func test_rollMoreThan6OnEitherDie_returnsInvalidResult() {
