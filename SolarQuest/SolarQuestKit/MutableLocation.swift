@@ -1,20 +1,20 @@
-public struct Location: Equatable {
-    public let name : String
-    public let type : LocationType
-    
-    public let isInOrbit: Bool
-    public let isBreakOrbitPoint : Bool
-    public var hasFuel: Bool
-    public let deedCard : DeedCard?
+struct MutableLocation: Equatable {
+    let data : Location
+
     var owner : Int = 0 // player 0 is the Federation
+    var hasFuel: Bool
+    let isInOrbit: Bool
+    let isBreakOrbitPoint : Bool
+
+    var name : String {data.name}
+    var type : LocationType {data.type}
+    var deedCard : DeedCard? {data.deedCard}
     
-    public init(name: String, type: LocationType, isInOrbit: Bool = false, isBreakOrbitPoint: Bool = false, hasFuel: Bool = false, fuelRate: Int? = nil) {
-        self.name = name
-        self.type = type
+    init(name: String, type: LocationType, isInOrbit: Bool = false, isBreakOrbitPoint: Bool = false, hasFuel: Bool = false, fuelRate: Int? = nil) {
+        self.data = Location(name: name, type: type)
+        self.hasFuel = hasFuel
         self.isInOrbit = isInOrbit
         self.isBreakOrbitPoint = isBreakOrbitPoint
-        self.hasFuel = hasFuel
-        self.deedCard = StandardDeedCard.make(name)
     }
 }
 
@@ -25,15 +25,6 @@ public struct Location: Equatable {
 //  func nextLocation(at: Int, toMove: Int) -> [Location]
 //    landing on the first black hole after Sinope should return 3 locations [Black Hole, Sinope, Jupiter Research Lab]
 
-public enum LocationType: Equatable {
-    case planet
-    case moon
-    case spaceDock
-    case researchLab
-    case federationStation
-    case blueDot // drifting
-    case blackDot // planetary gravity well
-}
 
 //  --- Set the following for each ---
 // let canLand : Bool

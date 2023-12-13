@@ -1,20 +1,20 @@
-public class Player {
-    public var name : String
-    public var hydrons : Int = 25
-    public var unplacedFuelStations = 3
-    public var status : Player.Status = .playing
-    public var federons : Int = 3*(500+100+50+10+5)
-    public var debt : [IOU] = [IOU]()
+class Player {
+    var name : String
+    var hydrons : Int = 25
+    var unplacedFuelStations = 3
+    var status : Player.Status = .playing
+    var federons : Int = 3*(500+100+50+10+5)
+    var debt : [IOU] = [IOU]()
     
     init(name: String = "") {
         self.name = name
     }
     
-    public enum Status {
+    enum Status {
         case playing
         case outOfTheGame
     }
-    public struct IOU : Equatable {
+    struct IOU : Equatable {
         let owe: Int
         let toPlayer: Int
     }

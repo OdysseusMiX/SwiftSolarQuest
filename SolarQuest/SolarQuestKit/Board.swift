@@ -8,11 +8,11 @@
 import Foundation
 
 protocol Board {
-    var locations : [Location] {get}
+    var locations : [MutableLocation] {get}
     var connections: [[Int]] {get}
     
     // MARK: Deprecated
-    var oldLocations : [Location] {get set}
+    var oldLocations : [MutableLocation] {get set}
     func positionOfPlayer(_:Int) -> Int
     func place(player:Int, at:Int)
 }

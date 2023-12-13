@@ -1,5 +1,5 @@
-public struct StandardMap: Map {
-    static func listLocations(in data: MapData) -> [Location] {
+struct StandardMap: Map {
+    static func listLocations(in data: MapData) -> [MutableLocation] {
         return GenericMap.listLocations(in: data)
     }
     static func listConnections(in data: MapData) -> [[Int]] {
@@ -7,7 +7,7 @@ public struct StandardMap: Map {
     }
 
 
-    static func createMap() -> [(Location, [Int])] {
+    static func createMap() -> [(MutableLocation, [Int])] {
         [
             (StandardMap.Earth(), [1]),    // 0
             (StandardMap.BlackDot(), [2]),
@@ -110,79 +110,79 @@ public struct StandardMap: Map {
         ]
     }
     
-    public static func BlackDot() -> Location {Location(name: "Gravity Well", type: .blackDot)}
-    public static func BlueDot() -> Location {Location(name: "Drifting", type: .blueDot)}
-    public static func OrbitalBlueDot() -> Location {Location(name: "Drifting", type: .blueDot, isInOrbit: true)}
-    public static func OrbitalBlueDotExitPoint() -> Location {Location(name: "Drifting", type: .blueDot, isInOrbit: true, isBreakOrbitPoint: true)}
+    static func BlackDot() -> MutableLocation {MutableLocation(name: "Gravity Well", type: .blackDot)}
+    static func BlueDot() -> MutableLocation {MutableLocation(name: "Drifting", type: .blueDot)}
+    static func OrbitalBlueDot() -> MutableLocation {MutableLocation(name: "Drifting", type: .blueDot, isInOrbit: true)}
+    static func OrbitalBlueDotExitPoint() -> MutableLocation {MutableLocation(name: "Drifting", type: .blueDot, isInOrbit: true, isBreakOrbitPoint: true)}
 
-    public static func Earth() -> Location {Location(name: "Earth", type: .planet, hasFuel: true, fuelRate: 25)}
-    public static func Moon() -> Location { Location(name: "Moon", type: .moon)}
-    public static func Mercury() -> Location { Location(name: "Mercury", type: .planet)}
+    static func Earth() -> MutableLocation {MutableLocation(name: "Earth", type: .planet, hasFuel: true, fuelRate: 25)}
+    static func Moon() -> MutableLocation { MutableLocation(name: "Moon", type: .moon)}
+    static func Mercury() -> MutableLocation { MutableLocation(name: "Mercury", type: .planet)}
 
-    public static func Io() -> Location {Location(name: "Io", type: .moon, isInOrbit: true)}
-    public static func Elara() -> Location {Location(name: "Elara", type: .moon, isInOrbit: true)}
-    public static func Callisto() -> Location {Location(name: "Callisto", type: .moon, isInOrbit: true)}
-    public static func Thebe() -> Location {Location(name: "Thebe", type: .moon, isInOrbit: true)}
-    public static func Metis() -> Location {Location(name: "Metis", type: .moon, isInOrbit: true)}
-    public static func Ganymede() -> Location {Location(name: "Ganymede", type: .moon, isInOrbit: true, isBreakOrbitPoint: true)}
-    public static func Himalia() -> Location {Location(name: "Himalia", type: .moon, isInOrbit: true)}
-    public static func Europa() -> Location {Location(name: "Europa", type: .moon, isInOrbit: true)}
-    public static func Amalthea() -> Location {Location(name: "Amalthea", type: .moon, isInOrbit: true)}
-    public static func Adrastea() -> Location {Location(name: "Adrastea", type: .moon, isInOrbit: true)}
-    public static func Sinope() -> Location {Location(name: "Sinope", type: .moon)}
+    static func Io() -> MutableLocation {MutableLocation(name: "Io", type: .moon, isInOrbit: true)}
+    static func Elara() -> MutableLocation {MutableLocation(name: "Elara", type: .moon, isInOrbit: true)}
+    static func Callisto() -> MutableLocation {MutableLocation(name: "Callisto", type: .moon, isInOrbit: true)}
+    static func Thebe() -> MutableLocation {MutableLocation(name: "Thebe", type: .moon, isInOrbit: true)}
+    static func Metis() -> MutableLocation {MutableLocation(name: "Metis", type: .moon, isInOrbit: true)}
+    static func Ganymede() -> MutableLocation {MutableLocation(name: "Ganymede", type: .moon, isInOrbit: true, isBreakOrbitPoint: true)}
+    static func Himalia() -> MutableLocation {MutableLocation(name: "Himalia", type: .moon, isInOrbit: true)}
+    static func Europa() -> MutableLocation {MutableLocation(name: "Europa", type: .moon, isInOrbit: true)}
+    static func Amalthea() -> MutableLocation {MutableLocation(name: "Amalthea", type: .moon, isInOrbit: true)}
+    static func Adrastea() -> MutableLocation {MutableLocation(name: "Adrastea", type: .moon, isInOrbit: true)}
+    static func Sinope() -> MutableLocation {MutableLocation(name: "Sinope", type: .moon)}
     
-    public static func Miranda() -> Location {Location(name: "Miranda", type: .moon, isInOrbit: true)}
-    public static func Umbriel() -> Location {Location(name: "Umbriel", type: .moon, isInOrbit: true)}
-    public static func Oberon() -> Location {Location(name: "Oberon", type: .moon, isInOrbit: true)}
-    public static func _1985U1() -> Location {Location(name: "1985 U1", type: .moon, isInOrbit: true)}
-    public static func Ariel() -> Location {Location(name: "Ariel", type: .moon, isInOrbit: true, isBreakOrbitPoint: true)}
-    public static func Titania() -> Location {Location(name: "Titania", type: .moon, isInOrbit: true)}
+    static func Miranda() -> MutableLocation {MutableLocation(name: "Miranda", type: .moon, isInOrbit: true)}
+    static func Umbriel() -> MutableLocation {MutableLocation(name: "Umbriel", type: .moon, isInOrbit: true)}
+    static func Oberon() -> MutableLocation {MutableLocation(name: "Oberon", type: .moon, isInOrbit: true)}
+    static func _1985U1() -> MutableLocation {MutableLocation(name: "1985 U1", type: .moon, isInOrbit: true)}
+    static func Ariel() -> MutableLocation {MutableLocation(name: "Ariel", type: .moon, isInOrbit: true, isBreakOrbitPoint: true)}
+    static func Titania() -> MutableLocation {MutableLocation(name: "Titania", type: .moon, isInOrbit: true)}
 
-    public static func Pluto() -> Location { Location(name: "Pluto", type: .planet)}
-    public static func Charon() -> Location { Location(name: "Charon", type: .moon)}
+    static func Pluto() -> MutableLocation { MutableLocation(name: "Pluto", type: .planet)}
+    static func Charon() -> MutableLocation { MutableLocation(name: "Charon", type: .moon)}
 
-    public static func Phobos() -> Location { Location(name: "Phobos", type: .moon)}
-    public static func Mars() -> Location { Location(name: "Mars", type: .planet)}
-    public static func Deimos() -> Location { Location(name: "Deimos", type: .moon)}
+    static func Phobos() -> MutableLocation { MutableLocation(name: "Phobos", type: .moon)}
+    static func Mars() -> MutableLocation { MutableLocation(name: "Mars", type: .planet)}
+    static func Deimos() -> MutableLocation { MutableLocation(name: "Deimos", type: .moon)}
 
-    public static func Venus() -> Location { Location(name: "Venus", type: .planet)}
+    static func Venus() -> MutableLocation { MutableLocation(name: "Venus", type: .planet)}
 
-    public static func Phoebe() -> Location {Location(name: "Phoebe", type: .moon)}
-    public static func Mimas() -> Location {Location(name: "Mimas", type: .moon, isInOrbit: true)}
-    public static func Dione() -> Location {Location(name: "Dione", type: .moon, isInOrbit: true)}
-    public static func Iapetus() -> Location {Location(name: "Iapetus", type: .moon, isInOrbit: true)}
-    public static func Rhea() -> Location {Location(name: "Rhea", type: .moon, isInOrbit: true)}
-    public static func Tethys() -> Location {Location(name: "Tethys", type: .moon, isInOrbit: true)}
-    public static func Janus() -> Location {Location(name: "Janus", type: .moon, isInOrbit: true)}
-    public static func Enceladus() -> Location {Location(name: "Enceladus", type: .moon, isInOrbit: true)}
-    public static func Hyperion() -> Location {Location(name: "Hyperion", type: .moon, isInOrbit: true, isBreakOrbitPoint: true)}
-    public static func Titan() -> Location {Location(name: "Titan", type: .moon, isInOrbit: true)}
+    static func Phoebe() -> MutableLocation {MutableLocation(name: "Phoebe", type: .moon)}
+    static func Mimas() -> MutableLocation {MutableLocation(name: "Mimas", type: .moon, isInOrbit: true)}
+    static func Dione() -> MutableLocation {MutableLocation(name: "Dione", type: .moon, isInOrbit: true)}
+    static func Iapetus() -> MutableLocation {MutableLocation(name: "Iapetus", type: .moon, isInOrbit: true)}
+    static func Rhea() -> MutableLocation {MutableLocation(name: "Rhea", type: .moon, isInOrbit: true)}
+    static func Tethys() -> MutableLocation {MutableLocation(name: "Tethys", type: .moon, isInOrbit: true)}
+    static func Janus() -> MutableLocation {MutableLocation(name: "Janus", type: .moon, isInOrbit: true)}
+    static func Enceladus() -> MutableLocation {MutableLocation(name: "Enceladus", type: .moon, isInOrbit: true)}
+    static func Hyperion() -> MutableLocation {MutableLocation(name: "Hyperion", type: .moon, isInOrbit: true, isBreakOrbitPoint: true)}
+    static func Titan() -> MutableLocation {MutableLocation(name: "Titan", type: .moon, isInOrbit: true)}
 
-    public static func Nereid() -> Location {Location(name: "Nereid", type: .moon, isInOrbit: true)}
-    public static func Triton() -> Location {Location(name: "Triton", type: .moon, isInOrbit: true)}
+    static func Nereid() -> MutableLocation {MutableLocation(name: "Nereid", type: .moon, isInOrbit: true)}
+    static func Triton() -> MutableLocation {MutableLocation(name: "Triton", type: .moon, isInOrbit: true)}
 
-    public static func SolarSpaceDock() -> Location {Location(name: "Solar Space Dock", type: .spaceDock, hasFuel: true, fuelRate: 10)}
-    public static func JupiterSpaceDock() -> Location {Location(name: "Jupiter Space Dock", type: .spaceDock, isInOrbit: true, hasFuel: true)}
-    public static func UranusSpaceDock() -> Location {Location(name: "Uranus Space Dock", type: .spaceDock, isInOrbit: true, hasFuel: true)}
-    public static func SaturnSpaceDock() -> Location {Location(name: "Saturn Space Dock", type: .spaceDock, isInOrbit: true, hasFuel: true)}
-    public static func NeptuneSpaceDock() -> Location {Location(name: "Neptune Space Dock", type: .spaceDock, isInOrbit: true, hasFuel: true)}
+    static func SolarSpaceDock() -> MutableLocation {MutableLocation(name: "Solar Space Dock", type: .spaceDock, hasFuel: true, fuelRate: 10)}
+    static func JupiterSpaceDock() -> MutableLocation {MutableLocation(name: "Jupiter Space Dock", type: .spaceDock, isInOrbit: true, hasFuel: true)}
+    static func UranusSpaceDock() -> MutableLocation {MutableLocation(name: "Uranus Space Dock", type: .spaceDock, isInOrbit: true, hasFuel: true)}
+    static func SaturnSpaceDock() -> MutableLocation {MutableLocation(name: "Saturn Space Dock", type: .spaceDock, isInOrbit: true, hasFuel: true)}
+    static func NeptuneSpaceDock() -> MutableLocation {MutableLocation(name: "Neptune Space Dock", type: .spaceDock, isInOrbit: true, hasFuel: true)}
 
-    public static func JupiterResearchLab() -> Location {Location(name: "Jupiter Research Lab", type: .researchLab, isInOrbit: true)}
-    public static func UranusResearchLab() -> Location {Location(name: "Uranus Research Lab", type: .researchLab, isInOrbit: true)}
-    public static func NeptuneResearchLab() -> Location {Location(name: "Neptune Research Lab", type: .researchLab, isInOrbit: true)}
-    public static func VenusResearchLab() -> Location {Location(name: "Venus Research Lab", type: .researchLab, isInOrbit: true)}
-    public static func SaturnResearchLab() -> Location {Location(name: "Saturn Research Lab", type: .researchLab, isInOrbit: true)}
-    public static func EarthResearchLab() -> Location {Location(name: "Earth Research Lab", type: .researchLab)}
+    static func JupiterResearchLab() -> MutableLocation {MutableLocation(name: "Jupiter Research Lab", type: .researchLab, isInOrbit: true)}
+    static func UranusResearchLab() -> MutableLocation {MutableLocation(name: "Uranus Research Lab", type: .researchLab, isInOrbit: true)}
+    static func NeptuneResearchLab() -> MutableLocation {MutableLocation(name: "Neptune Research Lab", type: .researchLab, isInOrbit: true)}
+    static func VenusResearchLab() -> MutableLocation {MutableLocation(name: "Venus Research Lab", type: .researchLab, isInOrbit: true)}
+    static func SaturnResearchLab() -> MutableLocation {MutableLocation(name: "Saturn Research Lab", type: .researchLab, isInOrbit: true)}
+    static func EarthResearchLab() -> MutableLocation {MutableLocation(name: "Earth Research Lab", type: .researchLab)}
 
-    public static func FederationStationI() -> Location {Location(name: "Federation Station I", type: .federationStation)}
-    public static func FederationStationII() -> Location {Location(name: "Federation Station II", type: .federationStation, isInOrbit: true)}
-    public static func FederationStationIII() -> Location {Location(name: "Federation Station III", type: .federationStation)}
-    public static func FederationStationIV() -> Location {Location(name: "Federation Station IV", type: .federationStation, isInOrbit: true)}
-    public static func FederationStationV() -> Location {Location(name: "Federation Station V", type: .federationStation)}
-    public static func FederationStationVI() -> Location {Location(name: "Federation Station VI", type: .federationStation, isInOrbit: true)}
-    public static func FederationStationVII() -> Location {Location(name: "Federation Station VII", type: .federationStation, isInOrbit: true)}
-    public static func FederationStationVIII() -> Location {Location(name: "Federation Station VIII", type: .federationStation)}
-    public static func FederationStationIX() -> Location {Location(name: "Federation Station IX", type: .federationStation, isInOrbit: true)}
+    static func FederationStationI() -> MutableLocation {MutableLocation(name: "Federation Station I", type: .federationStation)}
+    static func FederationStationII() -> MutableLocation {MutableLocation(name: "Federation Station II", type: .federationStation, isInOrbit: true)}
+    static func FederationStationIII() -> MutableLocation {MutableLocation(name: "Federation Station III", type: .federationStation)}
+    static func FederationStationIV() -> MutableLocation {MutableLocation(name: "Federation Station IV", type: .federationStation, isInOrbit: true)}
+    static func FederationStationV() -> MutableLocation {MutableLocation(name: "Federation Station V", type: .federationStation)}
+    static func FederationStationVI() -> MutableLocation {MutableLocation(name: "Federation Station VI", type: .federationStation, isInOrbit: true)}
+    static func FederationStationVII() -> MutableLocation {MutableLocation(name: "Federation Station VII", type: .federationStation, isInOrbit: true)}
+    static func FederationStationVIII() -> MutableLocation {MutableLocation(name: "Federation Station VIII", type: .federationStation)}
+    static func FederationStationIX() -> MutableLocation {MutableLocation(name: "Federation Station IX", type: .federationStation, isInOrbit: true)}
 
 
 }

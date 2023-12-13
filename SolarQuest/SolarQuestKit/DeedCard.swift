@@ -1,4 +1,4 @@
-public struct DeedCard : Equatable {
+struct DeedCard : Equatable {
     let name : String
     let group: String
     let price : Int

@@ -4,8 +4,8 @@ class StandardBoard : Board {
     var playerPositions = [Int]()
     var numberOfPlayers : Int { playerPositions.count }
     
-    let locations : [Location]
-    var oldLocations : [Location]
+    let locations : [MutableLocation]
+    var oldLocations : [MutableLocation]
     let connections: [[Int]]
     
     init(numberOfPlayers: Int = 1) {
@@ -16,7 +16,7 @@ class StandardBoard : Board {
         }
         
         let map = StandardMap.createMap()
-        self.locations = map.reduce([Location](), { (prior, arg1) -> [Location] in
+        self.locations = map.reduce([MutableLocation](), { (prior, arg1) -> [MutableLocation] in
             let (location, _) = arg1
             var result = prior
             result.append(location)

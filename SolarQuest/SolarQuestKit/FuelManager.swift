@@ -1,4 +1,4 @@
 protocol FuelManager {
-    func calculateFuelCost(toMove: Int, from: Location) -> Int
-    func mustRefuelNow(hydrons: Int, on: Location) -> Bool
+    func calculateFuelCost(toMove: Int, from: MutableLocation) -> Int
+    func mustRefuelNow(hydrons: Int, on: MutableLocation) -> Bool
 }

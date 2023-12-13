@@ -1,5 +1,5 @@
 struct StandardNavigator : Navigator {
-    var locations: [Location]
+    var locations: [MutableLocation]
     
         func nextLocation(from: Int, moving: Int) -> Int {
             var pos = nextLocation(from: from, moving: moving, shouldBreakOrbit: true)

@@ -2,7 +2,7 @@
 import Foundation
 
 struct TestBoard : Board, Equatable {
-    let locations: [Location]
+    let locations: [MutableLocation]
     let connections: [[Int]]
     
     init() {
@@ -17,7 +17,7 @@ struct TestBoard : Board, Equatable {
     
     // MARK: Deprecated
     //TODO: Remove all these
-    var oldLocations: [Location]
+    var oldLocations: [MutableLocation]
     func positionOfPlayer(_: Int) -> Int {return 0}
     func place(player: Int, at: Int) {}
     

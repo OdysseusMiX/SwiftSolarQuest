@@ -44,6 +44,7 @@ The board will hold this data in the locations array. This is only the immutable
 - Type (blue dot, black dot, body group, space dock, lab, fed station)
 - Name
 - Price (nil if not ownable)
+- Group (nil if not part of a group)
 - Rent Schedule (nil if n/a)
 - CostsFuelToBlastOff? (t/f)
 - HasFuelWithoutFuelStation?

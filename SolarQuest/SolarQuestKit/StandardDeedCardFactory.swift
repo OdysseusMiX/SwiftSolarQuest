@@ -1,4 +1,4 @@
-struct StandardDeedCard {
+struct StandardDeedCardFactory {
 
     static func make(_ name: String) -> DeedCard? {
         let group : String

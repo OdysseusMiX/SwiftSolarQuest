@@ -6,7 +6,7 @@ class Game {
     var board : Board
     var navigator: Navigator
     var fuelManager : FuelManager
-    var locations: [Location] {board.locations}
+    var locations: [MutableLocation] {board.locations}
     var redShiftCardDeck = RedShiftCardDeck.deal()
     var nextRedShiftCard = 0
     
@@ -43,10 +43,10 @@ class Game {
         return result
     }
     
-    func locationOfCurrentPlayer() -> Location {
+    func locationOfCurrentPlayer() -> MutableLocation {
         return locationOfPlayer(currentPlayer)!
     }
-    func locationOfPlayer(_ n: Int) -> Location? {
+    func locationOfPlayer(_ n: Int) -> MutableLocation? {
         guard n >= 1, n <= players.count else {return nil}
         
         let playerPosition = board.positionOfPlayer(n)
@@ -186,7 +186,7 @@ class Game {
         player.federons += federons
     }
 
-    func locationAtBoardPosition(_ index: Int) -> Location? {
+    func locationAtBoardPosition(_ index: Int) -> MutableLocation? {
         guard index >= 0, index < locations.count else {return nil}
         
         return board.locations[index]
@@ -384,7 +384,7 @@ class Game {
         return result
     }
     
-    private func calculateFuelCost(toMove: Int, from location: Location) -> Int {
+    private func calculateFuelCost(toMove: Int, from location: MutableLocation) -> Int {
         switch location.type {
         case .planet, .moon:
             return toMove

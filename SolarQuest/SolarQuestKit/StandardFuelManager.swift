@@ -1,5 +1,5 @@
 struct StandardFuelManager : FuelManager {
-    func calculateFuelCost(toMove: Int, from location: Location) -> Int {
+    func calculateFuelCost(toMove: Int, from location: MutableLocation) -> Int {
         switch location.type {
         case .planet, .moon:
             return toMove
@@ -8,7 +8,7 @@ struct StandardFuelManager : FuelManager {
         }
     }
     
-    func mustRefuelNow(hydrons: Int, on location: Location) -> Bool {
+    func mustRefuelNow(hydrons: Int, on location: MutableLocation) -> Bool {
         if hydrons < 2 {
             if location.type == .moon || location.type == .planet {
                 return true
