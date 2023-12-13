@@ -48,6 +48,7 @@
 		BB87867A26043D27006028E6 /* GameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB87867926043D27006028E6 /* GameFactory.swift */; };
 		BB8786882604C66E006028E6 /* TestBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8786872604C66E006028E6 /* TestBoard.swift */; };
 		BB87869226056D20006028E6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB87869126056D20006028E6 /* Location.swift */; };
+		BBE961D22606C50400B46A8F /* StandardLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961D12606C50400B46A8F /* StandardLocations.swift */; };
 		BBF7781E26063C0E006DB037 /* DeedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CF26002C7E004C11BF /* DeedCard.swift */; };
 		BBF7782126063C12006DB037 /* StandardDeedCardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D226002C7E004C11BF /* StandardDeedCardFactory.swift */; };
 		BBF77827260681A6006DB037 /* GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF77826260681A6006DB037 /* GameStateTests.swift */; };
@@ -117,6 +118,7 @@
 		BB87867926043D27006028E6 /* GameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFactory.swift; sourceTree = "<group>"; };
 		BB8786872604C66E006028E6 /* TestBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBoard.swift; sourceTree = "<group>"; };
 		BB87869126056D20006028E6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		BBE961D12606C50400B46A8F /* StandardLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardLocations.swift; sourceTree = "<group>"; };
 		BBF77826260681A6006DB037 /* GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,6 +219,7 @@
 				BB6761D426002C7E004C11BF /* StandardMap.swift */,
 				BB6761D126002C7E004C11BF /* StandardNavigator.swift */,
 				BB8786872604C66E006028E6 /* TestBoard.swift */,
+				BBE961D12606C50400B46A8F /* StandardLocations.swift */,
 			);
 			path = SolarQuestKit;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				BB6761F226002CA5004C11BF /* GameState.swift in Sources */,
 				BB6761DB26002C7E004C11BF /* Game.swift in Sources */,
 				BB6761F426002CA5004C11BF /* PlayerComponent.swift in Sources */,
+				BBE961D22606C50400B46A8F /* StandardLocations.swift in Sources */,
 				BB6761E026002C7E004C11BF /* RedShiftCard.swift in Sources */,
 				BB6761FE26002CE4004C11BF /* BoardLayout.swift in Sources */,
 				BB6761DD26002C7E004C11BF /* FuelManager.swift in Sources */,

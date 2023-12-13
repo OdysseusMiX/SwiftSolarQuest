@@ -29,7 +29,7 @@ class Game {
             players.append(Player(name: "Player \(i)"))
         }
         
-        navigator = StandardNavigator(locations: board.oldLocations)
+        navigator = StandardNavigator(locations_xxx: board.oldLocations, locations: board.locations)
         fuelManager = StandardFuelManager()
         
         currentPlayer = 1

@@ -24,12 +24,14 @@ struct StandardDeedCardFactory {
         case "Saturn Space Dock": price = 200
         case "Uranus Space Dock": price = 175
         case "Neptune Space Dock": price = 225
+            
         case "Venus Research Lab": price = 275
         case "Earth Research Lab": price = 400
         case "Jupiter Research Lab": price = 250
         case "Saturn Research Lab": price = 250
         case "Uranus Research Lab": price = 325
         case "Neptune Research Lab": price = 350
+            
         case "Mercury": price = 375
         case "Venus": price = 475
         case "Moon": price = 225
