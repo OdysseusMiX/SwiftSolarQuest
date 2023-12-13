@@ -1,104 +1,112 @@
 public struct StandardMap: Map {
-    static func createLocations() -> [Location] {
+    static func listLocations(in data: MapData) -> [Location] {
+        return GenericMap.listLocations(in: data)
+    }
+    static func listConnections(in data: MapData) -> [[Int]] {
+        return GenericMap.listConnections(in: data)
+    }
+
+
+    static func createMap() -> [(Location, [Int])] {
         [
-            StandardMap.Earth(),        // 0
-            StandardMap.BlackDot(),
-            StandardMap.Moon(),
-            StandardMap.SolarSpaceDock(),
-            StandardMap.Mercury(),
-            StandardMap.FederationStationI(),
-            StandardMap.BlueDot(),
-            StandardMap.BlueDot(),
+            (StandardMap.Earth(), [1]),    // 0
+            (StandardMap.BlackDot(), [2]),
+            (StandardMap.Moon(), [3]),
+            (StandardMap.SolarSpaceDock(), [4]),
+            (StandardMap.Mercury(), [5]),
+            (StandardMap.FederationStationI(), [6]),
+            (StandardMap.BlueDot(), [7]),
+            (StandardMap.BlueDot(), [8]),
             // JUPITER ORBIT:
-            StandardMap.Io(),
-            StandardMap.JupiterSpaceDock(),
-            StandardMap.OrbitalBlueDot(),       // 10
-            StandardMap.Elara(),
-            StandardMap.Callisto(),
-            StandardMap.FederationStationII(),
-            StandardMap.Thebe(),
-            StandardMap.OrbitalBlueDot(),
-            StandardMap.Metis(),
-            StandardMap.Ganymede(), // <break orbit point>
-            StandardMap.JupiterResearchLab(),
-            StandardMap.Himalia(),
-            StandardMap.Europa(),               // 20
-            StandardMap.Amalthea(),
-            StandardMap.Adrastea(),
+            (StandardMap.Io(), [9]),
+            (StandardMap.JupiterSpaceDock(), [10]),
+            (StandardMap.OrbitalBlueDot(),  [11]),      // 10
+            (StandardMap.Elara(), [12]),
+            (StandardMap.Callisto(), [13]),
+            (StandardMap.FederationStationII(), [14]),
+            (StandardMap.Thebe(), [15]),
+            (StandardMap.OrbitalBlueDot(), [16]),
+            (StandardMap.Metis(), [17]),
+            (StandardMap.Ganymede(),  [23, 18]),// <break orbit point>
+            (StandardMap.JupiterResearchLab(), [19]),
+            (StandardMap.Himalia(), [20]),
+            (StandardMap.Europa(), [21]),               // 20
+            (StandardMap.Amalthea(), [22]),
+            (StandardMap.Adrastea(), [8]),
             // END JUPITER ORBIT
-//            StandardMap.Sinope(), // requires special rule
-            StandardMap.BlackDot(),
-            StandardMap.BlackDot(),
-            StandardMap.BlackDot(),
-            StandardMap.BlackDot(),
-            StandardMap.FederationStationIII(),
-            StandardMap.BlueDot(),
-            // URANUS ORBIT:
-            StandardMap.Miranda(),
-            StandardMap.UranusSpaceDock(),
-            StandardMap.Umbriel(),
-            StandardMap.Oberon(),
-            StandardMap._1985U1(),
-            StandardMap.UranusResearchLab(),
-            StandardMap.OrbitalBlueDot(),
-            StandardMap.Ariel(), // <break orbit point>
-            StandardMap.FederationStationIV(),
-            StandardMap.Titania(),
-            // END URANUS ORBIT
-            StandardMap.BlackDot(),
-            StandardMap.BlackDot(),
-            StandardMap.BlackDot(),
-            StandardMap.Pluto(),
-            StandardMap.Charon(),
-            StandardMap.BlueDot(),
-            StandardMap.FederationStationV(),
-            StandardMap.BlueDot(),
-            StandardMap.BlueDot(),
-            StandardMap.Phobos(),
-            StandardMap.Mars(),
-            StandardMap.Deimos(),
-            StandardMap.BlueDot(),
-            StandardMap.VenusResearchLab(),
-            StandardMap.Venus(),
-            StandardMap.BlackDot(),
-            StandardMap.Phoebe(),
-            // SATURN ORBIT:
-            StandardMap.Mimas(),
-            StandardMap.SaturnSpaceDock(),
-            StandardMap.Dione(),
-            StandardMap.OrbitalBlueDot(),
-            StandardMap.Iapetus(),
-            StandardMap.Rhea(),
-            StandardMap.Tethys(),
-            StandardMap.FederationStationVI(),
-            StandardMap.Janus(),
-            StandardMap.Enceladus(),
-            StandardMap.SaturnResearchLab(),
-            StandardMap.Hyperion(), // <break orbit point>
-            StandardMap.Titan(),
-            StandardMap.FederationStationVII(),
-            // END SATURN ORBIT
-            StandardMap.BlackDot(),
-            StandardMap.BlackDot(),
-            StandardMap.BlackDot(),
-            StandardMap.BlackDot(),
-            StandardMap.FederationStationVIII(),
-            StandardMap.BlueDot(),
-            // ENTER NEPTUNE ORBIT
-            StandardMap.Nereid(),
-            StandardMap.OrbitalBlueDot(),
-            StandardMap.NeptuneSpaceDock(),
-            StandardMap.NeptuneResearchLab(),
-            StandardMap.OrbitalBlueDot(),
-            StandardMap.Triton(),
-            StandardMap.FederationStationIX(),
-            StandardMap.OrbitalBlueDotExitPoint(), // break orbit from here
-            StandardMap.OrbitalBlueDot(),
-            // END NEPTUNE ORBIT
-            StandardMap.BlackDot(),
-            StandardMap.BlackDot(),
-            StandardMap.BlackDot(),
-            StandardMap.EarthResearchLab()
+            (StandardMap.Sinope(), [24]), // requires special rule
+            (StandardMap.BlackDot(), [25]),
+            (StandardMap.BlackDot(), [26]),
+            (StandardMap.BlackDot(), [27]),
+            (StandardMap.BlackDot(), [28]),
+            (StandardMap.FederationStationIII(), [29]),
+            (StandardMap.BlueDot(), [30]),
+//            // URANUS ORBIT:
+            (StandardMap.Miranda(), [31]), // 30
+            (StandardMap.UranusSpaceDock(), [32]),
+            (StandardMap.Umbriel(), [33]),
+            (StandardMap.Oberon(), [34]),
+            (StandardMap._1985U1(), [35]),
+            (StandardMap.UranusResearchLab(), [36]),
+            (StandardMap.OrbitalBlueDot(), [37]),
+            (StandardMap.Ariel(), [40, 38]), // <break orbit point>
+            (StandardMap.FederationStationIV(), [39]),
+            (StandardMap.Titania(), [30]),
+//            // END URANUS ORBIT
+            (StandardMap.BlackDot(), [41]),  // 40
+            (StandardMap.BlackDot(), [42]),
+            (StandardMap.BlackDot(), [43]),
+            (StandardMap.Pluto(), [44]),
+            (StandardMap.Charon(), [45]),
+            (StandardMap.BlueDot(), [46]),
+            (StandardMap.FederationStationV(), [47]),
+            (StandardMap.BlueDot(), [48]),
+            (StandardMap.BlueDot(), [49]),
+            (StandardMap.Phobos(), [50]),
+            (StandardMap.Mars(), [51]),       // 50
+            (StandardMap.Deimos(), [52]),
+            (StandardMap.BlueDot(), [53]),
+            (StandardMap.VenusResearchLab(), [54]),
+            (StandardMap.Venus(), [55]),
+            (StandardMap.BlackDot(), [56]),
+            (StandardMap.Phoebe(), [57]),
+//            // SATURN ORBIT:
+            (StandardMap.Mimas(), [58]),
+            (StandardMap.SaturnSpaceDock(), [59]),
+            (StandardMap.Dione(), [60]),
+            (StandardMap.OrbitalBlueDot(), [61]),     // 60
+            (StandardMap.Iapetus(), [62]),
+            (StandardMap.Rhea(), [63]),
+            (StandardMap.Tethys(), [64]),
+            (StandardMap.FederationStationVI(), [65]),
+            (StandardMap.Janus(), [66]),
+            (StandardMap.Enceladus(), [67]),
+            (StandardMap.SaturnResearchLab(), [68]),
+            (StandardMap.Hyperion(), [71, 69]), // <break orbit point>
+            (StandardMap.Titan(), [70]),
+            (StandardMap.FederationStationVII(), [57]),     // 70
+//            // END SATURN ORBIT
+            (StandardMap.BlackDot(), [72]),
+            (StandardMap.BlackDot(), [73]),
+            (StandardMap.BlackDot(), [74]),
+            (StandardMap.BlackDot(), [75]),
+            (StandardMap.FederationStationVIII(), [76]),
+            (StandardMap.BlueDot(), [77]),
+//            // ENTER NEPTUNE ORBIT
+            (StandardMap.Nereid(), [78]),
+            (StandardMap.OrbitalBlueDot(), [79]),
+            (StandardMap.NeptuneSpaceDock(), [80]),
+            (StandardMap.NeptuneResearchLab(), [81]),     // 80
+            (StandardMap.OrbitalBlueDot(), [82]),
+            (StandardMap.Triton(), [83]),
+            (StandardMap.FederationStationIX(), [84]),
+            (StandardMap.OrbitalBlueDotExitPoint(), [86, 85]), // break orbit from here
+            (StandardMap.OrbitalBlueDot(), [77]),
+//            // END NEPTUNE ORBIT
+            (StandardMap.BlackDot(), [87]),
+            (StandardMap.BlackDot(), [88]),
+            (StandardMap.BlackDot(), [89]),
+            (StandardMap.EarthResearchLab(), [0])   // 89
         ]
     }
     

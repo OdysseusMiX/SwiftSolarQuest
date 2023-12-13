@@ -4,13 +4,13 @@ import XCTest
 final class Game_RentTests: XCTestCase {
     
     var game : Game!
-    let locations = StandardMap.createLocations()
+    let locations = StandardMap.listLocations(in: StandardMap.createMap())
     
     override func setUp() {
         game = Game(numberOfPlayers: 3)
-        game.board.locations[2].owner = 1 // Moon
-        game.board.locations[3].owner = 2 // Solar Space Dock
-        game.board.locations[4].owner = 3 // Mercury
+        game.board.oldLocations[2].owner = 1 // Moon
+        game.board.oldLocations[3].owner = 2 // Solar Space Dock
+        game.board.oldLocations[4].owner = 3 // Mercury
     }
     
     func test_landOnMercuryOwnedByOtherPlayer_oweRent() {

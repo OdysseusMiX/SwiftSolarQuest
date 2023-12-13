@@ -4,7 +4,7 @@ import XCTest
 final class Game_BuyPropertyTests: XCTestCase {
         
     var game : Game!
-    let locations = StandardMap.createLocations()
+    let locations = StandardMap.listLocations(in: StandardMap.createMap())
     
     override func setUp() {
         game = Game(numberOfPlayers: 3)
@@ -88,7 +88,7 @@ final class Game_BuyPropertyTests: XCTestCase {
         XCTAssertEqual(game.federonsForCurrentPlayer(), 100)
     }
     func test_mercuryOwnedByPlayer2_player1CannotBuy() {
-        game.board.locations[4].owner = 2
+        game.board.oldLocations[4].owner = 2
         game.board.place(player: 1, at: 4)
         
         let success = game.buyProperty()

@@ -30,12 +30,14 @@ This should be responsible for all turn information. This includes the current p
 
 ## Board should be a state machine
 The board should have a state and simple actions to mutate state. The locations, paths, and order of players are immutable, but the current player, player positions, and placed fuel stations are mutable.
-- list all locations in order
-- list all connections between locations
-- provide location info for any location index
-- change current player position
-- place fuel stations
-- answer: does it have a fuel station on it?
+- Immutable Data
+  -- list all locations in order
+  -- list all connections between locations
+  -- provide location info for any location index
+- Mutable Data
+  -- change current player position
+  -- place fuel stations
+  -- answer: does it have a fuel station on it?
 
 ## Location is immutable info
 The board will hold this data in the locations array. This is only the immutable data applicable to each location. It includes property card info and info found writen on the physical board or in the rule book.

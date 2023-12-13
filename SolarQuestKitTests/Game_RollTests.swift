@@ -4,7 +4,7 @@ import XCTest
 final class Game_RollTests: XCTestCase {
         
     var game : Game!
-    let locations = StandardMap.createLocations()
+    let locations = StandardMap.listLocations(in: StandardMap.createMap())
     
     override func setUp() {
         game = Game(numberOfPlayers: 3)
@@ -74,7 +74,7 @@ final class Game_RollTests: XCTestCase {
     func test_landOnMoonWith1HydronAndNoFuelStations_outOfTheGame() {
         game.players[0].hydrons = 9
         game.players[0].unplacedFuelStations = 0
-        game.board.locations[8].hasFuel = false
+        game.board.oldLocations[8].hasFuel = false
         
         let result = game.roll(5,3) // moves to Io
         

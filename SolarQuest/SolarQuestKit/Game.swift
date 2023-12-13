@@ -12,20 +12,25 @@ class Game {
     
     var rollResult = [RollResult]()
     
-    init?(numberOfPlayers n: Int) {
-        guard n >= 1 else {return nil}
+    convenience init?(numberOfPlayers n: Int) {
+        self.init(numberOfPlayers: n, board: StandardBoard(numberOfPlayers: n))
+    }
+    init?(numberOfPlayers n: Int, board: Board) {
+        guard n >= 1, n<=6 else {return nil}
         
+        self.board = board
+
         players = [Player]()
         for i in 1...n {
             players.append(Player(name: "Player \(i)"))
         }
         
-        board = Board(numberOfPlayers: n)
         navigator = StandardNavigator(locations: board.locations)
         fuelManager = StandardFuelManager()
         
         currentPlayer = 1
         canRoll = true
+
     }
     
     func boardPositionOfCurrentPlayer() -> Int {
@@ -77,7 +82,7 @@ class Game {
         
         addToCurrentPlayer(federons: -cost)
         let pos = boardPositionOfCurrentPlayer()
-        board.locations[pos].owner = currentPlayer
+        board.oldLocations[pos].owner = currentPlayer
 
         return true
     }
