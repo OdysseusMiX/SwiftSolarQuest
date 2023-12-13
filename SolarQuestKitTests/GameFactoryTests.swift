@@ -7,7 +7,7 @@ class GameFactoryTests: XCTestCase {
         GameFactory.version = .standard
     }
     
-    func testGameFactory_newGame_createsGame() {
+    func test_standardVersion_newGame_createsGame() {
         let game = GameFactory.newGame(numberOfPlayers: 2)
         
         if let game = game {
@@ -17,7 +17,7 @@ class GameFactoryTests: XCTestCase {
         }
     }
     
-    func testGameFactory_testVersion_newGame_createsGame() {
+    func test_testVersion_newGame_createsGame() {
         GameFactory.version = .test
         let game = GameFactory.newGame(numberOfPlayers: 2)
         
@@ -28,14 +28,14 @@ class GameFactoryTests: XCTestCase {
         }
     }
     
-    func testGameFactory_newGame_createsGameWithStandardBoard() {
+    func test_standardVersion_newGame_createsGameWithStandardBoard() {
         let game = GameFactory.newGame(numberOfPlayers: 2)
         let test = game?.board as? StandardBoard
         
         XCTAssertNotNil(test)
     }
 
-    func testGameFactory_testVersion_newGame_createsGameWithTestBoard() {
+    func test_testVersion_newGame_createsGameWithTestBoard() {
         GameFactory.version = .test
         let game = GameFactory.newGame(numberOfPlayers: 2)
         let test = game?.board as? TestBoard

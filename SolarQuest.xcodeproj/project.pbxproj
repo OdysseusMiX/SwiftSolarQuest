@@ -27,7 +27,6 @@
 		BB6761FE26002CE4004C11BF /* BoardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761FB26002CE4004C11BF /* BoardLayout.swift */; };
 		BB6761FF26002CE4004C11BF /* BoardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761FC26002CE4004C11BF /* BoardScene.swift */; };
 		BB67620026002CE4004C11BF /* BoardScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB6761FD26002CE4004C11BF /* BoardScene.sks */; };
-		BB67624626002EA6004C11BF /* StandardBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67623926002EA5004C11BF /* StandardBoardTests.swift */; };
 		BB67624726002EA6004C11BF /* Game_StartBonusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67623A26002EA5004C11BF /* Game_StartBonusTests.swift */; };
 		BB67624826002EA6004C11BF /* Game_initPlayersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67623B26002EA5004C11BF /* Game_initPlayersTests.swift */; };
 		BB67624926002EA6004C11BF /* Game_SinopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67623C26002EA6004C11BF /* Game_SinopeTests.swift */; };
@@ -39,7 +38,6 @@
 		BB67625026002EA6004C11BF /* Game_RollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624326002EA6004C11BF /* Game_RollTests.swift */; };
 		BB67625226002EA6004C11BF /* Game_RedShiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624526002EA6004C11BF /* Game_RedShiftTests.swift */; };
 		BB8786622603FD7C006028E6 /* Game_initDefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8786612603FD7C006028E6 /* Game_initDefaultsTests.swift */; };
-		BB87866C26043AB8006028E6 /* TestBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB87866B26043AB8006028E6 /* TestBoardTests.swift */; };
 		BB87867226043BB6006028E6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB87867126043BB6006028E6 /* Board.swift */; };
 		BB87867626043C52006028E6 /* GameFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB87867526043C52006028E6 /* GameFactoryTests.swift */; };
 		BB87867A26043D27006028E6 /* GameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB87867926043D27006028E6 /* GameFactory.swift */; };
@@ -48,7 +46,7 @@
 		BBE961D22606C50400B46A8F /* StandardLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961D12606C50400B46A8F /* StandardLocations.swift */; };
 		BBE961DA2607A11500B46A8F /* NavigatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961D92607A11500B46A8F /* NavigatorTests.swift */; };
 		BBE961EE2609195600B46A8F /* LocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961ED2609195600B46A8F /* LocationType.swift */; };
-		BBF77827260681A6006DB037 /* GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF77826260681A6006DB037 /* GameStateTests.swift */; };
+		BBF77827260681A6006DB037 /* Game_GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF77826260681A6006DB037 /* Game_GameStateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +88,6 @@
 		BB6761FD26002CE4004C11BF /* BoardScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardScene.sks; sourceTree = "<group>"; };
 		BB67622B26002E8A004C11BF /* SolarQuestKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolarQuestKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB67622F26002E8A004C11BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB67623926002EA5004C11BF /* StandardBoardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardBoardTests.swift; sourceTree = "<group>"; };
 		BB67623A26002EA5004C11BF /* Game_StartBonusTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_StartBonusTests.swift; sourceTree = "<group>"; };
 		BB67623B26002EA5004C11BF /* Game_initPlayersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_initPlayersTests.swift; sourceTree = "<group>"; };
 		BB67623C26002EA6004C11BF /* Game_SinopeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_SinopeTests.swift; sourceTree = "<group>"; };
@@ -104,7 +101,6 @@
 		BB78646226017D31009214D0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BB78646326018409009214D0 /* Future Plan.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Future Plan.md"; sourceTree = "<group>"; };
 		BB8786612603FD7C006028E6 /* Game_initDefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game_initDefaultsTests.swift; sourceTree = "<group>"; };
-		BB87866B26043AB8006028E6 /* TestBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBoardTests.swift; sourceTree = "<group>"; };
 		BB87867126043BB6006028E6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		BB87867526043C52006028E6 /* GameFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFactoryTests.swift; sourceTree = "<group>"; };
 		BB87867926043D27006028E6 /* GameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFactory.swift; sourceTree = "<group>"; };
@@ -113,7 +109,7 @@
 		BBE961D12606C50400B46A8F /* StandardLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardLocations.swift; sourceTree = "<group>"; };
 		BBE961D92607A11500B46A8F /* NavigatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorTests.swift; sourceTree = "<group>"; };
 		BBE961ED2609195600B46A8F /* LocationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationType.swift; sourceTree = "<group>"; };
-		BBF77826260681A6006DB037 /* GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateTests.swift; sourceTree = "<group>"; };
+		BBF77826260681A6006DB037 /* Game_GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game_GameStateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,14 +231,11 @@
 		BB67622C26002E8A004C11BF /* SolarQuestKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				BBE961D92607A11500B46A8F /* NavigatorTests.swift */,
-				BBF77826260681A6006DB037 /* GameStateTests.swift */,
-				BB87867526043C52006028E6 /* GameFactoryTests.swift */,
-				BB87866B26043AB8006028E6 /* TestBoardTests.swift */,
-				BB8786612603FD7C006028E6 /* Game_initDefaultsTests.swift */,
-				BB67623926002EA5004C11BF /* StandardBoardTests.swift */,
 				BB67624226002EA6004C11BF /* Game_BuyPropertyTests.swift */,
 				BB67624026002EA6004C11BF /* Game_FuelTests.swift */,
+				BBF77826260681A6006DB037 /* Game_GameStateTests.swift */,
+				BB8786612603FD7C006028E6 /* Game_initDefaultsTests.swift */,
+				BB67623B26002EA5004C11BF /* Game_initPlayersTests.swift */,
 				BB67623D26002EA6004C11BF /* Game_LowFuelTests.swift */,
 				BB67624126002EA6004C11BF /* Game_MoveTests.swift */,
 				BB67624526002EA6004C11BF /* Game_RedShiftTests.swift */,
@@ -250,8 +243,9 @@
 				BB67624326002EA6004C11BF /* Game_RollTests.swift */,
 				BB67623C26002EA6004C11BF /* Game_SinopeTests.swift */,
 				BB67623A26002EA5004C11BF /* Game_StartBonusTests.swift */,
-				BB67623B26002EA5004C11BF /* Game_initPlayersTests.swift */,
+				BB87867526043C52006028E6 /* GameFactoryTests.swift */,
 				BB67622F26002E8A004C11BF /* Info.plist */,
+				BBE961D92607A11500B46A8F /* NavigatorTests.swift */,
 			);
 			path = SolarQuestKitTests;
 			sourceTree = "<group>";
@@ -386,17 +380,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB87866C26043AB8006028E6 /* TestBoardTests.swift in Sources */,
 				BB67624B26002EA6004C11BF /* Game_RentTests.swift in Sources */,
 				BB67624D26002EA6004C11BF /* Game_FuelTests.swift in Sources */,
 				BB67624A26002EA6004C11BF /* Game_LowFuelTests.swift in Sources */,
 				BB67625026002EA6004C11BF /* Game_RollTests.swift in Sources */,
 				BB67624F26002EA6004C11BF /* Game_BuyPropertyTests.swift in Sources */,
 				BB87867626043C52006028E6 /* GameFactoryTests.swift in Sources */,
-				BBF77827260681A6006DB037 /* GameStateTests.swift in Sources */,
+				BBF77827260681A6006DB037 /* Game_GameStateTests.swift in Sources */,
 				BB67624E26002EA6004C11BF /* Game_MoveTests.swift in Sources */,
 				BB67624726002EA6004C11BF /* Game_StartBonusTests.swift in Sources */,
-				BB67624626002EA6004C11BF /* StandardBoardTests.swift in Sources */,
 				BB67624826002EA6004C11BF /* Game_initPlayersTests.swift in Sources */,
 				BB67625226002EA6004C11BF /* Game_RedShiftTests.swift in Sources */,
 				BBE961DA2607A11500B46A8F /* NavigatorTests.swift in Sources */,

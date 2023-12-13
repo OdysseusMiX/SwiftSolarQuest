@@ -2,14 +2,12 @@
 import XCTest
 @testable import SolarQuest
 
-class GameStateTests: XCTestCase {
+class Game_GameStateTests: XCTestCase {
 
     func testGame_newGame_hasPlayerPostions() {
         let game = GameFactory.newGame(numberOfPlayers: 2)
-        let test = game?.state.playerLocations
-        XCTAssertEqual(test?.count, 2)
-        XCTAssertEqual(test?.first, 0)
-        XCTAssertEqual(test?.last, 0)
+
+        XCTAssertEqual(game?.state.playerLocations, [0,0])
     }
 
     func testGame_newGame_hasPropertyOwnersList() {

@@ -1,4 +1,4 @@
-class StandardBoard : Board {
+struct StandardBoard : Board {
     
     var numberOfPlayers : Int { 0 }
     
