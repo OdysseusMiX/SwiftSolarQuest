@@ -47,6 +47,8 @@
 		BBE961DA2607A11500B46A8F /* NavigatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961D92607A11500B46A8F /* NavigatorTests.swift */; };
 		BBE961EE2609195600B46A8F /* LocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961ED2609195600B46A8F /* LocationType.swift */; };
 		BBEECC44260AB3BF001FA0A4 /* RollResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEECC43260AB3BF001FA0A4 /* RollResult.swift */; };
+		BBEECC48260D4439001FA0A4 /* MoveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEECC47260D4439001FA0A4 /* MoveManager.swift */; };
+		BBEECC4C260D46AF001FA0A4 /* Banker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEECC4B260D46AF001FA0A4 /* Banker.swift */; };
 		BBF77827260681A6006DB037 /* Game_GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF77826260681A6006DB037 /* Game_GameStateTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +113,8 @@
 		BBE961D92607A11500B46A8F /* NavigatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorTests.swift; sourceTree = "<group>"; };
 		BBE961ED2609195600B46A8F /* LocationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationType.swift; sourceTree = "<group>"; };
 		BBEECC43260AB3BF001FA0A4 /* RollResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollResult.swift; sourceTree = "<group>"; };
+		BBEECC47260D4439001FA0A4 /* MoveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveManager.swift; sourceTree = "<group>"; };
+		BBEECC4B260D46AF001FA0A4 /* Banker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banker.swift; sourceTree = "<group>"; };
 		BBF77826260681A6006DB037 /* Game_GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game_GameStateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +213,8 @@
 				BB6761D126002C7E004C11BF /* StandardNavigator.swift */,
 				BB8786872604C66E006028E6 /* TestBoard.swift */,
 				BBEECC43260AB3BF001FA0A4 /* RollResult.swift */,
+				BBEECC47260D4439001FA0A4 /* MoveManager.swift */,
+				BBEECC4B260D46AF001FA0A4 /* Banker.swift */,
 			);
 			path = SolarQuestKit;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 				BB6761F126002CA5004C11BF /* Spaceship.swift in Sources */,
 				BB6761DE26002C7E004C11BF /* StandardNavigator.swift in Sources */,
 				BB87867226043BB6006028E6 /* Board.swift in Sources */,
+				BBEECC48260D4439001FA0A4 /* MoveManager.swift in Sources */,
 				BB6761E326002C7E004C11BF /* Player.swift in Sources */,
 				BBE961EE2609195600B46A8F /* LocationType.swift in Sources */,
 				BB87869226056D20006028E6 /* Location.swift in Sources */,
@@ -377,6 +384,7 @@
 				BB6761E426002C7E004C11BF /* StandardFuelManager.swift in Sources */,
 				BB6761F026002CA5004C11BF /* CelestialBody.swift in Sources */,
 				BB67619826002C38004C11BF /* AppDelegate.swift in Sources */,
+				BBEECC4C260D46AF001FA0A4 /* Banker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

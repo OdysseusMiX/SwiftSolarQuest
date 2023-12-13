@@ -5,6 +5,8 @@ class Game {
 
     let navigator: Navigator
     let fuelManager : FuelManager
+    let mover = MoveManager()
+    let banker = Banker()
 
     var numberOfPlayers : Int {state.numberOfPlayers}
     var currentPlayer : Int {state.currentPlayerIndex+1}
@@ -25,8 +27,7 @@ class Game {
     }
     
     func moveCurrentPlayerTo(_ location: Int) {
-        guard location >= 0, location < self.board.locations.count else {return}
-        self.state.playerLocations[self.currentPlayer - 1] = location
+        self.state = mover.moveCurrentPlayerTo(location, on: self.board, state: self.state)
     }
     
     func boardPositionOfCurrentPlayer() -> Int {
@@ -63,23 +64,16 @@ class Game {
         }
         return board.locations[pos]
     }
+    
     func buyProperty() -> Bool {
-        guard currentLocationIsForSale() else {return false}
-        guard let cost = locationForCurrentPlayer().price else { return false }
-        guard cost <= federonsForCurrentPlayer() else {return false}
-        
-        addToCurrentPlayer(federons: -cost)
-        let pos = boardPositionOfCurrentPlayer()
-        self.state.ownerList[pos] = currentPlayer
-
-        return true
+        if let updated = try? banker.buyProperty(state: state, board: board) {
+            self.state = updated
+            return true
+        }
+        return false
     }
     
-    func totalDebtForCurrentPlayer() -> Int {
-        return state.players[currentPlayer-1].debt.reduce(0) { (sum, iou) -> Int in
-            return sum + iou.owe
-        }
-    }
+    //TODO: Move to Banker
     func pay(_ amount: Int, toPlayer: Int) -> Bool {
         let senderIndex = currentPlayer-1
         let receiverIndex = toPlayer-1
@@ -124,6 +118,8 @@ class Game {
         let playerIndex = currentPlayer - 1
         return state.players[playerIndex].unplacedFuelStations
     }
+    
+    //TODO: Move to MoveManager?
     func takeCurrentPlayerOutOfTheGame() {
         let playerIndex = currentPlayer - 1
         return state.players[playerIndex].status = .outOfTheGame
@@ -182,7 +178,7 @@ class Game {
         state.players[playerIndex].unplacedFuelStations += fuelStations
     }
 
-    
+    //TODO: Move to MoveManager
     func roll(_ die1: Int, _ die2: Int) -> [RollResult] {
         guard state.currentPlayerCanRoll else {
             state.rollResult = [.invalidRoll]
@@ -247,27 +243,25 @@ class Game {
         return state.rollResult
     }
     
+    //TODO: Move to MoveManager
     func endTurn() -> Bool {
-        guard totalDebtForCurrentPlayer() == 0 else {return false}
+        guard banker.totalDebtForCurrentPlayer(state: state) == 0 else {return false}
         
-        state.currentPlayerIndex += 1
-        if currentPlayer > numberOfPlayers {
-            state.currentPlayerIndex = 0
-        }
-        
-        state.currentPlayerCanRoll = true
+        state = mover.endTurn(state: state)
         
         return true
     }
 
+    //TODO: Move to MoveManager?
     private func didPassEarth(route: [Int]) -> Bool {
         return route.contains(0)
     }
 
     func movePlayer(_ n: Int, to loc: Int) {
-        state.playerLocations[n-1] = loc
+        self.state = mover.movePlayer(n, to: loc, on: board, state: state)
     }
     
+    //TODO: Move to MoveManager?
     private func redShift() -> [RollResult] {
         var result = [RollResult.redShift]
         
@@ -318,6 +312,7 @@ class Game {
         return result
     }
     
+    //TODO: Move to MoveManager
     private func resultOfRolling(_ die1: Int, _ die2: Int) -> RollResult? {
         guard die1 >= 1, die2 >= 1, die1 <= 6, die2 <= 6 else {
             return nil
@@ -354,9 +349,8 @@ class Game {
     }
     
     func placeFuelStation(at pos: Int) -> Bool {
-        if self.state.ownerList[pos] == currentPlayer,
-           !self.state.placedFuelStationLocations.contains(pos) {
-            self.state.placedFuelStationLocations.insert(pos)
+        if let new = try? banker.placeFuelStation(at: pos, on: board, state: state) {
+            self.state = new
             return true
         } else {
             return false
