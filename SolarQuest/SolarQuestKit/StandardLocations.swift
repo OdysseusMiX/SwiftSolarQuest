@@ -3,7 +3,7 @@ import Foundation
 struct StandardLocations {
     
     static func Earth() -> Location {
-        Location(federationPlanet: "Earth", fuelCost: [25])
+        Location(federationPlanet: "Earth", fuelCost: [25], landingBonusFederons: 500)
     }
     static func BlackDot() -> Location {
         Location(blackDot: "Gravity Well")

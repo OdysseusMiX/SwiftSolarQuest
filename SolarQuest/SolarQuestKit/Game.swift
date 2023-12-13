@@ -187,6 +187,10 @@ class Game {
         let player = players[currentPlayer-1]
         player.federons += federons
     }
+    func addToCurrentPlayer(fuelStations: Int) {
+        let player = players[currentPlayer-1]
+        player.unplacedFuelStations += fuelStations
+    }
 
     enum RollResult : Equatable {
         case invalidRoll
@@ -214,7 +218,8 @@ class Game {
             
         } else if let result = resultOfRolling(die1, die2) {
             rollResult.append( result )
-            
+            let route = navigator.findRouteFor(amountToMove: die1+die2, from: startPosition)
+
             if currentPlayerIsStranded() {
                 rollResult.append( .stranded )
                 
@@ -230,18 +235,25 @@ class Game {
                 }
             }
             
+            if didPassEarth(route: route) {
+                addToCurrentPlayer(federons: 500)
+            }
+            
+            if let endPoint = route.last {
+                if let bonus = locations[endPoint].landingBonusFederons {
+                    addToCurrentPlayer(federons: bonus)
+                }
+                if let bonus = locations[endPoint].landingBonusFuelStations {
+                    addToCurrentPlayer(fuelStations: bonus)
+                }
+            }
+            
         } else {
             // ERROR
             rollResult = [RollResult.invalidRoll]
         }
         canRoll = false
-        
-        if boardPositionOfCurrentPlayer() == 0 && startPosition != 0 {
-            addToCurrentPlayer(federons: 1000)
-        } else if didPassEarth(route: [1,2]) { // TODO: Fix this!
-            addToCurrentPlayer(federons: 500)
-        }
-        
+                
         let location = locationForCurrentPlayer()
         let position = boardPositionOfCurrentPlayer()
         let owner = state.ownerList[position]
