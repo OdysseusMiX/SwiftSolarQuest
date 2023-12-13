@@ -12,7 +12,6 @@ protocol Board {
     var connections: [[Int]] {get}
     
     // MARK: Deprecated
-//    var oldLocations : [LocationWithOrbitData] {get set}
     func positionOfPlayer(_:Int) -> Int
     func place(player:Int, at:Int)
 }

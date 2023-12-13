@@ -185,13 +185,6 @@ class Game {
         player.federons += federons
     }
 
-//    func locationAtBoardPosition(_ index: Int) -> LocationWithOrbitData? {
-//        guard index >= 0, index < locations.count else {return nil}
-//
-//        return board.oldLocations[index]
-//    }
-    
-    
     enum RollResult : Equatable {
         case invalidRoll
         case moved(Int)

@@ -1,11 +1,9 @@
 class StandardBoard : Board {
     
-    
     var playerPositions = [Int]()
     var numberOfPlayers : Int { playerPositions.count }
     
     let locations : [Location]
-//    var oldLocations : [LocationWithOrbitData]
     let connections: [[Int]]
     
     init(numberOfPlayers: Int = 1) {
@@ -14,15 +12,6 @@ class StandardBoard : Board {
         for _ in 1...n {
             self.playerPositions.append(0)
         }
-        
-        //TODO: Remove oldLocations
-//        let map = StandardMap.createMap()
-//        self.oldLocations = map.reduce([LocationWithOrbitData](), { (prior, arg1) -> [LocationWithOrbitData] in
-//            let (location, _) = arg1
-//            var result = prior
-//            result.append(location)
-//            return result
-//        })
         
         let mapData = StandardBoard.map()
         self.locations = mapData.reduce([Location](), { (prior, arg1) -> [Location] in
