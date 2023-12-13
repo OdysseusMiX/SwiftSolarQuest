@@ -7,9 +7,9 @@ final class Game_RentTests: XCTestCase {
     
     override func setUp() {
         game = Game(numberOfPlayers: 3)
-        game.board.oldLocations[2].owner = 1 // Moon
-        game.board.oldLocations[3].owner = 2 // Solar Space Dock
-        game.board.oldLocations[4].owner = 3 // Mercury
+        game.state.ownerList[2] = 1 // Moon
+        game.state.ownerList[3] = 2 // Solar Space Dock
+        game.state.ownerList[4] = 3 // Mercury
     }
     
     func test_landOnMercuryOwnedByOtherPlayer_oweRent() {

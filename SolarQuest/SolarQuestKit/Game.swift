@@ -1,4 +1,6 @@
 class Game {
+    var state : GameState
+    
     var players : [Player]
     var numberOfPlayers : Int {players.count}
     var currentPlayer : Int
@@ -18,7 +20,9 @@ class Game {
     init?(numberOfPlayers n: Int, board: Board) {
         guard n >= 1, n<=6 else {return nil}
         
+        
         self.board = board
+        self.state = GameState(for: board, numberOfPlayers: n)
 
         players = [Player]()
         for i in 1...n {
@@ -31,6 +35,11 @@ class Game {
         currentPlayer = 1
         canRoll = true
 
+    }
+    
+    func moveCurrentPlayerTo(_ location: Int) {
+        guard location >= 0, location < self.board.locations.count else {return}
+        self.state.playerLocations[self.currentPlayer - 1] = location
     }
     
     func boardPositionOfCurrentPlayer() -> Int {
@@ -63,21 +72,9 @@ class Game {
         return board.locations[playerPosition]
     }
     func currentLocationIsForSale() -> Bool {
-        guard boardPositionOfCurrentPlayer() != 0 else {
-            return false
-        }
-        
-        let location = locationOfCurrentPlayer()
-        if location.owner == 0 {
-            switch location.type {
-            case .moon, .planet, .researchLab, .spaceDock:
-                return true
-            default:
-                return false
-            }
-        } else {
-            return false
-        }
+        let position = boardPositionOfCurrentPlayer()
+        let location = locationForCurrentPlayer()
+        return self.state.ownerList[position] == 0 && location.price != nil
     }
     func locationForBoardPosition(_ pos: Int) -> Location? {
         guard pos < board.locations.count, pos >= 0 else {
@@ -92,7 +89,8 @@ class Game {
         
         addToCurrentPlayer(federons: -cost)
         let pos = boardPositionOfCurrentPlayer()
-        board.oldLocations[pos].owner = currentPlayer
+        self.state.ownerList[pos] = currentPlayer
+//        board.oldLocations[pos].owner = currentPlayer
 
         return true
     }
@@ -152,12 +150,13 @@ class Game {
     func fuelDataForLocationOfCurrentPlayer() -> FuelData? {
         // Provide FuelData if fuel is available
         let location = locationOfCurrentPlayer()
+        let position = boardPositionOfCurrentPlayer()
         let data = location.data
         
         if let fuelRate = data.fuelCost,
            let cost = fuelRate.first,
            (location.hasFuel || data.hasFuelWithoutFuelStation) {
-            let owner = location.owner
+            let owner = self.state.ownerList[position]
             return FuelData(rate: cost, fromPlayer: owner)
         } else {
             return nil
@@ -251,12 +250,14 @@ class Game {
             addToCurrentPlayer(federons: 500)
         }
         
-        let location = locationOfCurrentPlayer()
-        if location.owner > 0, location.owner != currentPlayer {
+        let location = locationForCurrentPlayer()
+        let position = boardPositionOfCurrentPlayer()
+        let owner = state.ownerList[position]
+        if owner > 0, owner != currentPlayer {
             // Owe Rent
-            if let rent = location.data.rent?.first {
-            rollResult.append( .owe(player: location.owner, rent) )
-            players[currentPlayer-1].debt.append(Player.IOU(owe: rent, toPlayer: location.owner))
+            if let rent = location.rent?.first {
+            rollResult.append( .owe(player: owner, rent) )
+            players[currentPlayer-1].debt.append(Player.IOU(owe: rent, toPlayer: owner))
             }
         }
         

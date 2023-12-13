@@ -50,6 +50,7 @@
 		BB87869226056D20006028E6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB87869126056D20006028E6 /* Location.swift */; };
 		BBF7781E26063C0E006DB037 /* DeedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CF26002C7E004C11BF /* DeedCard.swift */; };
 		BBF7782126063C12006DB037 /* StandardDeedCardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D226002C7E004C11BF /* StandardDeedCardFactory.swift */; };
+		BBF77827260681A6006DB037 /* GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF77826260681A6006DB037 /* GameStateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		BB87867926043D27006028E6 /* GameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFactory.swift; sourceTree = "<group>"; };
 		BB8786872604C66E006028E6 /* TestBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBoard.swift; sourceTree = "<group>"; };
 		BB87869126056D20006028E6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		BBF77826260681A6006DB037 /* GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +165,6 @@
 				BB67619726002C38004C11BF /* AppDelegate.swift */,
 				BB6761ED26002CA5004C11BF /* Components */,
 				BB6761E926002CA5004C11BF /* Entities */,
-				BB6761EC26002CA5004C11BF /* GameState.swift */,
 				BB67619F26002C38004C11BF /* GameViewController.swift */,
 				BB6761FB26002CE4004C11BF /* BoardLayout.swift */,
 				BB6761FD26002CE4004C11BF /* BoardScene.sks */,
@@ -210,6 +211,7 @@
 				BB78646226017D31009214D0 /* README.md */,
 				BB6761D326002C7E004C11BF /* RedShiftCard.swift */,
 				BB6761CD26002C7E004C11BF /* StandardBoard.swift */,
+				BB6761EC26002CA5004C11BF /* GameState.swift */,
 				BB6761D226002C7E004C11BF /* StandardDeedCardFactory.swift */,
 				BB6761D726002C7E004C11BF /* StandardFuelManager.swift */,
 				BB6761D426002C7E004C11BF /* StandardMap.swift */,
@@ -240,6 +242,7 @@
 		BB67622C26002E8A004C11BF /* SolarQuestKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				BBF77826260681A6006DB037 /* GameStateTests.swift */,
 				BB87867526043C52006028E6 /* GameFactoryTests.swift */,
 				BB87866B26043AB8006028E6 /* TestBoardTests.swift */,
 				BB8786612603FD7C006028E6 /* Game_initDefaultsTests.swift */,
@@ -399,6 +402,7 @@
 				BB67625026002EA6004C11BF /* Game_RollTests.swift in Sources */,
 				BB67624F26002EA6004C11BF /* Game_BuyPropertyTests.swift in Sources */,
 				BB87867626043C52006028E6 /* GameFactoryTests.swift in Sources */,
+				BBF77827260681A6006DB037 /* GameStateTests.swift in Sources */,
 				BB67624E26002EA6004C11BF /* Game_MoveTests.swift in Sources */,
 				BB67624726002EA6004C11BF /* Game_StartBonusTests.swift in Sources */,
 				BB67624626002EA6004C11BF /* StandardBoardTests.swift in Sources */,

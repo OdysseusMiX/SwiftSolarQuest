@@ -6,10 +6,11 @@ class BoardScene: SKScene {
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
-    var state = GameState()
-    
-    var game : Game?
-    
+
+    var game : Game!
+    var state : GameState! {self.game?.state}
+    var layout : BoardLayout!
+
     private var lastUpdateTime : TimeInterval = 0
     private var ignoreTouches = false
     
@@ -24,12 +25,12 @@ class BoardScene: SKScene {
     
     fileprivate func newGame() {
         self.game = Game(numberOfPlayers: 1)
-        self.state = GameState()
+        self.layout = BoardLayout()
     }
     
     func createAllFromState() {
         
-        let locations = self.state.layout.locations
+        let locations = self.layout.locations
         
         for location in locations {
             let name = location.imageName
@@ -70,11 +71,11 @@ class BoardScene: SKScene {
     
     func moveCurrentPlayerToNext() {
         let currentLocation = self.state.playerLocations[self.state.currentPlayer]
-        let routes = self.state.layout.findMovesFor(amountToMove: 1, from: currentLocation)
+        let routes = self.layout.findMovesFor(amountToMove: 1, from: currentLocation)
         let newLocation = routes[0][0]
-        let newPosition = self.state.layout.locations[newLocation].position
+        let newPosition = self.layout.locations[newLocation].position
         
-        self.state.playerLocations[self.state.currentPlayer] = newLocation
+        self.game.moveCurrentPlayerTo(newLocation)
         
         if let player = self.getPlayerEntity(self.state.currentPlayer),
            let node = player.component(ofType: SpriteComponent.self)?.node {

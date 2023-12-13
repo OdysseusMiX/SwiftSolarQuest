@@ -33,17 +33,18 @@ final class Game_BuyPropertyTests: XCTestCase {
         let success = game.buyProperty()
         
         XCTAssertEqual(success, true)
-        XCTAssertEqual(game.locationOfCurrentPlayer().owner, 1)
+        XCTAssertEqual(game.state.ownerList[4], 1)
     }
     func test_buyMercury_payBank() {
         game.board.place(player: 1, at: 4)
         let federonsBefore = game.players[0].federons
         let costToBuy = 375
-        
+        XCTAssertEqual(game.state.ownerList[4], 0)
+
         let success = game.buyProperty()
         
         XCTAssertEqual(success, true)
-        XCTAssertEqual(game.locationOfCurrentPlayer().owner, 1)
+        XCTAssertEqual(game.state.ownerList[4], 1)
         XCTAssertEqual(game.federonsForCurrentPlayer(), federonsBefore - costToBuy)
     }
     func test_isForSale_Moon_true() {
@@ -84,17 +85,18 @@ final class Game_BuyPropertyTests: XCTestCase {
         let success = game.buyProperty()
         
         XCTAssertEqual(success, false)
-        XCTAssertEqual(game.locationOfCurrentPlayer().owner, 0)
+        XCTAssertEqual(game.state.ownerList[4], 0)
         XCTAssertEqual(game.federonsForCurrentPlayer(), 100)
     }
     func test_mercuryOwnedByPlayer2_player1CannotBuy() {
-        game.board.oldLocations[4].owner = 2
+        game.state.ownerList[4] = 2
         game.board.place(player: 1, at: 4)
+        XCTAssertEqual(game.boardPositionOfPlayer(1), 4)
         
         let success = game.buyProperty()
         
         XCTAssertEqual(success, false)
-        XCTAssertEqual(game.locationOfCurrentPlayer().owner, 2)
+        XCTAssertEqual(game.state.ownerList[4], 2)
     }
     func test_player1BuysMercury_player2BuysSolarSpaceDock() {
         let federonsAtStart = game.federonsForCurrentPlayer()
@@ -111,8 +113,8 @@ final class Game_BuyPropertyTests: XCTestCase {
         
         XCTAssertEqual(game.players[0].federons, federonsAtStart - mercury.price!)
         XCTAssertEqual(game.players[1].federons, federonsAtStart - SSD.price!)
-        XCTAssertEqual(game.locationOfPlayer(1)?.owner, 1)
-        XCTAssertEqual(game.locationOfPlayer(2)?.owner, 2)
+        XCTAssertEqual(game.state.ownerList[4], 1)
+        XCTAssertEqual(game.state.ownerList[3], 2)
     }
     // can buy an unowned planet or moon with a fuel station on it for 500 plus deed price
     

@@ -1,7 +1,6 @@
 struct MutableLocation: Equatable {
     let data : Location
 
-    var owner : Int = 0 // player 0 is the Federation
     var hasFuel: Bool
     let isInOrbit: Bool
     let isBreakOrbitPoint : Bool

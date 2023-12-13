@@ -9,6 +9,11 @@ class Game_initDefaultsTests: XCTestCase {
         let test = game?.board as? TestBoard
         XCTAssertEqual(test, board)
     }
-
+    
+    func testGame_newGame_hasState() {
+        GameFactory.version = .standard
+        let game = GameFactory.newGame(numberOfPlayers: 2)
+        XCTAssertNotNil(game?.state)
+    }
 
 }
