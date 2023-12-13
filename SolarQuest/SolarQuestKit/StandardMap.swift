@@ -1,5 +1,5 @@
 struct StandardMap: Map {
-    static func listLocations(in data: MapData) -> [MutableLocation] {
+    static func listLocations(in data: MapData) -> [Location] {
         return GenericMap.listLocations(in: data)
     }
     static func listConnections(in data: MapData) -> [[Int]] {

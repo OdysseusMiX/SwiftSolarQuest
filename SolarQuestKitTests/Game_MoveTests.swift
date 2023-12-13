@@ -7,23 +7,25 @@ final class Game_MoveTests: XCTestCase {
     let locations = StandardMap.listLocations(in: StandardMap.createMap())
     
     override func setUp() {
-        game = Game(numberOfPlayers: 3)
+        GameFactory.version = .standard
+        game = GameFactory.newGame(numberOfPlayers: 3)
     }
 
     func test_playersStartAtFirstLocation() {
         let firstLocation = locations.first
-        
-        XCTAssertEqual(game.locationOfPlayer(1), firstLocation)
-        XCTAssertEqual(game.locationOfPlayer(2), firstLocation)
-        XCTAssertEqual(game.locationOfPlayer(3), firstLocation)
+
+        XCTAssertEqual(game.locationForPlayer(1), firstLocation)
+        XCTAssertEqual(game.locationForPlayer(2), firstLocation)
+        XCTAssertEqual(game.locationForPlayer(3), firstLocation)
     }
     
     func test_player1MovesThree_atFourthLocation() {
         let _ = game.roll(1,2)
 
-        XCTAssertEqual(game.locationOfPlayer(1), locations[3])
+        XCTAssertEqual(game.locationForCurrentPlayer(), locations[3])
     }
     
+    // TODO: MOVE TO TURN TESTS
     func test_turnIsPlayer2WhenPlayer1EndsTurn() {
         let _ = game.roll(1,2)
         let _ = game.endTurn()
@@ -32,11 +34,11 @@ final class Game_MoveTests: XCTestCase {
     }
 
     func test_player1MovesTwoPlayer2MovesThree_player2AtFourthLocation() {
-        let _ = game.roll(1,2)
+        let _ = game.roll(1,5)
         let _ = game.endTurn()
         let _ = game.roll(1,2)
 
-        XCTAssertEqual(game.locationOfPlayer(2), locations[3])
+        XCTAssertEqual(game.locationForCurrentPlayer(), locations[3])
     }
 
     func test_turnIsBackToPlayer1WhenPlayer2IsFinished() throws {
@@ -56,7 +58,7 @@ final class Game_MoveTests: XCTestCase {
 
         let _ = game.roll(1,2)
 
-        XCTAssertEqual(game.locationOfPlayer(1), locations[2])
+        XCTAssertEqual(game.locationForPlayer(1), locations[2])
     }
     
     func test_playerMovesSevenFromFedStationVIII_atTriton() throws {
@@ -135,7 +137,7 @@ final class Game_MoveTests: XCTestCase {
         let _ = game.roll(1,2)
 
         // Then player gets pulled back and lands on Earth
-        XCTAssertEqual(game.locationOfPlayer(1)?.name, "Earth")
+        XCTAssertEqual(game.locationForPlayer(1)?.name, "Earth")
 
     }
     

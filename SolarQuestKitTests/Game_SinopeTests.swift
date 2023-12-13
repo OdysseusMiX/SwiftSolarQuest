@@ -4,7 +4,6 @@ import XCTest
 final class Game_SinopeTests: XCTestCase {
     
     var game : Game!
-    let locations = StandardMap.listLocations(in: StandardMap.createMap())
     
     override func setUp() {
         game = Game(numberOfPlayers: 3)

@@ -2,16 +2,16 @@ protocol Map {
     typealias MapData = [(MutableLocation, [Int])]
     
     static func createMap() -> MapData // [Int] is list of map indices this location connects to
-    static func listLocations(in: MapData) -> [MutableLocation]
+    static func listLocations(in: MapData) -> [Location]
     static func listConnections(in data: MapData) -> [[Int]]
 }
 
 struct GenericMap : Map {
-    static func listLocations(in data: MapData) -> [MutableLocation] {
-        data.reduce([MutableLocation](), { (prior, arg1) -> [MutableLocation] in
+    static func listLocations(in data: MapData) -> [Location] {
+        data.reduce([Location](), { (prior, arg1) -> [Location] in
             let (location, _) = arg1
             var result = prior
-            result.append(location)
+            result.append(location.data)
             return result
         })
     }

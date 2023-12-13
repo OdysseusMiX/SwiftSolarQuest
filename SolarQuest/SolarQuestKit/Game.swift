@@ -52,6 +52,16 @@ class Game {
         let playerPosition = board.positionOfPlayer(n)
         return board.oldLocations[playerPosition]
     }
+    func locationForCurrentPlayer() -> Location {
+        let pos = boardPositionOfCurrentPlayer()
+        return board.locations[pos]
+    }
+    func locationForPlayer(_ n: Int) -> Location? {
+        guard n >= 1, n <= players.count else {return nil}
+        
+        let playerPosition = board.positionOfPlayer(n)
+        return board.locations[playerPosition]
+    }
     func currentLocationIsForSale() -> Bool {
         guard boardPositionOfCurrentPlayer() != 0 else {
             return false
@@ -68,10 +78,6 @@ class Game {
         } else {
             return false
         }
-    }
-    func locationForCurrentPlayer() -> Location {
-        let pos = boardPositionOfCurrentPlayer()
-        return board.locations[pos]
     }
     func locationForBoardPosition(_ pos: Int) -> Location? {
         guard pos < board.locations.count, pos >= 0 else {

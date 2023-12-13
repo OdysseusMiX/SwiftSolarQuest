@@ -10,17 +10,17 @@ final class Game_BuyPropertyTests: XCTestCase {
         game = Game(numberOfPlayers: 3)
     }
 
-    func test_getPriceOfMercury_returnsDeedCard() {
-        let deed = game.deedCardForBoardPosition(4)
+    func test_getPriceOfMercury_returns375() {
+        let loc = game.locationForBoardPosition(4)
         
-        XCTAssertEqual(deed?.name, "Mercury")
-        XCTAssertEqual(deed?.price, 375)
+        XCTAssertEqual(loc?.name, "Mercury")
+        XCTAssertEqual(loc?.price, 375)
     }
-    func test_getPriceOfIo_returnsDeedCard() {
-        let deed = game.deedCardForBoardPosition(8)
+    func test_getPriceOfIo_returns230() {
+        let loc = game.locationForBoardPosition(8)
         
-        XCTAssertEqual(deed?.name, "Io")
-        XCTAssertEqual(deed?.price, 230)
+        XCTAssertEqual(loc?.name, "Io")
+        XCTAssertEqual(loc?.price, 230)
     }
 
     func test_isForSale_Mercury_true() {
@@ -38,7 +38,7 @@ final class Game_BuyPropertyTests: XCTestCase {
     func test_buyMercury_payBank() {
         game.board.place(player: 1, at: 4)
         let federonsBefore = game.players[0].federons
-        let costToBuy = game.deedCardForBoardPosition(4)!.price
+        let costToBuy = 375
         
         let success = game.buyProperty()
         
@@ -100,17 +100,17 @@ final class Game_BuyPropertyTests: XCTestCase {
         let federonsAtStart = game.federonsForCurrentPlayer()
         
         let _ = game.roll(3, 1)
-        let mercury = game.deedCardForCurrentPosition()
+        let mercury = game.locationForCurrentPlayer()
         let _ = game.buyProperty()
         let _ = game.endTurn()
         
         let _ = game.roll(2, 1)
-        let SSD = game.deedCardForCurrentPosition()
+        let SSD = game.locationForCurrentPlayer()
         let _ = game.buyProperty()
         let _ = game.endTurn()
         
-        XCTAssertEqual(game.players[0].federons, federonsAtStart - mercury!.price)
-        XCTAssertEqual(game.players[1].federons, federonsAtStart - SSD!.price)
+        XCTAssertEqual(game.players[0].federons, federonsAtStart - mercury.price!)
+        XCTAssertEqual(game.players[1].federons, federonsAtStart - SSD.price!)
         XCTAssertEqual(game.locationOfPlayer(1)?.owner, 1)
         XCTAssertEqual(game.locationOfPlayer(2)?.owner, 2)
     }

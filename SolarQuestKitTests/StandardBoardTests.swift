@@ -23,8 +23,8 @@ final class StandardBoardTests: XCTestCase {
 //    }
     
     func test_usesStandardMapLocations() {
-        let board = StandardBoard()
-        let locations = StandardMap.listLocations(in: StandardMap.createMap())
+        let board : Board = StandardBoard()
+        let locations : [Location] = StandardMap.listLocations(in: StandardMap.createMap())
         
         XCTAssertEqual(board.locations, locations)
     }

@@ -10,13 +10,15 @@ class TestBoardTests: XCTestCase {
     }
 
     func testBoard_init_HasLocations() {
-        let locations = [StandardMap.Earth(), StandardMap.Mars()]
+        let earth : Location = StandardMap.Earth().data
+        let mars : Location = StandardMap.Mars().data
+        let locations = [earth, mars]
         
         XCTAssertEqual(locations, self.board.locations)
     }
 
     func testBoard_init_HasConnections() {
-        let connections = [[1],[0]]
+        let connections : [[Int]] = [[1],[0]]
         
         XCTAssertEqual(connections, self.board.connections)
     }

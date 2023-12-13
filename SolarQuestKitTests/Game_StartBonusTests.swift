@@ -4,10 +4,10 @@ import XCTest
 final class Game_StartBonusTests: XCTestCase {
         
     var game : Game!
-    let locations = StandardMap.listLocations(in: StandardMap.createMap())
     
     override func setUp() {
-        game = Game(numberOfPlayers: 3)
+        GameFactory.version = .standard
+        game = GameFactory.newGame(numberOfPlayers: 3)
     }
  
 
