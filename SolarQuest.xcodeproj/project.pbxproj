@@ -43,7 +43,6 @@
 		BB67624E26002EA6004C11BF /* Game_MoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624126002EA6004C11BF /* Game_MoveTests.swift */; };
 		BB67624F26002EA6004C11BF /* Game_BuyPropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624226002EA6004C11BF /* Game_BuyPropertyTests.swift */; };
 		BB67625026002EA6004C11BF /* Game_RollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624326002EA6004C11BF /* Game_RollTests.swift */; };
-		BB67625126002EA6004C11BF /* PublicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624426002EA6004C11BF /* PublicTests.swift */; };
 		BB67625226002EA6004C11BF /* Game_RedShiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624526002EA6004C11BF /* Game_RedShiftTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,7 +101,6 @@
 		BB67624126002EA6004C11BF /* Game_MoveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_MoveTests.swift; sourceTree = "<group>"; };
 		BB67624226002EA6004C11BF /* Game_BuyPropertyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_BuyPropertyTests.swift; sourceTree = "<group>"; };
 		BB67624326002EA6004C11BF /* Game_RollTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_RollTests.swift; sourceTree = "<group>"; };
-		BB67624426002EA6004C11BF /* PublicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicTests.swift; sourceTree = "<group>"; };
 		BB67624526002EA6004C11BF /* Game_RedShiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_RedShiftTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,7 +221,6 @@
 		BB67622C26002E8A004C11BF /* SolarQuestKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				BB67624426002EA6004C11BF /* PublicTests.swift */,
 				BB67623926002EA5004C11BF /* BoardTests.swift */,
 				BB67624226002EA6004C11BF /* Game_BuyPropertyTests.swift */,
 				BB67624026002EA6004C11BF /* Game_FuelTests.swift */,
@@ -371,7 +368,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB67624B26002EA6004C11BF /* Game_RentTests.swift in Sources */,
-				BB67625126002EA6004C11BF /* PublicTests.swift in Sources */,
 				BB67624D26002EA6004C11BF /* Game_FuelTests.swift in Sources */,
 				BB67624A26002EA6004C11BF /* Game_LowFuelTests.swift in Sources */,
 				BB67625026002EA6004C11BF /* Game_RollTests.swift in Sources */,
