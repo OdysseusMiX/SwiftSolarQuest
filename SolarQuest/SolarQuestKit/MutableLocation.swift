@@ -8,7 +8,6 @@ struct MutableLocation: Equatable {
 
     var name : String {data.name}
     var type : LocationType {data.type}
-    var deedCard : DeedCard? {data.deedCard}
     
     init(name: String, type: LocationType, isInOrbit: Bool = false, isBreakOrbitPoint: Bool = false, hasFuel: Bool = false, fuelRate: Int? = nil) {
         self.data = Location(name: name, type: type)

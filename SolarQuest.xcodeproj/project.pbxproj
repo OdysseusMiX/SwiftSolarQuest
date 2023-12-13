@@ -14,10 +14,8 @@
 		BB6761D926002C7E004C11BF /* MutableLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CC26002C7E004C11BF /* MutableLocation.swift */; };
 		BB6761DA26002C7E004C11BF /* StandardBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CD26002C7E004C11BF /* StandardBoard.swift */; };
 		BB6761DB26002C7E004C11BF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CE26002C7E004C11BF /* Game.swift */; };
-		BB6761DC26002C7E004C11BF /* DeedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CF26002C7E004C11BF /* DeedCard.swift */; };
 		BB6761DD26002C7E004C11BF /* FuelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D026002C7E004C11BF /* FuelManager.swift */; };
 		BB6761DE26002C7E004C11BF /* StandardNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D126002C7E004C11BF /* StandardNavigator.swift */; };
-		BB6761DF26002C7E004C11BF /* StandardDeedCardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D226002C7E004C11BF /* StandardDeedCardFactory.swift */; };
 		BB6761E026002C7E004C11BF /* RedShiftCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D326002C7E004C11BF /* RedShiftCard.swift */; };
 		BB6761E126002C7E004C11BF /* StandardMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D426002C7E004C11BF /* StandardMap.swift */; };
 		BB6761E226002C7E004C11BF /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D526002C7E004C11BF /* Map.swift */; };
@@ -50,6 +48,8 @@
 		BB87867A26043D27006028E6 /* GameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB87867926043D27006028E6 /* GameFactory.swift */; };
 		BB8786882604C66E006028E6 /* TestBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8786872604C66E006028E6 /* TestBoard.swift */; };
 		BB87869226056D20006028E6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB87869126056D20006028E6 /* Location.swift */; };
+		BBF7781E26063C0E006DB037 /* DeedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CF26002C7E004C11BF /* DeedCard.swift */; };
+		BBF7782126063C12006DB037 /* StandardDeedCardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D226002C7E004C11BF /* StandardDeedCardFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -363,10 +363,10 @@
 				BB6761DE26002C7E004C11BF /* StandardNavigator.swift in Sources */,
 				BB6761E226002C7E004C11BF /* Map.swift in Sources */,
 				BB87867226043BB6006028E6 /* Board.swift in Sources */,
-				BB6761DC26002C7E004C11BF /* DeedCard.swift in Sources */,
 				BB6761E326002C7E004C11BF /* Player.swift in Sources */,
 				BB87869226056D20006028E6 /* Location.swift in Sources */,
 				BB87867A26043D27006028E6 /* GameFactory.swift in Sources */,
+				BBF7782126063C12006DB037 /* StandardDeedCardFactory.swift in Sources */,
 				BB6761F326002CA5004C11BF /* SpriteComponent.swift in Sources */,
 				BB6761FF26002CE4004C11BF /* BoardScene.swift in Sources */,
 				BB8786882604C66E006028E6 /* TestBoard.swift in Sources */,
@@ -376,8 +376,8 @@
 				BB6761F426002CA5004C11BF /* PlayerComponent.swift in Sources */,
 				BB6761E026002C7E004C11BF /* RedShiftCard.swift in Sources */,
 				BB6761FE26002CE4004C11BF /* BoardLayout.swift in Sources */,
-				BB6761DF26002C7E004C11BF /* StandardDeedCardFactory.swift in Sources */,
 				BB6761DD26002C7E004C11BF /* FuelManager.swift in Sources */,
+				BBF7781E26063C0E006DB037 /* DeedCard.swift in Sources */,
 				BB6761A026002C38004C11BF /* GameViewController.swift in Sources */,
 				BB6761DA26002C7E004C11BF /* StandardBoard.swift in Sources */,
 				BB6761D926002C7E004C11BF /* MutableLocation.swift in Sources */,

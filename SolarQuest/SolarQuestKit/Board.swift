@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Board {
-    var locations : [MutableLocation] {get}
+    var locations : [Location] {get}
     var connections: [[Int]] {get}
     
     // MARK: Deprecated

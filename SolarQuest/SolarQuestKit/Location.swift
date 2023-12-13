@@ -4,9 +4,7 @@ import Foundation
 struct Location: Equatable {
     let type : LocationType
     let name : String
-    
-    let deedCard : DeedCard?
-    
+        
     let group : String?
     let price : Int?
     let rent : [Int]?
@@ -22,7 +20,9 @@ struct Location: Equatable {
     init(name: String, type: LocationType) {
         self.name = name
         self.type = type
-        self.deedCard = StandardDeedCardFactory.make(name)
+        
+        // TODO: Move all this logic to Standard Map!
+        let deedCard = StandardDeedCardFactory.make(name)
         
         if name == "Earth" {
             self.group = nil
@@ -38,7 +38,7 @@ struct Location: Equatable {
 
         } else {
             
-            if let deed = self.deedCard {
+            if let deed = deedCard {
                 self.group = deed.group
                 self.price = deed.price
                 self.rent = deed.rent

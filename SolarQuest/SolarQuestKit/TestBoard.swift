@@ -2,17 +2,21 @@
 import Foundation
 
 struct TestBoard : Board, Equatable {
-    let locations: [MutableLocation]
+    let locations: [Location]
     let connections: [[Int]]
     
     init() {
-        self.locations = [StandardMap.Earth(), StandardMap.Mars()]
+        self.oldLocations = [StandardMap.Earth(), StandardMap.Mars()]
         self.connections = [
             [1],
             [0]
         ]
         
-        self.oldLocations = self.locations // TODO: Remove
+        self.locations = self.oldLocations.reduce([Location](), { (prior, loc) -> [Location] in
+            var result = prior
+            result.append(loc.data)
+            return result
+        }) // TODO: Remove
     }
     
     // MARK: Deprecated

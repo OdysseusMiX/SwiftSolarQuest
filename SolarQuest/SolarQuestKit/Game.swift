@@ -6,7 +6,7 @@ class Game {
     var board : Board
     var navigator: Navigator
     var fuelManager : FuelManager
-    var locations: [MutableLocation] {board.locations}
+    var locations: [MutableLocation] {board.oldLocations}
     var redShiftCardDeck = RedShiftCardDeck.deal()
     var nextRedShiftCard = 0
     
@@ -25,7 +25,7 @@ class Game {
             players.append(Player(name: "Player \(i)"))
         }
         
-        navigator = StandardNavigator(locations: board.locations)
+        navigator = StandardNavigator(locations: board.oldLocations)
         fuelManager = StandardFuelManager()
         
         currentPlayer = 1
@@ -50,7 +50,7 @@ class Game {
         guard n >= 1, n <= players.count else {return nil}
         
         let playerPosition = board.positionOfPlayer(n)
-        return board.locations[playerPosition]
+        return board.oldLocations[playerPosition]
     }
     func currentLocationIsForSale() -> Bool {
         guard boardPositionOfCurrentPlayer() != 0 else {
@@ -69,15 +69,19 @@ class Game {
             return false
         }
     }
-    func deedCardForCurrentPosition() -> DeedCard? {
-        return deedCardForBoardPosition(boardPositionOfCurrentPlayer())
+    func locationForCurrentPlayer() -> Location {
+        let pos = boardPositionOfCurrentPlayer()
+        return board.locations[pos]
     }
-    func deedCardForBoardPosition(_ pos: Int) -> DeedCard? {
-        return board.locations[pos].deedCard
+    func locationForBoardPosition(_ pos: Int) -> Location? {
+        guard pos < board.locations.count, pos >= 0 else {
+            return nil
+        }
+        return board.locations[pos]
     }
     func buyProperty() -> Bool {
         guard currentLocationIsForSale() else {return false}
-        guard let cost = deedCardForBoardPosition(boardPositionOfCurrentPlayer())?.price else { return false }
+        guard let cost = locationForCurrentPlayer().price else { return false }
         guard cost <= federonsForCurrentPlayer() else {return false}
         
         addToCurrentPlayer(federons: -cost)
@@ -140,18 +144,18 @@ class Game {
     }
     
     func fuelDataForLocationOfCurrentPlayer() -> FuelData? {
+        // Provide FuelData if fuel is available
         let location = locationOfCurrentPlayer()
+        let data = location.data
         
-        if location.name == "Earth" {
-            return FuelData(rate: 25, fromPlayer: 0)
-        }
-        
-        guard location.hasFuel else {
+        if let fuelRate = data.fuelCost,
+           let cost = fuelRate.first,
+           (location.hasFuel || data.hasFuelWithoutFuelStation) {
+            let owner = location.owner
+            return FuelData(rate: cost, fromPlayer: owner)
+        } else {
             return nil
         }
-        guard let rate = location.deedCard?.fuelRate?.first else {return nil} // TODO: Fix. This should not happen!
-        
-        return FuelData(rate: rate, fromPlayer: location.owner)
     }
     struct FuelData: Equatable {
         let rate: Int
@@ -189,7 +193,7 @@ class Game {
     func locationAtBoardPosition(_ index: Int) -> MutableLocation? {
         guard index >= 0, index < locations.count else {return nil}
         
-        return board.locations[index]
+        return board.oldLocations[index]
     }
     
     
@@ -244,7 +248,7 @@ class Game {
         let location = locationOfCurrentPlayer()
         if location.owner > 0, location.owner != currentPlayer {
             // Owe Rent
-            if let rent = location.deedCard?.rent.first {
+            if let rent = location.data.rent?.first {
             rollResult.append( .owe(player: location.owner, rent) )
             players[currentPlayer-1].debt.append(Player.IOU(owe: rent, toPlayer: location.owner))
             }
