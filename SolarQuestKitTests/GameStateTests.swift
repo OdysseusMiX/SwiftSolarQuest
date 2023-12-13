@@ -36,4 +36,37 @@ class GameStateTests: XCTestCase {
             XCTFail("Did not create game")
         }
     }
+    
+    func testGame_placeFuelStation_updatesState() {
+        GameFactory.version = .standard
+        if let game = GameFactory.newGame(numberOfPlayers: 2) {
+            
+            game.state.currentPlayer = 0 // Player 1
+            game.state.ownerList[4] = 1
+            
+            let success = game.placeFuelStation(at: 4)
+            
+            XCTAssertTrue(success)
+            XCTAssertTrue(game.state.placedFuelStationLocations.contains(4))
+            
+        } else {
+            XCTFail("Did not create game")
+        }
+    }
+    func testGame_placeFuelStationAtUnownedLocation_fail() {
+        GameFactory.version = .standard
+        if let game = GameFactory.newGame(numberOfPlayers: 2) {
+            
+            game.state.currentPlayer = 0 // Player 1
+            game.state.ownerList[4] = 0
+            
+            let success = game.placeFuelStation(at: 4)
+            
+            XCTAssertFalse(success)
+            XCTAssertFalse(game.state.placedFuelStationLocations.contains(4))
+            
+        } else {
+            XCTFail("Did not create game")
+        }
+    }
 }

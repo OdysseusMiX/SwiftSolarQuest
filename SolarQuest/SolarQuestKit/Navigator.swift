@@ -1,4 +1,4 @@
 protocol Navigator {
-    var locations: [MutableLocation] {get set}
+    var locations: [LocationWithOrbitData] {get set}
     func nextLocation(from: Int, moving: Int) -> Int
 }

@@ -1,16 +1,14 @@
-struct MutableLocation: Equatable {
+struct LocationWithOrbitData: Equatable {
     let data : Location
 
-    var hasFuel: Bool
     let isInOrbit: Bool
     let isBreakOrbitPoint : Bool
 
     var name : String {data.name}
     var type : LocationType {data.type}
     
-    init(name: String, type: LocationType, isInOrbit: Bool = false, isBreakOrbitPoint: Bool = false, hasFuel: Bool = false, fuelRate: Int? = nil) {
+    init(name: String, type: LocationType, isInOrbit: Bool = false, isBreakOrbitPoint: Bool = false, fuelRate: Int? = nil) {
         self.data = Location(name: name, type: type)
-        self.hasFuel = hasFuel
         self.isInOrbit = isInOrbit
         self.isBreakOrbitPoint = isBreakOrbitPoint
     }

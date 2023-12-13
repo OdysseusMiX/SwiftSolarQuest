@@ -8,7 +8,7 @@ class Game {
     var board : Board
     var navigator: Navigator
     var fuelManager : FuelManager
-    var locations: [MutableLocation] {board.oldLocations}
+    var locations: [LocationWithOrbitData] {board.oldLocations}
     var redShiftCardDeck = RedShiftCardDeck.deal()
     var nextRedShiftCard = 0
     
@@ -52,10 +52,10 @@ class Game {
         return result
     }
     
-    func locationOfCurrentPlayer() -> MutableLocation {
+    func locationOfCurrentPlayer() -> LocationWithOrbitData {
         return locationOfPlayer(currentPlayer)!
     }
-    func locationOfPlayer(_ n: Int) -> MutableLocation? {
+    func locationOfPlayer(_ n: Int) -> LocationWithOrbitData? {
         guard n >= 1, n <= players.count else {return nil}
         
         let playerPosition = board.positionOfPlayer(n)
@@ -90,7 +90,6 @@ class Game {
         addToCurrentPlayer(federons: -cost)
         let pos = boardPositionOfCurrentPlayer()
         self.state.ownerList[pos] = currentPlayer
-//        board.oldLocations[pos].owner = currentPlayer
 
         return true
     }
@@ -152,10 +151,11 @@ class Game {
         let location = locationOfCurrentPlayer()
         let position = boardPositionOfCurrentPlayer()
         let data = location.data
+        let hasFuel = (self.state.placedFuelStationLocations.contains(position) || data.hasFuelWithoutFuelStation)
         
         if let fuelRate = data.fuelCost,
            let cost = fuelRate.first,
-           (location.hasFuel || data.hasFuelWithoutFuelStation) {
+            hasFuel {
             let owner = self.state.ownerList[position]
             return FuelData(rate: cost, fromPlayer: owner)
         } else {
@@ -195,7 +195,7 @@ class Game {
         player.federons += federons
     }
 
-    func locationAtBoardPosition(_ index: Int) -> MutableLocation? {
+    func locationAtBoardPosition(_ index: Int) -> LocationWithOrbitData? {
         guard index >= 0, index < locations.count else {return nil}
         
         return board.oldLocations[index]
@@ -232,7 +232,13 @@ class Game {
             if currentPlayerIsStranded() {
                 rollResult.append( .stranded )
                 
-                if !locationOfCurrentPlayer().hasFuel && fuelStationsForCurrentPlayer() == 0 {
+                let position = boardPositionOfCurrentPlayer()
+                let location = board.locations[position]
+                let locationHasFuel = self.state.placedFuelStationLocations.contains(position) || location.hasFuelWithoutFuelStation
+                let locationCanProvideFuel = location.canPlaceFuelStation
+                let playerHasUnplacedFuelStation = fuelStationsForCurrentPlayer() > 0
+                
+                if !locationHasFuel, locationCanProvideFuel, !playerHasUnplacedFuelStation {
                     rollResult.append( .outOfTheGame )
                     takeCurrentPlayerOutOfTheGame()
                 }
@@ -395,7 +401,7 @@ class Game {
         return result
     }
     
-    private func calculateFuelCost(toMove: Int, from location: MutableLocation) -> Int {
+    private func calculateFuelCost(toMove: Int, from location: LocationWithOrbitData) -> Int {
         switch location.type {
         case .planet, .moon:
             return toMove
@@ -404,4 +410,13 @@ class Game {
         }
     }
     
+    func placeFuelStation(at pos: Int) -> Bool {
+        if self.state.ownerList[pos] == currentPlayer,
+           !self.state.placedFuelStationLocations.contains(pos) {
+            self.state.placedFuelStationLocations.insert(pos)
+            return true
+        } else {
+            return false
+        }
+    }
 }

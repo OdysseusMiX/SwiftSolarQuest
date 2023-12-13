@@ -21,7 +21,7 @@ struct TestBoard : Board, Equatable {
     
     // MARK: Deprecated
     //TODO: Remove all these
-    var oldLocations: [MutableLocation]
+    var oldLocations: [LocationWithOrbitData]
     func positionOfPlayer(_: Int) -> Int {return 0}
     func place(player: Int, at: Int) {}
     

@@ -1,5 +1,5 @@
 protocol Map {
-    typealias MapData = [(MutableLocation, [Int])]
+    typealias MapData = [(LocationWithOrbitData, [Int])]
     
     static func createMap() -> MapData // [Int] is list of map indices this location connects to
     static func listLocations(in: MapData) -> [Location]
@@ -25,7 +25,7 @@ struct GenericMap : Map {
     }
 
     static func createMap() -> MapData {
-        return [(MutableLocation, [Int])]()
+        return [(LocationWithOrbitData, [Int])]()
     }
     
     

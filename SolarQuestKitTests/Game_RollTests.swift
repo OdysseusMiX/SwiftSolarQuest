@@ -73,7 +73,7 @@ final class Game_RollTests: XCTestCase {
     func test_landOnMoonWith1HydronAndNoFuelStations_outOfTheGame() {
         game.players[0].hydrons = 9
         game.players[0].unplacedFuelStations = 0
-        game.board.oldLocations[8].hasFuel = false
+        game.state.placedFuelStationLocations.remove(8)
         
         let result = game.roll(5,3) // moves to Io
         
