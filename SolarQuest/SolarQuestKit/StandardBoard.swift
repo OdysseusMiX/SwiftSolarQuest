@@ -5,7 +5,7 @@ class StandardBoard : Board {
     var numberOfPlayers : Int { playerPositions.count }
     
     let locations : [Location]
-    var oldLocations : [LocationWithOrbitData]
+//    var oldLocations : [LocationWithOrbitData]
     let connections: [[Int]]
     
     init(numberOfPlayers: Int = 1) {
@@ -16,13 +16,13 @@ class StandardBoard : Board {
         }
         
         //TODO: Remove oldLocations
-        let map = StandardMap.createMap()
-        self.oldLocations = map.reduce([LocationWithOrbitData](), { (prior, arg1) -> [LocationWithOrbitData] in
-            let (location, _) = arg1
-            var result = prior
-            result.append(location)
-            return result
-        })
+//        let map = StandardMap.createMap()
+//        self.oldLocations = map.reduce([LocationWithOrbitData](), { (prior, arg1) -> [LocationWithOrbitData] in
+//            let (location, _) = arg1
+//            var result = prior
+//            result.append(location)
+//            return result
+//        })
         
         let mapData = StandardBoard.map()
         self.locations = mapData.reduce([Location](), { (prior, arg1) -> [Location] in

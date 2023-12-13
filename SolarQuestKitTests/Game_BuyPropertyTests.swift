@@ -4,7 +4,7 @@ import XCTest
 final class Game_BuyPropertyTests: XCTestCase {
         
     var game : Game!
-    let locations = StandardMap.listLocations(in: StandardMap.createMap())
+    let locations = StandardBoard().locations
     
     override func setUp() {
         game = Game(numberOfPlayers: 3)

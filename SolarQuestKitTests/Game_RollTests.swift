@@ -85,7 +85,7 @@ final class Game_RollTests: XCTestCase {
         
         let result = game.roll(5,2) // moves to Blue Dot prior to Jupiter orbit
         
-        XCTAssertEqual(game.locationOfCurrentPlayer(), StandardMap.BlueDot())
+        XCTAssertEqual(game.locationForCurrentPlayer(), StandardLocations.BlueDot())
         XCTAssertEqual(game.players[0].status, .playing)
         XCTAssertFalse(result.contains(.stranded))
     }
@@ -94,7 +94,7 @@ final class Game_RollTests: XCTestCase {
         
         let result = game.roll(6,4) // moves to first Blue Dot in Jupiter orbit
         
-        XCTAssertEqual(game.locationOfCurrentPlayer(), StandardMap.OrbitalBlueDot())
+        XCTAssertEqual(game.locationForCurrentPlayer(), StandardLocations.BlueDot())
         XCTAssertEqual(game.players[0].status, .playing)
         XCTAssertFalse(result.contains(.stranded))
     }
@@ -103,7 +103,7 @@ final class Game_RollTests: XCTestCase {
         
         let result = game.roll(5,4) // moves to Jupiter space dock
         
-        XCTAssertEqual(game.locationOfCurrentPlayer(), StandardMap.JupiterSpaceDock())
+        XCTAssertEqual(game.locationForCurrentPlayer(), StandardLocations.JupiterSpaceDock())
         XCTAssertEqual(game.players[0].status, .playing)
         XCTAssertFalse(result.contains(.stranded))
     }

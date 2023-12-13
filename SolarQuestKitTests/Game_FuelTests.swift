@@ -59,11 +59,11 @@ final class Game_FuelTests: XCTestCase {
     }
     func test_player1TriesToMove10With9Hydrons_doesNotMove() throws {
         game.players[0].hydrons = 9
-        let startingLocation = game.locationOfPlayer(1)
+        let startingLocation = game.locationForPlayer(1)
         
         let _ = game.roll(6,4)
 
-        XCTAssertEqual(game.locationOfPlayer(1), startingLocation)
+        XCTAssertEqual(game.locationForPlayer(1), startingLocation)
         XCTAssertEqual(game.players[0].hydrons, 9)
     }
     

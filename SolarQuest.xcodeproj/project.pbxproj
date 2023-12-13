@@ -11,14 +11,11 @@
 		BB6761A026002C38004C11BF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67619F26002C38004C11BF /* GameViewController.swift */; };
 		BB6761A326002C38004C11BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6761A126002C38004C11BF /* Main.storyboard */; };
 		BB6761A526002C39004C11BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB6761A426002C39004C11BF /* Assets.xcassets */; };
-		BB6761D926002C7E004C11BF /* LocationWithOrbitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CC26002C7E004C11BF /* LocationWithOrbitData.swift */; };
 		BB6761DA26002C7E004C11BF /* StandardBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CD26002C7E004C11BF /* StandardBoard.swift */; };
 		BB6761DB26002C7E004C11BF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CE26002C7E004C11BF /* Game.swift */; };
 		BB6761DD26002C7E004C11BF /* FuelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D026002C7E004C11BF /* FuelManager.swift */; };
 		BB6761DE26002C7E004C11BF /* StandardNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D126002C7E004C11BF /* StandardNavigator.swift */; };
 		BB6761E026002C7E004C11BF /* RedShiftCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D326002C7E004C11BF /* RedShiftCard.swift */; };
-		BB6761E126002C7E004C11BF /* StandardMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D426002C7E004C11BF /* StandardMap.swift */; };
-		BB6761E226002C7E004C11BF /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D526002C7E004C11BF /* Map.swift */; };
 		BB6761E326002C7E004C11BF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D626002C7E004C11BF /* Player.swift */; };
 		BB6761E426002C7E004C11BF /* StandardFuelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D726002C7E004C11BF /* StandardFuelManager.swift */; };
 		BB6761E526002C7E004C11BF /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D826002C7E004C11BF /* Navigator.swift */; };
@@ -51,7 +48,6 @@
 		BBE961D22606C50400B46A8F /* StandardLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961D12606C50400B46A8F /* StandardLocations.swift */; };
 		BBE961DA2607A11500B46A8F /* NavigatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE961D92607A11500B46A8F /* NavigatorTests.swift */; };
 		BBF7781E26063C0E006DB037 /* DeedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CF26002C7E004C11BF /* DeedCard.swift */; };
-		BBF7782126063C12006DB037 /* StandardDeedCardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D226002C7E004C11BF /* StandardDeedCardFactory.swift */; };
 		BBF77827260681A6006DB037 /* GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF77826260681A6006DB037 /* GameStateTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,16 +72,12 @@
 		BB6761B126002C39004C11BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB6761BA26002C39004C11BF /* SolarQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarQuestUITests.swift; sourceTree = "<group>"; };
 		BB6761BC26002C39004C11BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB6761CC26002C7E004C11BF /* LocationWithOrbitData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationWithOrbitData.swift; sourceTree = "<group>"; };
 		BB6761CD26002C7E004C11BF /* StandardBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardBoard.swift; sourceTree = "<group>"; };
 		BB6761CE26002C7E004C11BF /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		BB6761CF26002C7E004C11BF /* DeedCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeedCard.swift; sourceTree = "<group>"; };
 		BB6761D026002C7E004C11BF /* FuelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelManager.swift; sourceTree = "<group>"; };
 		BB6761D126002C7E004C11BF /* StandardNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardNavigator.swift; sourceTree = "<group>"; };
-		BB6761D226002C7E004C11BF /* StandardDeedCardFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardDeedCardFactory.swift; sourceTree = "<group>"; };
 		BB6761D326002C7E004C11BF /* RedShiftCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedShiftCard.swift; sourceTree = "<group>"; };
-		BB6761D426002C7E004C11BF /* StandardMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardMap.swift; sourceTree = "<group>"; };
-		BB6761D526002C7E004C11BF /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		BB6761D626002C7E004C11BF /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		BB6761D726002C7E004C11BF /* StandardFuelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardFuelManager.swift; sourceTree = "<group>"; };
 		BB6761D826002C7E004C11BF /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
@@ -207,21 +199,17 @@
 				BB78646326018409009214D0 /* Future Plan.md */,
 				BB6761CE26002C7E004C11BF /* Game.swift */,
 				BB87867926043D27006028E6 /* GameFactory.swift */,
+				BB6761EC26002CA5004C11BF /* GameState.swift */,
 				BB87869126056D20006028E6 /* Location.swift */,
-				BB6761D526002C7E004C11BF /* Map.swift */,
-				BB6761CC26002C7E004C11BF /* LocationWithOrbitData.swift */,
 				BB6761D826002C7E004C11BF /* Navigator.swift */,
 				BB6761D626002C7E004C11BF /* Player.swift */,
 				BB78646226017D31009214D0 /* README.md */,
 				BB6761D326002C7E004C11BF /* RedShiftCard.swift */,
 				BB6761CD26002C7E004C11BF /* StandardBoard.swift */,
-				BB6761EC26002CA5004C11BF /* GameState.swift */,
-				BB6761D226002C7E004C11BF /* StandardDeedCardFactory.swift */,
 				BB6761D726002C7E004C11BF /* StandardFuelManager.swift */,
-				BB6761D426002C7E004C11BF /* StandardMap.swift */,
+				BBE961D12606C50400B46A8F /* StandardLocations.swift */,
 				BB6761D126002C7E004C11BF /* StandardNavigator.swift */,
 				BB8786872604C66E006028E6 /* TestBoard.swift */,
-				BBE961D12606C50400B46A8F /* StandardLocations.swift */,
 			);
 			path = SolarQuestKit;
 			sourceTree = "<group>";
@@ -370,12 +358,10 @@
 			files = (
 				BB6761F126002CA5004C11BF /* Spaceship.swift in Sources */,
 				BB6761DE26002C7E004C11BF /* StandardNavigator.swift in Sources */,
-				BB6761E226002C7E004C11BF /* Map.swift in Sources */,
 				BB87867226043BB6006028E6 /* Board.swift in Sources */,
 				BB6761E326002C7E004C11BF /* Player.swift in Sources */,
 				BB87869226056D20006028E6 /* Location.swift in Sources */,
 				BB87867A26043D27006028E6 /* GameFactory.swift in Sources */,
-				BBF7782126063C12006DB037 /* StandardDeedCardFactory.swift in Sources */,
 				BB6761F326002CA5004C11BF /* SpriteComponent.swift in Sources */,
 				BB6761FF26002CE4004C11BF /* BoardScene.swift in Sources */,
 				BB8786882604C66E006028E6 /* TestBoard.swift in Sources */,
@@ -390,11 +376,9 @@
 				BBF7781E26063C0E006DB037 /* DeedCard.swift in Sources */,
 				BB6761A026002C38004C11BF /* GameViewController.swift in Sources */,
 				BB6761DA26002C7E004C11BF /* StandardBoard.swift in Sources */,
-				BB6761D926002C7E004C11BF /* LocationWithOrbitData.swift in Sources */,
 				BB6761E426002C7E004C11BF /* StandardFuelManager.swift in Sources */,
 				BB6761F026002CA5004C11BF /* CelestialBody.swift in Sources */,
 				BB67619826002C38004C11BF /* AppDelegate.swift in Sources */,
-				BB6761E126002C7E004C11BF /* StandardMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

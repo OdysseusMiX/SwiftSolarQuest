@@ -71,7 +71,7 @@ final class Game_MoveTests: XCTestCase {
 
         let _ = game.roll(3,4)
 
-        XCTAssertEqual(game.locationOfPlayer(1)?.name, "Triton")
+        XCTAssertEqual(game.locationForPlayer(1)?.name, "Triton")
 
     }
     func test_playerCannotBreakOrbitIfWouldLandOnBlackDot() throws {
@@ -85,7 +85,7 @@ final class Game_MoveTests: XCTestCase {
         let _ = game.roll(3,1)
 
         // Then player does not break orbit and lands on Nereid
-        XCTAssertEqual(game.locationOfPlayer(1)?.name, "Nereid")
+        XCTAssertEqual(game.locationForPlayer(1)?.name, "Nereid")
 
     }
     func test_playerBreakOrbitIfWouldNotLandOnBlackDot() throws {
@@ -99,7 +99,7 @@ final class Game_MoveTests: XCTestCase {
         let _ = game.roll(5,1)
 
         // Then player breaks orbit and lands on Earth Research Station
-        XCTAssertEqual(game.locationOfPlayer(1)?.name, "Earth Research Lab")
+        XCTAssertEqual(game.locationForPlayer(1)?.name, "Earth Research Lab")
 
     }
     func test_playerBreaksOrbitAndLandsOnEarth() throws {
@@ -113,7 +113,7 @@ final class Game_MoveTests: XCTestCase {
         let _ = game.roll(5,2)
 
         // Then player breaks orbit and lands on Earth
-        XCTAssertEqual(game.locationOfPlayer(1)?.name, "Earth")
+        XCTAssertEqual(game.locationForPlayer(1)?.name, "Earth")
 
     }
     func test_playerBreaksOrbitAndLandsOnBlackDotBeyondEarth_atEarth() throws {
@@ -127,7 +127,7 @@ final class Game_MoveTests: XCTestCase {
         let _ = game.roll(5,3)
 
         // Then player breaks orbit and lands on Earth
-        XCTAssertEqual(game.locationOfPlayer(1)?.name, "Earth")
+        XCTAssertEqual(game.locationForPlayer(1)?.name, "Earth")
 
     }
     func test_playerLandsOnBlackDotBeyondEarth_atEarth() throws {

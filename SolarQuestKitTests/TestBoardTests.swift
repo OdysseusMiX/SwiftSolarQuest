@@ -10,8 +10,8 @@ class TestBoardTests: XCTestCase {
     }
 
     func testBoard_init_HasLocations() {
-        let earth : Location = StandardMap.Earth().data
-        let mars : Location = StandardMap.Mars().data
+        let earth : Location = StandardLocations.Earth()
+        let mars : Location = StandardLocations.Mars()
         let locations = [earth, mars]
         
         XCTAssertEqual(locations, self.board.locations)

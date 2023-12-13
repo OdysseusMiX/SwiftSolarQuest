@@ -8,7 +8,7 @@ class Game {
     var board : Board
     var navigator: Navigator
     var fuelManager : FuelManager
-    var locations: [LocationWithOrbitData] {board.oldLocations}
+    var locations: [Location] {board.locations}
     var redShiftCardDeck = RedShiftCardDeck.deal()
     var nextRedShiftCard = 0
     
@@ -52,15 +52,6 @@ class Game {
         return result
     }
     
-    func locationOfCurrentPlayer() -> LocationWithOrbitData {
-        return locationOfPlayer(currentPlayer)!
-    }
-    func locationOfPlayer(_ n: Int) -> LocationWithOrbitData? {
-        guard n >= 1, n <= players.count else {return nil}
-        
-        let playerPosition = board.positionOfPlayer(n)
-        return board.oldLocations[playerPosition]
-    }
     func locationForCurrentPlayer() -> Location {
         let pos = boardPositionOfCurrentPlayer()
         return board.locations[pos]
@@ -148,12 +139,11 @@ class Game {
     
     func fuelDataForLocationOfCurrentPlayer() -> FuelData? {
         // Provide FuelData if fuel is available
-        let location = locationOfCurrentPlayer()
+        let location = locationForCurrentPlayer()
         let position = boardPositionOfCurrentPlayer()
-        let data = location.data
-        let hasFuel = (self.state.placedFuelStationLocations.contains(position) || data.hasFuelWithoutFuelStation)
+        let hasFuel = (self.state.placedFuelStationLocations.contains(position) || location.hasFuelWithoutFuelStation)
         
-        if let fuelRate = data.fuelCost,
+        if let fuelRate = location.fuelCost,
            let cost = fuelRate.first,
             hasFuel {
             let owner = self.state.ownerList[position]
@@ -195,11 +185,11 @@ class Game {
         player.federons += federons
     }
 
-    func locationAtBoardPosition(_ index: Int) -> LocationWithOrbitData? {
-        guard index >= 0, index < locations.count else {return nil}
-        
-        return board.oldLocations[index]
-    }
+//    func locationAtBoardPosition(_ index: Int) -> LocationWithOrbitData? {
+//        guard index >= 0, index < locations.count else {return nil}
+//
+//        return board.oldLocations[index]
+//    }
     
     
     enum RollResult : Equatable {
@@ -252,7 +242,7 @@ class Game {
         
         if boardPositionOfCurrentPlayer() == 0 && startPosition != 0 {
             addToCurrentPlayer(federons: 1000)
-        } else if didPassEarth(wentFrom: startPosition, to: boardPositionOfCurrentPlayer()) {
+        } else if didPassEarth(route: [1,2]) { // TODO: Fix this!
             addToCurrentPlayer(federons: 500)
         }
         
@@ -283,39 +273,10 @@ class Game {
         return true
     }
 
-    
-    private func didPassEarth(wentFrom startPosition: Int, to endPosition: Int) -> Bool {
-        let result : Bool
-        
-        if didEndInSameOrbit(startPosition, endPosition) {
-            result = false
-        } else {
-            result = startPosition > endPosition
-        }
-        
-        return result
+    private func didPassEarth(route: [Int]) -> Bool {
+        return route.contains(0)
     }
-    private func didEndInSameOrbit(_ startPosition: Int, _ endPosition: Int) -> Bool {
-        guard locations[startPosition].isInOrbit && locations[endPosition].isInOrbit else { return false }
-        
-        var pos = startPosition
-        while locations[pos].isInOrbit {
-            pos -= 1
-        }
-        let firstOrbitPosition = pos
-        
-        pos = startPosition
-        while locations[pos].isInOrbit {
-            pos += 1
-        }
-        let lastOrbitPosition = pos
-        
-        if endPosition >= firstOrbitPosition && endPosition <= lastOrbitPosition {
-            return true
-        } else {
-            return false
-        }
-    }
+
     
     private func redShift() -> [RollResult] {
         var result = [RollResult.redShift]
@@ -399,15 +360,6 @@ class Game {
         
         let result = newPosition
         return result
-    }
-    
-    private func calculateFuelCost(toMove: Int, from location: LocationWithOrbitData) -> Int {
-        switch location.type {
-        case .planet, .moon:
-            return toMove
-        default:
-            return 0
-        }
     }
     
     func placeFuelStation(at pos: Int) -> Bool {

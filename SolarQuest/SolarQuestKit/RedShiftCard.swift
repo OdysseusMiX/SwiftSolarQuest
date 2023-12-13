@@ -12,7 +12,7 @@ struct RedShiftCard {
 }
 
 struct RedShiftCardDeck {
-    static let locations : [Location] = StandardMap.listLocations(in: StandardMap.createMap())
+    static let locations : [Location] = StandardBoard().locations
     
     static func deal() -> [RedShiftCard] {
         return [RedShiftCardDeck.MeteorShower()]
