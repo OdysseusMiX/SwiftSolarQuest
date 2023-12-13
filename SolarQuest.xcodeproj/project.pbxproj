@@ -8,25 +8,47 @@
 
 /* Begin PBXBuildFile section */
 		BB67619826002C38004C11BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67619726002C38004C11BF /* AppDelegate.swift */; };
-		BB67619A26002C38004C11BF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB67619926002C38004C11BF /* GameScene.sks */; };
-		BB67619C26002C38004C11BF /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB67619B26002C38004C11BF /* Actions.sks */; };
 		BB67619E26002C38004C11BF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67619D26002C38004C11BF /* GameScene.swift */; };
 		BB6761A026002C38004C11BF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67619F26002C38004C11BF /* GameViewController.swift */; };
 		BB6761A326002C38004C11BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6761A126002C38004C11BF /* Main.storyboard */; };
 		BB6761A526002C39004C11BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB6761A426002C39004C11BF /* Assets.xcassets */; };
-		BB6761B026002C39004C11BF /* SolarQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761AF26002C39004C11BF /* SolarQuestTests.swift */; };
-		BB6761BB26002C39004C11BF /* SolarQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761BA26002C39004C11BF /* SolarQuestUITests.swift */; };
+		BB6761D926002C7E004C11BF /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CC26002C7E004C11BF /* Locations.swift */; };
+		BB6761DA26002C7E004C11BF /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CD26002C7E004C11BF /* Board.swift */; };
+		BB6761DB26002C7E004C11BF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CE26002C7E004C11BF /* Game.swift */; };
+		BB6761DC26002C7E004C11BF /* DeedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761CF26002C7E004C11BF /* DeedCard.swift */; };
+		BB6761DD26002C7E004C11BF /* FuelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D026002C7E004C11BF /* FuelManager.swift */; };
+		BB6761DE26002C7E004C11BF /* StandardNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D126002C7E004C11BF /* StandardNavigator.swift */; };
+		BB6761DF26002C7E004C11BF /* StandardDeedCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D226002C7E004C11BF /* StandardDeedCards.swift */; };
+		BB6761E026002C7E004C11BF /* RedShiftCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D326002C7E004C11BF /* RedShiftCard.swift */; };
+		BB6761E126002C7E004C11BF /* StandardMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D426002C7E004C11BF /* StandardMap.swift */; };
+		BB6761E226002C7E004C11BF /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D526002C7E004C11BF /* Map.swift */; };
+		BB6761E326002C7E004C11BF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D626002C7E004C11BF /* Player.swift */; };
+		BB6761E426002C7E004C11BF /* StandardFuelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D726002C7E004C11BF /* StandardFuelManager.swift */; };
+		BB6761E526002C7E004C11BF /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761D826002C7E004C11BF /* Navigator.swift */; };
+		BB6761F026002CA5004C11BF /* CelestialBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761EA26002CA5004C11BF /* CelestialBody.swift */; };
+		BB6761F126002CA5004C11BF /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761EB26002CA5004C11BF /* Spaceship.swift */; };
+		BB6761F226002CA5004C11BF /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761EC26002CA5004C11BF /* GameState.swift */; };
+		BB6761F326002CA5004C11BF /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761EE26002CA5004C11BF /* SpriteComponent.swift */; };
+		BB6761F426002CA5004C11BF /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761EF26002CA5004C11BF /* PlayerComponent.swift */; };
+		BB6761FE26002CE4004C11BF /* BoardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761FB26002CE4004C11BF /* BoardLayout.swift */; };
+		BB6761FF26002CE4004C11BF /* BoardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6761FC26002CE4004C11BF /* BoardScene.swift */; };
+		BB67620026002CE4004C11BF /* BoardScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB6761FD26002CE4004C11BF /* BoardScene.sks */; };
+		BB67624626002EA6004C11BF /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67623926002EA5004C11BF /* BoardTests.swift */; };
+		BB67624726002EA6004C11BF /* Game_StartBonusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67623A26002EA5004C11BF /* Game_StartBonusTests.swift */; };
+		BB67624826002EA6004C11BF /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67623B26002EA5004C11BF /* GameTests.swift */; };
+		BB67624926002EA6004C11BF /* Game_SinopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67623C26002EA6004C11BF /* Game_SinopeTests.swift */; };
+		BB67624A26002EA6004C11BF /* Game_LowFuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67623D26002EA6004C11BF /* Game_LowFuelTests.swift */; };
+		BB67624B26002EA6004C11BF /* Game_RentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67623E26002EA6004C11BF /* Game_RentTests.swift */; };
+		BB67624D26002EA6004C11BF /* Game_FuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624026002EA6004C11BF /* Game_FuelTests.swift */; };
+		BB67624E26002EA6004C11BF /* Game_MoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624126002EA6004C11BF /* Game_MoveTests.swift */; };
+		BB67624F26002EA6004C11BF /* Game_BuyPropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624226002EA6004C11BF /* Game_BuyPropertyTests.swift */; };
+		BB67625026002EA6004C11BF /* Game_RollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624326002EA6004C11BF /* Game_RollTests.swift */; };
+		BB67625126002EA6004C11BF /* PublicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624426002EA6004C11BF /* PublicTests.swift */; };
+		BB67625226002EA6004C11BF /* Game_RedShiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67624526002EA6004C11BF /* Game_RedShiftTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BB6761AC26002C39004C11BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB67618C26002C38004C11BF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BB67619326002C38004C11BF;
-			remoteInfo = SolarQuest;
-		};
-		BB6761B726002C39004C11BF /* PBXContainerItemProxy */ = {
+		BB67623026002E8A004C11BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BB67618C26002C38004C11BF /* Project object */;
 			proxyType = 1;
@@ -38,19 +60,50 @@
 /* Begin PBXFileReference section */
 		BB67619426002C38004C11BF /* SolarQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB67619726002C38004C11BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB67619926002C38004C11BF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		BB67619B26002C38004C11BF /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		BB67619D26002C38004C11BF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		BB67619F26002C38004C11BF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		BB6761A226002C38004C11BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB6761A426002C39004C11BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB6761A626002C39004C11BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB6761AB26002C39004C11BF /* SolarQuestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolarQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6761AF26002C39004C11BF /* SolarQuestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarQuestTests.swift; sourceTree = "<group>"; };
 		BB6761B126002C39004C11BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB6761B626002C39004C11BF /* SolarQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolarQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6761BA26002C39004C11BF /* SolarQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarQuestUITests.swift; sourceTree = "<group>"; };
 		BB6761BC26002C39004C11BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB6761CC26002C7E004C11BF /* Locations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		BB6761CD26002C7E004C11BF /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		BB6761CE26002C7E004C11BF /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		BB6761CF26002C7E004C11BF /* DeedCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeedCard.swift; sourceTree = "<group>"; };
+		BB6761D026002C7E004C11BF /* FuelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelManager.swift; sourceTree = "<group>"; };
+		BB6761D126002C7E004C11BF /* StandardNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardNavigator.swift; sourceTree = "<group>"; };
+		BB6761D226002C7E004C11BF /* StandardDeedCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardDeedCards.swift; sourceTree = "<group>"; };
+		BB6761D326002C7E004C11BF /* RedShiftCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedShiftCard.swift; sourceTree = "<group>"; };
+		BB6761D426002C7E004C11BF /* StandardMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardMap.swift; sourceTree = "<group>"; };
+		BB6761D526002C7E004C11BF /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		BB6761D626002C7E004C11BF /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		BB6761D726002C7E004C11BF /* StandardFuelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardFuelManager.swift; sourceTree = "<group>"; };
+		BB6761D826002C7E004C11BF /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		BB6761EA26002CA5004C11BF /* CelestialBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelestialBody.swift; sourceTree = "<group>"; };
+		BB6761EB26002CA5004C11BF /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
+		BB6761EC26002CA5004C11BF /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		BB6761EE26002CA5004C11BF /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
+		BB6761EF26002CA5004C11BF /* PlayerComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerComponent.swift; sourceTree = "<group>"; };
+		BB6761FB26002CE4004C11BF /* BoardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardLayout.swift; sourceTree = "<group>"; };
+		BB6761FC26002CE4004C11BF /* BoardScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardScene.swift; sourceTree = "<group>"; };
+		BB6761FD26002CE4004C11BF /* BoardScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardScene.sks; sourceTree = "<group>"; };
+		BB67622B26002E8A004C11BF /* SolarQuestKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolarQuestKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB67622F26002E8A004C11BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB67623926002EA5004C11BF /* BoardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
+		BB67623A26002EA5004C11BF /* Game_StartBonusTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_StartBonusTests.swift; sourceTree = "<group>"; };
+		BB67623B26002EA5004C11BF /* GameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
+		BB67623C26002EA6004C11BF /* Game_SinopeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_SinopeTests.swift; sourceTree = "<group>"; };
+		BB67623D26002EA6004C11BF /* Game_LowFuelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_LowFuelTests.swift; sourceTree = "<group>"; };
+		BB67623E26002EA6004C11BF /* Game_RentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_RentTests.swift; sourceTree = "<group>"; };
+		BB67624026002EA6004C11BF /* Game_FuelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_FuelTests.swift; sourceTree = "<group>"; };
+		BB67624126002EA6004C11BF /* Game_MoveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_MoveTests.swift; sourceTree = "<group>"; };
+		BB67624226002EA6004C11BF /* Game_BuyPropertyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_BuyPropertyTests.swift; sourceTree = "<group>"; };
+		BB67624326002EA6004C11BF /* Game_RollTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_RollTests.swift; sourceTree = "<group>"; };
+		BB67624426002EA6004C11BF /* PublicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicTests.swift; sourceTree = "<group>"; };
+		BB67624526002EA6004C11BF /* Game_RedShiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_RedShiftTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,14 +114,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB6761A826002C39004C11BF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BB6761B326002C39004C11BF /* Frameworks */ = {
+		BB67622826002E8A004C11BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -84,6 +130,7 @@
 				BB67619626002C38004C11BF /* SolarQuest */,
 				BB6761AE26002C39004C11BF /* SolarQuestTests */,
 				BB6761B926002C39004C11BF /* SolarQuestUITests */,
+				BB67622C26002E8A004C11BF /* SolarQuestKitTests */,
 				BB67619526002C38004C11BF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,8 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				BB67619426002C38004C11BF /* SolarQuest.app */,
-				BB6761AB26002C39004C11BF /* SolarQuestTests.xctest */,
-				BB6761B626002C39004C11BF /* SolarQuestUITests.xctest */,
+				BB67622B26002E8A004C11BF /* SolarQuestKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,11 +147,16 @@
 		BB67619626002C38004C11BF /* SolarQuest */ = {
 			isa = PBXGroup;
 			children = (
+				BB6761CB26002C7E004C11BF /* SolarQuestKit */,
 				BB67619726002C38004C11BF /* AppDelegate.swift */,
-				BB67619926002C38004C11BF /* GameScene.sks */,
-				BB67619B26002C38004C11BF /* Actions.sks */,
 				BB67619D26002C38004C11BF /* GameScene.swift */,
+				BB6761ED26002CA5004C11BF /* Components */,
+				BB6761E926002CA5004C11BF /* Entities */,
+				BB6761EC26002CA5004C11BF /* GameState.swift */,
 				BB67619F26002C38004C11BF /* GameViewController.swift */,
+				BB6761FB26002CE4004C11BF /* BoardLayout.swift */,
+				BB6761FD26002CE4004C11BF /* BoardScene.sks */,
+				BB6761FC26002CE4004C11BF /* BoardScene.swift */,
 				BB6761A126002C38004C11BF /* Main.storyboard */,
 				BB6761A426002C39004C11BF /* Assets.xcassets */,
 				BB6761A626002C39004C11BF /* Info.plist */,
@@ -131,6 +182,64 @@
 			path = SolarQuestUITests;
 			sourceTree = "<group>";
 		};
+		BB6761CB26002C7E004C11BF /* SolarQuestKit */ = {
+			isa = PBXGroup;
+			children = (
+				BB6761CC26002C7E004C11BF /* Locations.swift */,
+				BB6761CD26002C7E004C11BF /* Board.swift */,
+				BB6761CE26002C7E004C11BF /* Game.swift */,
+				BB6761CF26002C7E004C11BF /* DeedCard.swift */,
+				BB6761D026002C7E004C11BF /* FuelManager.swift */,
+				BB6761D126002C7E004C11BF /* StandardNavigator.swift */,
+				BB6761D226002C7E004C11BF /* StandardDeedCards.swift */,
+				BB6761D326002C7E004C11BF /* RedShiftCard.swift */,
+				BB6761D426002C7E004C11BF /* StandardMap.swift */,
+				BB6761D526002C7E004C11BF /* Map.swift */,
+				BB6761D626002C7E004C11BF /* Player.swift */,
+				BB6761D726002C7E004C11BF /* StandardFuelManager.swift */,
+				BB6761D826002C7E004C11BF /* Navigator.swift */,
+			);
+			path = SolarQuestKit;
+			sourceTree = "<group>";
+		};
+		BB6761E926002CA5004C11BF /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				BB6761EA26002CA5004C11BF /* CelestialBody.swift */,
+				BB6761EB26002CA5004C11BF /* Spaceship.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		BB6761ED26002CA5004C11BF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BB6761EE26002CA5004C11BF /* SpriteComponent.swift */,
+				BB6761EF26002CA5004C11BF /* PlayerComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		BB67622C26002E8A004C11BF /* SolarQuestKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				BB67624426002EA6004C11BF /* PublicTests.swift */,
+				BB67623926002EA5004C11BF /* BoardTests.swift */,
+				BB67624226002EA6004C11BF /* Game_BuyPropertyTests.swift */,
+				BB67624026002EA6004C11BF /* Game_FuelTests.swift */,
+				BB67623D26002EA6004C11BF /* Game_LowFuelTests.swift */,
+				BB67624126002EA6004C11BF /* Game_MoveTests.swift */,
+				BB67624526002EA6004C11BF /* Game_RedShiftTests.swift */,
+				BB67623E26002EA6004C11BF /* Game_RentTests.swift */,
+				BB67624326002EA6004C11BF /* Game_RollTests.swift */,
+				BB67623C26002EA6004C11BF /* Game_SinopeTests.swift */,
+				BB67623A26002EA5004C11BF /* Game_StartBonusTests.swift */,
+				BB67623B26002EA5004C11BF /* GameTests.swift */,
+				BB67622F26002E8A004C11BF /* Info.plist */,
+			);
+			path = SolarQuestKitTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,41 +260,23 @@
 			productReference = BB67619426002C38004C11BF /* SolarQuest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BB6761AA26002C39004C11BF /* SolarQuestTests */ = {
+		BB67622A26002E8A004C11BF /* SolarQuestKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BB6761C226002C39004C11BF /* Build configuration list for PBXNativeTarget "SolarQuestTests" */;
+			buildConfigurationList = BB67623226002E8A004C11BF /* Build configuration list for PBXNativeTarget "SolarQuestKitTests" */;
 			buildPhases = (
-				BB6761A726002C39004C11BF /* Sources */,
-				BB6761A826002C39004C11BF /* Frameworks */,
-				BB6761A926002C39004C11BF /* Resources */,
+				BB67622726002E8A004C11BF /* Sources */,
+				BB67622826002E8A004C11BF /* Frameworks */,
+				BB67622926002E8A004C11BF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BB6761AD26002C39004C11BF /* PBXTargetDependency */,
+				BB67623126002E8A004C11BF /* PBXTargetDependency */,
 			);
-			name = SolarQuestTests;
-			productName = SolarQuestTests;
-			productReference = BB6761AB26002C39004C11BF /* SolarQuestTests.xctest */;
+			name = SolarQuestKitTests;
+			productName = SolarQuestKitTests;
+			productReference = BB67622B26002E8A004C11BF /* SolarQuestKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		BB6761B526002C39004C11BF /* SolarQuestUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BB6761C526002C39004C11BF /* Build configuration list for PBXNativeTarget "SolarQuestUITests" */;
-			buildPhases = (
-				BB6761B226002C39004C11BF /* Sources */,
-				BB6761B326002C39004C11BF /* Frameworks */,
-				BB6761B426002C39004C11BF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BB6761B826002C39004C11BF /* PBXTargetDependency */,
-			);
-			name = SolarQuestUITests;
-			productName = SolarQuestUITests;
-			productReference = BB6761B626002C39004C11BF /* SolarQuestUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -199,11 +290,7 @@
 					BB67619326002C38004C11BF = {
 						CreatedOnToolsVersion = 12.4;
 					};
-					BB6761AA26002C39004C11BF = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = BB67619326002C38004C11BF;
-					};
-					BB6761B526002C39004C11BF = {
+					BB67622A26002E8A004C11BF = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = BB67619326002C38004C11BF;
 					};
@@ -223,8 +310,7 @@
 			projectRoot = "";
 			targets = (
 				BB67619326002C38004C11BF /* SolarQuest */,
-				BB6761AA26002C39004C11BF /* SolarQuestTests */,
-				BB6761B526002C39004C11BF /* SolarQuestUITests */,
+				BB67622A26002E8A004C11BF /* SolarQuestKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,21 +320,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB67620026002CE4004C11BF /* BoardScene.sks in Resources */,
 				BB6761A326002C38004C11BF /* Main.storyboard in Resources */,
-				BB67619A26002C38004C11BF /* GameScene.sks in Resources */,
 				BB6761A526002C39004C11BF /* Assets.xcassets in Resources */,
-				BB67619C26002C38004C11BF /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB6761A926002C39004C11BF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BB6761B426002C39004C11BF /* Resources */ = {
+		BB67622926002E8A004C11BF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,40 +340,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB6761F126002CA5004C11BF /* Spaceship.swift in Sources */,
+				BB6761DE26002C7E004C11BF /* StandardNavigator.swift in Sources */,
 				BB67619E26002C38004C11BF /* GameScene.swift in Sources */,
+				BB6761E226002C7E004C11BF /* Map.swift in Sources */,
+				BB6761DC26002C7E004C11BF /* DeedCard.swift in Sources */,
+				BB6761E326002C7E004C11BF /* Player.swift in Sources */,
+				BB6761F326002CA5004C11BF /* SpriteComponent.swift in Sources */,
+				BB6761FF26002CE4004C11BF /* BoardScene.swift in Sources */,
+				BB6761E526002C7E004C11BF /* Navigator.swift in Sources */,
+				BB6761F226002CA5004C11BF /* GameState.swift in Sources */,
+				BB6761DB26002C7E004C11BF /* Game.swift in Sources */,
+				BB6761F426002CA5004C11BF /* PlayerComponent.swift in Sources */,
+				BB6761E026002C7E004C11BF /* RedShiftCard.swift in Sources */,
+				BB6761FE26002CE4004C11BF /* BoardLayout.swift in Sources */,
+				BB6761DF26002C7E004C11BF /* StandardDeedCards.swift in Sources */,
+				BB6761DD26002C7E004C11BF /* FuelManager.swift in Sources */,
 				BB6761A026002C38004C11BF /* GameViewController.swift in Sources */,
+				BB6761DA26002C7E004C11BF /* Board.swift in Sources */,
+				BB6761D926002C7E004C11BF /* Locations.swift in Sources */,
+				BB6761E426002C7E004C11BF /* StandardFuelManager.swift in Sources */,
+				BB6761F026002CA5004C11BF /* CelestialBody.swift in Sources */,
 				BB67619826002C38004C11BF /* AppDelegate.swift in Sources */,
+				BB6761E126002C7E004C11BF /* StandardMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB6761A726002C39004C11BF /* Sources */ = {
+		BB67622726002E8A004C11BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB6761B026002C39004C11BF /* SolarQuestTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BB6761B226002C39004C11BF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB6761BB26002C39004C11BF /* SolarQuestUITests.swift in Sources */,
+				BB67624B26002EA6004C11BF /* Game_RentTests.swift in Sources */,
+				BB67625126002EA6004C11BF /* PublicTests.swift in Sources */,
+				BB67624D26002EA6004C11BF /* Game_FuelTests.swift in Sources */,
+				BB67624A26002EA6004C11BF /* Game_LowFuelTests.swift in Sources */,
+				BB67625026002EA6004C11BF /* Game_RollTests.swift in Sources */,
+				BB67624F26002EA6004C11BF /* Game_BuyPropertyTests.swift in Sources */,
+				BB67624E26002EA6004C11BF /* Game_MoveTests.swift in Sources */,
+				BB67624726002EA6004C11BF /* Game_StartBonusTests.swift in Sources */,
+				BB67624626002EA6004C11BF /* BoardTests.swift in Sources */,
+				BB67624826002EA6004C11BF /* GameTests.swift in Sources */,
+				BB67625226002EA6004C11BF /* Game_RedShiftTests.swift in Sources */,
+				BB67624926002EA6004C11BF /* Game_SinopeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BB6761AD26002C39004C11BF /* PBXTargetDependency */ = {
+		BB67623126002E8A004C11BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BB67619326002C38004C11BF /* SolarQuest */;
-			targetProxy = BB6761AC26002C39004C11BF /* PBXContainerItemProxy */;
-		};
-		BB6761B826002C39004C11BF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BB67619326002C38004C11BF /* SolarQuest */;
-			targetProxy = BB6761B726002C39004C11BF /* PBXContainerItemProxy */;
+			targetProxy = BB67623026002E8A004C11BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -465,21 +561,19 @@
 			};
 			name = Release;
 		};
-		BB6761C326002C39004C11BF /* Debug */ = {
+		BB67623326002E8A004C11BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VC3L73M262;
-				INFOPLIST_FILE = SolarQuestTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				INFOPLIST_FILE = SolarQuestKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.odysseus.mix.SolarQuestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.odysseus.mix.SolarQuestKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -487,65 +581,23 @@
 			};
 			name = Debug;
 		};
-		BB6761C426002C39004C11BF /* Release */ = {
+		BB67623426002E8A004C11BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VC3L73M262;
-				INFOPLIST_FILE = SolarQuestTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				INFOPLIST_FILE = SolarQuestKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.odysseus.mix.SolarQuestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.odysseus.mix.SolarQuestKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SolarQuest.app/SolarQuest";
-			};
-			name = Release;
-		};
-		BB6761C626002C39004C11BF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VC3L73M262;
-				INFOPLIST_FILE = SolarQuestUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.odysseus.mix.SolarQuestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SolarQuest;
-			};
-			name = Debug;
-		};
-		BB6761C726002C39004C11BF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VC3L73M262;
-				INFOPLIST_FILE = SolarQuestUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.odysseus.mix.SolarQuestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SolarQuest;
 			};
 			name = Release;
 		};
@@ -570,20 +622,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BB6761C226002C39004C11BF /* Build configuration list for PBXNativeTarget "SolarQuestTests" */ = {
+		BB67623226002E8A004C11BF /* Build configuration list for PBXNativeTarget "SolarQuestKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BB6761C326002C39004C11BF /* Debug */,
-				BB6761C426002C39004C11BF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BB6761C526002C39004C11BF /* Build configuration list for PBXNativeTarget "SolarQuestUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BB6761C626002C39004C11BF /* Debug */,
-				BB6761C726002C39004C11BF /* Release */,
+				BB67623326002E8A004C11BF /* Debug */,
+				BB67623426002E8A004C11BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
