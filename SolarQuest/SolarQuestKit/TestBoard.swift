@@ -12,10 +12,4 @@ struct TestBoard : Board, Equatable {
             [0]
         ]
     }
-    
-    // MARK: Deprecated
-    //TODO: Remove all these
-    func positionOfPlayer(_: Int) -> Int {return 0}
-    func place(player: Int, at: Int) {}
-    
 }

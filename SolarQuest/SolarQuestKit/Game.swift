@@ -1,21 +1,22 @@
 class Game {
     var state : GameState
-    
-    var players : [Player]
-    var numberOfPlayers : Int {players.count}
-    var currentPlayer : Int
-    var canRoll : Bool
     var board : Board
+
+    var players : [Player]
+    var canRoll : Bool
     var navigator: Navigator
     var fuelManager : FuelManager
-    var locations: [Location] {board.locations}
     var redShiftCardDeck = RedShiftCardDeck.deal()
     var nextRedShiftCard = 0
-    
     var rollResult = [RollResult]()
+
+    var numberOfPlayers : Int {state.numberOfPlayers}
+    var currentPlayer : Int {state.currentPlayerIndex+1}
+    var locations: [Location] {board.locations}
+    
     
     convenience init?(numberOfPlayers n: Int) {
-        self.init(numberOfPlayers: n, board: StandardBoard(numberOfPlayers: n))
+        self.init(numberOfPlayers: n, board: StandardBoard())
     }
     init?(numberOfPlayers n: Int, board: Board) {
         guard n >= 1, n<=6 else {return nil}
@@ -32,7 +33,6 @@ class Game {
         navigator = StandardNavigator(for: board)
         fuelManager = StandardFuelManager()
         
-        currentPlayer = 1
         canRoll = true
 
     }
@@ -46,10 +46,10 @@ class Game {
         return boardPositionOfPlayer(currentPlayer)!
     }
     func boardPositionOfPlayer(_ n: Int) -> Int? {
-        guard n >= 1, n <= players.count else {return nil}
+        let index = n-1
+        guard index >= 0, index < state.playerLocations.count else {return nil}
         
-        let result = board.positionOfPlayer(n)
-        return result
+        return state.playerLocations[n-1]
     }
     
     func locationForCurrentPlayer() -> Location {
@@ -59,8 +59,11 @@ class Game {
     func locationForPlayer(_ n: Int) -> Location? {
         guard n >= 1, n <= players.count else {return nil}
         
-        let playerPosition = board.positionOfPlayer(n)
-        return board.locations[playerPosition]
+        if let playerPosition = boardPositionOfPlayer(n) {
+            return board.locations[playerPosition]
+        } else {
+            return nil
+        }
     }
     func currentLocationIsForSale() -> Bool {
         let position = boardPositionOfCurrentPlayer()
@@ -256,9 +259,9 @@ class Game {
     func endTurn() -> Bool {
         guard totalDebtForCurrentPlayer() == 0 else {return false}
         
-        currentPlayer += 1
+        state.currentPlayerIndex += 1
         if currentPlayer > numberOfPlayers {
-            currentPlayer = 1
+            state.currentPlayerIndex = 0
         }
         
         canRoll = true
@@ -270,6 +273,9 @@ class Game {
         return route.contains(0)
     }
 
+    func movePlayer(_ n: Int, to loc: Int) {
+        state.playerLocations[n-1] = loc
+    }
     
     private func redShift() -> [RollResult] {
         var result = [RollResult.redShift]
@@ -278,7 +284,8 @@ class Game {
         result.append(contentsOf: rollResultsFromRedShiftCard(card))
                 
         if let newPosition = card.goto, let fuelCost = card.use {
-            board.place(player: currentPlayer, at: newPosition)
+            
+            movePlayer(currentPlayer, to: newPosition)
             players[currentPlayer-1].hydrons -= fuelCost
                         
             if fuelForCurrentPlayer() < 0 {
@@ -349,7 +356,7 @@ class Game {
         let player = players[currentPlayer-1]
         player.hydrons -= fuelCost
         
-        board.place(player: currentPlayer, at: newPosition)
+        movePlayer(currentPlayer, to: newPosition)
         
         let result = newPosition
         return result

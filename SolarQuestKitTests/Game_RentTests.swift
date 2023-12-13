@@ -19,7 +19,7 @@ final class Game_RentTests: XCTestCase {
         XCTAssertEqual(game.players[0].debt, [Player.IOU(owe: 1035, toPlayer: 3)])
     }
     func test_landOnSolarSDOwnedByOtherPlayer_oweRent() {
-        game.currentPlayer = 3
+        game.state.currentPlayerIndex = 2 // Player 3
         let result = game.roll(2, 1) // go to Solar Space Dock
         
         XCTAssertEqual(result.contains( .owe(player:2, 75) ), true)

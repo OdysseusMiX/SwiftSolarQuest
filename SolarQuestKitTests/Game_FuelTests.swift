@@ -26,7 +26,7 @@ final class Game_FuelTests: XCTestCase {
         XCTAssertEqual(game.players[0].hydrons, fuelBefore-4)
     }
     func test_player1MovesThreeFromMoon_costsThreeHydrons() throws {
-        game.board.place(player: 1, at: 2)
+        game.state.playerLocations[0] = 2
         let fuelBefore = game.players[0].hydrons
         
         let _ = game.roll(1,2)
@@ -34,7 +34,7 @@ final class Game_FuelTests: XCTestCase {
         XCTAssertEqual(game.players[0].hydrons, fuelBefore-3)
     }
     func test_player2MovesThreeFromEarth_costsThreeHydrons() throws {
-        game.currentPlayer = 2
+        game.state.currentPlayerIndex = 1 // Player 2
         let fuelBefore = game.players[1].hydrons
         
         let _ = game.roll(1,2)
@@ -42,7 +42,7 @@ final class Game_FuelTests: XCTestCase {
         XCTAssertEqual(game.players[1].hydrons, fuelBefore-3)
     }
     func test_player1MovesThreeFromSpaceDock_noFuelCost() throws {
-        game.board.place(player: 1, at: 3)
+        game.state.playerLocations[0] = 3
         let fuelBefore = game.players[0].hydrons
         
         let _ = game.roll(1,3)
@@ -50,7 +50,7 @@ final class Game_FuelTests: XCTestCase {
         XCTAssertEqual(game.players[0].hydrons, fuelBefore)
     }
     func test_player1MovesThreeFromBlueDot_noFuelCost() throws {
-        game.board.place(player: 1, at: 6)
+        game.state.playerLocations[0] = 6
         let fuelBefore = game.players[0].hydrons
         
         let _ = game.roll(1,3)
@@ -74,22 +74,22 @@ final class Game_FuelTests: XCTestCase {
         XCTAssertEqual(data?.fromPlayer, 0)
     }
     func test_whenOnBlueDot_cannotBuyFuel() {
-        game.board.place(player: 1, at: 6)
-        
+        game.state.playerLocations[0] = 6
+
         let data = game.fuelDataForLocationOfCurrentPlayer()
         
         XCTAssertEqual(data, nil)
     }
     func test_whenOnOrbitalBlueDot_cannotBuyFuel() {
-        game.board.place(player: 1, at: 10)
-        
+        game.state.playerLocations[0] = 10
+
         let data = game.fuelDataForLocationOfCurrentPlayer()
         
         XCTAssertEqual(data, nil)
     }
     func test_whenOnUnownedSpaceDock_canBuyFuelFromFederationAtLowestRateOnDeedCard() {
-        game.board.place(player: 1, at: 3)
-        
+        game.state.playerLocations[0] = 3
+
         let data = game.fuelDataForLocationOfCurrentPlayer()
         
         XCTAssertEqual(data?.rate, 10)
@@ -99,8 +99,8 @@ final class Game_FuelTests: XCTestCase {
         let player = game.players[0]
         player.hydrons = 20
         player.federons = 50
-        game.board.place(player: 1, at: 3)
-        
+        game.state.playerLocations[0] = 3
+
         let success = game.buyFuel(hydrons: 5)
         
         XCTAssertEqual(success, true)
@@ -111,8 +111,8 @@ final class Game_FuelTests: XCTestCase {
         let player = game.players[0]
         player.hydrons = 20
         player.federons = 500
-        game.board.place(player: 1, at: 3)
-        
+        game.state.playerLocations[0] = 3
+
         let success = game.buyFuel(hydrons: 6)
         
         XCTAssertEqual(success, false)

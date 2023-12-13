@@ -55,7 +55,8 @@ final class Game_MoveTests: XCTestCase {
 
     func test_playerPositionWraps() throws {
         let endOfBoard = game.board.locations.count - 1
-        game.board.place(player: 1, at: endOfBoard )
+        game.state.playerLocations[0] = endOfBoard
+
 
         let _ = game.roll(1,2)
 
@@ -67,7 +68,7 @@ final class Game_MoveTests: XCTestCase {
             loc.name == "Federation Station VIII"
         }) else {XCTFail(); return}
 
-        game.board.place(player: 1, at: fedStation8 )
+        game.state.playerLocations[0] = fedStation8
 
         let _ = game.roll(3,4)
 
@@ -79,7 +80,7 @@ final class Game_MoveTests: XCTestCase {
         guard let triton = game.board.locations.firstIndex (where: { (loc) -> Bool in
             loc.name == "Triton"
         }) else {XCTFail(); return}
-        game.board.place(player: 1, at: triton )
+        game.state.playerLocations[0] = triton
 
         // When player moves 4
         let _ = game.roll(3,1)
@@ -93,7 +94,7 @@ final class Game_MoveTests: XCTestCase {
         guard let triton = game.board.locations.firstIndex (where: { (loc) -> Bool in
             loc.name == "Triton"
         }) else {XCTFail(); return}
-        game.board.place(player: 1, at: triton )
+        game.state.playerLocations[0] = triton
 
         // When player moves 6
         let _ = game.roll(5,1)
@@ -107,7 +108,7 @@ final class Game_MoveTests: XCTestCase {
         guard let triton = game.board.locations.firstIndex (where: { (loc) -> Bool in
             loc.name == "Triton"
         }) else {XCTFail(); return}
-        game.board.place(player: 1, at: triton )
+        game.state.playerLocations[0] = triton
 
         // When player moves 7
         let _ = game.roll(5,2)
@@ -121,7 +122,7 @@ final class Game_MoveTests: XCTestCase {
         guard let triton = game.board.locations.firstIndex (where: { (loc) -> Bool in
             loc.name == "Triton"
         }) else {XCTFail(); return}
-        game.board.place(player: 1, at: triton )
+        game.state.playerLocations[0] = triton
 
         // When player moves 8
         let _ = game.roll(5,3)
@@ -132,7 +133,7 @@ final class Game_MoveTests: XCTestCase {
     }
     func test_playerLandsOnBlackDotBeyondEarth_atEarth() throws {
         // Given player is two space before Earth
-        game.board.place(player: 1, at: game.board.locations.count-2 )
+        game.state.playerLocations[0] = game.board.locations.count-2
 
         // When player moves 3
         let _ = game.roll(1,2)

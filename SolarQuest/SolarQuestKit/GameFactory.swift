@@ -20,7 +20,7 @@ struct GameFactory {
         let board : Board = {
             switch GameFactory.version {
             case .standard:
-                return StandardBoard(numberOfPlayers: n)
+                return StandardBoard()
             case .test:
                 return TestBoard()
             }

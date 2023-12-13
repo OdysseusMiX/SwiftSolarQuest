@@ -41,7 +41,7 @@ class GameStateTests: XCTestCase {
         GameFactory.version = .standard
         if let game = GameFactory.newGame(numberOfPlayers: 2) {
             
-            game.state.currentPlayer = 0 // Player 1
+            game.state.currentPlayerIndex = 0 // Player 1
             game.state.ownerList[4] = 1
             
             let success = game.placeFuelStation(at: 4)
@@ -57,7 +57,7 @@ class GameStateTests: XCTestCase {
         GameFactory.version = .standard
         if let game = GameFactory.newGame(numberOfPlayers: 2) {
             
-            game.state.currentPlayer = 0 // Player 1
+            game.state.currentPlayerIndex = 0 // Player 1
             game.state.ownerList[4] = 0
             
             let success = game.placeFuelStation(at: 4)

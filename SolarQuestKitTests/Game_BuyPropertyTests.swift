@@ -24,19 +24,19 @@ final class Game_BuyPropertyTests: XCTestCase {
     }
 
     func test_isForSale_Mercury_true() {
-        game.board.place(player: 1, at: 4)
+        game.state.playerLocations[0] = 4
         XCTAssertEqual(game.currentLocationIsForSale(), true)
     }
     func test_buyMercury_isOwnedBySelf() {
-        game.board.place(player: 1, at: 4)
-        
+        game.state.playerLocations[0] = 4
+
         let success = game.buyProperty()
         
         XCTAssertEqual(success, true)
         XCTAssertEqual(game.state.ownerList[4], 1)
     }
     func test_buyMercury_payBank() {
-        game.board.place(player: 1, at: 4)
+        game.state.playerLocations[0] = 4
         let federonsBefore = game.players[0].federons
         let costToBuy = 375
         XCTAssertEqual(game.state.ownerList[4], 0)
@@ -48,38 +48,46 @@ final class Game_BuyPropertyTests: XCTestCase {
         XCTAssertEqual(game.federonsForCurrentPlayer(), federonsBefore - costToBuy)
     }
     func test_isForSale_Moon_true() {
-        game.board.place(player: 1, at: 2)
+        game.state.playerLocations[0] = 2
+
         XCTAssertEqual(game.currentLocationIsForSale(), true)
     }
     func test_isForSale_JupiterResearchLab_true() {
-        game.board.place(player: 1, at: 18)
+        game.state.playerLocations[0] = 18
+
         XCTAssertEqual(game.currentLocationIsForSale(), true)
     }
     func test_isForSale_JupiterSpaceDock_true() {
-        game.board.place(player: 1, at: 9)
+        game.state.playerLocations[0] = 9
+
         XCTAssertEqual(game.currentLocationIsForSale(), true)
     }
     func test_isForSale_Earth_false() {
         XCTAssertEqual(game.currentLocationIsForSale(), false)
     }
     func test_isForSale_BlueDot_false() {
-        game.board.place(player: 1, at: 6)
+        game.state.playerLocations[0] = 6
+
         XCTAssertEqual(game.currentLocationIsForSale(), false)
     }
     func test_isForSale_OrbitalBlueDot_false() {
-        game.board.place(player: 1, at: 10)
+        game.state.playerLocations[0] = 10
+
         XCTAssertEqual(game.currentLocationIsForSale(), false)
     }
     func test_isForSale_BlackDot_false() {
-        game.board.place(player: 1, at: 1)
+        game.state.playerLocations[0] = 1
+
         XCTAssertEqual(game.currentLocationIsForSale(), false)
     }
     func test_isForSale_FederationStation_false() {
-        game.board.place(player: 1, at: 13)
+        game.state.playerLocations[0] = 13
+
         XCTAssertEqual(game.currentLocationIsForSale(), false)
     }
     func test_tryToBuyMercuryWithInsufficientFund_false() {
-        game.board.place(player: 1, at: 4)
+        game.state.playerLocations[0] = 4
+
         game.players[0].federons = 100
         
         let success = game.buyProperty()
@@ -90,7 +98,8 @@ final class Game_BuyPropertyTests: XCTestCase {
     }
     func test_mercuryOwnedByPlayer2_player1CannotBuy() {
         game.state.ownerList[4] = 2
-        game.board.place(player: 1, at: 4)
+        game.state.playerLocations[0] = 4
+
         XCTAssertEqual(game.boardPositionOfPlayer(1), 4)
         
         let success = game.buyProperty()

@@ -8,7 +8,7 @@ class NavigatorTests: XCTestCase {
     var nav : StandardNavigator!
     
     override func setUp() {
-        board = StandardBoard(numberOfPlayers: 2)
+        board = StandardBoard()
         nav = StandardNavigator(for: board)
     }
     

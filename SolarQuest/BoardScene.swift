@@ -70,14 +70,14 @@ class BoardScene: SKScene {
     }
     
     func moveCurrentPlayerToNext() {
-        let currentLocation = self.state.playerLocations[self.state.currentPlayer]
+        let currentLocation = self.state.playerLocations[self.state.currentPlayerIndex]
         let routes = self.layout.findMovesFor(amountToMove: 1, from: currentLocation)
         let newLocation = routes[0][0]
         let newPosition = self.layout.locations[newLocation].position
         
         self.game.moveCurrentPlayerTo(newLocation)
         
-        if let player = self.getPlayerEntity(self.state.currentPlayer),
+        if let player = self.getPlayerEntity(self.state.currentPlayerIndex),
            let node = player.component(ofType: SpriteComponent.self)?.node {
             
             let actionMove = SKAction.move(to: newPosition, duration: 0.5)

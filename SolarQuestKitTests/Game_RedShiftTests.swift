@@ -70,7 +70,7 @@ final class Game_RedShiftTests: XCTestCase {
             RedShiftCardDeck.GoTo(position: 13, fuelCost: 2)
         ]
         game.nextRedShiftCard = 1
-        game.currentPlayer = 2
+        game.state.currentPlayerIndex = 1 // Player 2
         
         let result = game.roll(6,6)
         

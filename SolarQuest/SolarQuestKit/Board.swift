@@ -10,8 +10,4 @@ import Foundation
 protocol Board {
     var locations : [Location] {get}
     var connections: [[Int]] {get}
-    
-    // MARK: Deprecated
-    func positionOfPlayer(_:Int) -> Int
-    func place(player:Int, at:Int)
 }

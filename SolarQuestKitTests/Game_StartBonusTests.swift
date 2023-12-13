@@ -12,7 +12,8 @@ final class Game_StartBonusTests: XCTestCase {
  
 
     func test_passEarth_collect500() {
-        game.board.place(player: 1, at: game.board.locations.count-1)
+        game.state.playerLocations[0] = game.board.locations.count-1
+
         let cashBefore = game.players[0].federons
         
         let _ = game.roll(3, 1)
@@ -20,7 +21,7 @@ final class Game_StartBonusTests: XCTestCase {
         XCTAssertEqual(game.players[0].federons, cashBefore+500)
     }
     func test_landOnStartDirectly_collect1000() {
-        game.board.place(player: 1, at: game.board.locations.count-3)
+        game.state.playerLocations[0] = game.board.locations.count-3
         let cashBefore = game.players[0].federons
         
         let _ = game.roll(2, 1)
@@ -29,7 +30,7 @@ final class Game_StartBonusTests: XCTestCase {
 
     }
     func test_landOnStartViaGravityWell_collect1000() {
-        game.board.place(player: 1, at: game.board.locations.count-3)
+        game.state.playerLocations[0] = game.board.locations.count-3
         let cashBefore = game.players[0].federons
         
         let _ = game.roll(3, 1)
@@ -54,7 +55,8 @@ final class Game_StartBonusTests: XCTestCase {
         XCTAssertEqual(game.players[0].federons, cashBefore)
     }
     func test_didNotPassEarth_doNotCollectAnyMoney() {
-        game.board.place(player: 1, at: 2)
+        game.state.playerLocations[0] = 2
+
         let cashBefore = game.players[0].federons
         
         let _ = game.roll(3, 1)
@@ -62,7 +64,8 @@ final class Game_StartBonusTests: XCTestCase {
         XCTAssertEqual(game.players[0].federons, cashBefore)
     }
     func test_wrapAroundWithinAnOrbit_doNotCollectAnyMoney() {
-        game.board.place(player: 1, at: 21)
+        game.state.playerLocations[0] = 21
+
         let cashBefore = game.players[0].federons
         
         let _ = game.roll(2, 1)
